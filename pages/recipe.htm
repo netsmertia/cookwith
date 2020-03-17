@@ -1,0 +1,45 @@
+title = "recipe"
+url = "/recipe/:id"
+layout = "default"
+description = "Recipe"
+hidden = "0"
+
+==
+
+function onStart()
+{
+    // getting all the recipes directly from database
+    $id = $this->param('id');
+    $recipe = \Recipe\Recipe\Models\Recipe::with('img')->find($id);
+    $this->title = $recipe->title;
+    $this['recipe'] = $recipe;
+    debug($this['recipe']);
+}
+==
+<img src="{{ recipe.img.path}} " alt="{{ recipe.title }}">
+
+
+
+<div class="row" style="padding: 20px;" >
+    <div class="col-md-3">Time: {{ recipe.time }}</div>
+    <div class="col-md-3">Serves: {{ recipe.serve }}</div>
+    <div class="col-md-3">Rating: 
+        {% for start in 1..recipe.rating %}
+            ★
+        {% endfor %}
+        {% for start in 1..(5-recipe.rating) %}
+            ☆
+        {% endfor %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Ingredients</h2>
+        {{ recipe.ingredients|raw }}
+    </div>
+    <div class="col-md-6">
+        <h2>Ingredients</h2>
+        {{ recipe.recipe|raw }}
+    </div>
+</div>
+

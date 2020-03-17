@@ -1,0 +1,31 @@
+#top-navigation .nav-item {
+  margin-left: 16px;
+  margin-right: 16px;
+  color: #c0c0c0;
+}
+#top-navigation .nav-item img {
+  margin-bottom: 10px !important;
+}
+
+.arrow-border:after {
+  background-image: url(../../assets/images/border-icon.png);
+  background-size: 50px 18px;
+  display: inline-block;
+  width: 100%;
+  position: absolute;
+  height: 18px;
+  content: "";
+  bottom: -18px;
+  left: 0;
+  z-index: 1;
+}
+
+#page-home .main-search-box {
+  min-height: 400px;
+}
+#page-home .main-search-box h1 {
+  font-weight: 500;
+  color: #fff;
+  font-size: 35px;
+  text-shadow: 0 2px 7px #0000009e;
+}
