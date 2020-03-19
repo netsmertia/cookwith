@@ -1,3 +1,287 @@
+@charset "UTF-8";
+/*! CSS Used from: https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+@media print {
+  *,
+::after,
+::before {
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+
+  a:not(.btn) {
+    text-decoration: underline;
+  }
+}
+/*! CSS Used from: https://cookwithsousou.com/wp-content/plugins/social-icons/assets/css/social-icons.css?ver=1.7.1 ; media=all */
+@media all {
+  [class*=socicon-] {
+    font-family: Socicon !important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .socicon-facebook::before {
+    content: "\E028";
+  }
+
+  .socicon-instagram::before {
+    content: "\E044";
+  }
+
+  .socicon-pinterest::before {
+    content: "\E063";
+  }
+
+  .socicon-youtube::before {
+    content: "\E0A5";
+  }
+
+  .social-icons-lists .socicon {
+    position: relative;
+    top: 3px;
+    padding: 10px;
+    font-size: 16px;
+    display: inline-block;
+    box-sizing: content-box;
+  }
+
+  .social-icons-lists li.social-icons-list-item {
+    margin: 4px;
+    padding: 0 !important;
+    display: inline-block;
+    border: none !important;
+    list-style: none !important;
+  }
+
+  .social-icons-lists li.social-icons-list-item a.social-icon {
+    text-decoration: none;
+  }
+
+  .social-icons-lists li.social-icons-list-item a.social-icon:active,
+.social-icons-lists li.social-icons-list-item a.social-icon:focus {
+    outline: 0;
+  }
+
+  .social-icons-lists li.social-icons-list-item a.social-icon:hover .socicon {
+    opacity: 0.8;
+  }
+
+  .social-icons-lists li.social-icons-list-item::after,
+.social-icons-lists li.social-icons-list-item::before {
+    visibility: hidden;
+  }
+
+  .social-icons-lists.icons-background-rounded .socicon {
+    border-radius: 100%;
+  }
+
+  .social-icons-lists.icons-background-rounded .socicon {
+    color: #fff;
+  }
+
+  .social-icons-lists.icons-background-rounded.centre {
+    padding: 0;
+    text-align: center;
+  }
+}
+/*! CSS Used from: https://cookwithsousou.com/wp-content/themes/infinite/css/style-core.css?ver=5.0.8 ; media=all */
+@media all {
+  span,
+a,
+ul,
+li {
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  *,
+*:before,
+*:after {
+    box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    -webkit-box-sizing: inherit;
+  }
+
+  ul {
+    margin-left: 35px;
+    margin-bottom: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    transition: background 300ms, color 300ms, border-color 300ms;
+    -moz-transition: background 300ms, color 300ms, border-color 300ms;
+    -o-transition: background 300ms, color 300ms, border-color 300ms;
+    -webkit-transition: background 300ms, color 300ms, border-color 300ms;
+  }
+}
+/*! CSS Used from: https://cookwithsousou.com/wp-content/uploads/gdlr-style-custom.css?1584033703&ver=5.0.8 ; media=all */
+@media all {
+  .infinite-body a {
+    color: #545454;
+  }
+
+  .infinite-body a:hover {
+    color: #333333;
+  }
+
+  .infinite-body * {
+    border-color: #e6e6e6;
+  }
+
+  .infinite-body ::-webkit-input-placeholder {
+    color: #4e4e4e;
+  }
+
+  .infinite-body ::-moz-placeholder {
+    color: #4e4e4e;
+  }
+
+  .infinite-body :-ms-input-placeholder {
+    color: #4e4e4e;
+  }
+
+  .infinite-body :-moz-placeholder {
+    color: #4e4e4e;
+  }
+}
+/*! CSS Used from: Embedded */
+a {
+  font-family: "IBM Plex Sans", sans-serif !important;
+}
+
+.social-icons-lists .socicon {
+  padding: 5px !important;
+}
+
+.sccl ul.social-icons-lists {
+  padding-right: 11px !important;
+  margin-left: -5px;
+}
+
+span.socicon.socicon-instagram {
+  background: #d6249f;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+section.sccl ul {
+  margin: 0px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css */
+a {
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+@media print {
+  *,
+:after,
+:before {
+    color: #000 !important;
+    text-shadow: none !important;
+    background: 0 0 !important;
+    box-shadow: none !important;
+  }
+
+  a,
+a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: #23527c;
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/*! CSS Used fontfaces */
+@font-face {
+  font-family: Socicon;
+  src: url(../fonts/Socicon.eot);
+  src: url(../fonts/Socicon.eot#iefix) format("embedded-opentype"), url(../fonts/Socicon.woff2) format("woff2"), url(../fonts/Socicon.woff) format("woff"), url(../fonts/Socicon.ttf) format("truetype"), url(../fonts/Socicon.svg#Socicon) format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+.social-icons-list-item {
+  margin-left: 0 !important;
+  margin-right: 7px !important;
+}
+
 #top-navigation .nav-item {
   margin-left: 16px;
   margin-right: 16px;
@@ -28,4 +312,26 @@
   color: #fff;
   font-size: 35px;
   text-shadow: 0 2px 7px #0000009e;
+}
+
+h3 {
+  letter-spacing: 1px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-primary-inverted {
+  background-color: #fff;
+  color: #c51d22;
+}
+
+#main-search-form .form-control-lg {
+  height: 57px;
+}
+#main-search-form .btn {
+  letter-spacing: 0.8px;
+  font-size: 19.5px;
+  line-height: 19.5px;
+}
+#main-search-form .btn-primary-inverted {
+  border: 1px solid #c51d22;
 }

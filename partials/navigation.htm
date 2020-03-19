@@ -1,33 +1,85 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white arrow-border" style="background: white;">
-<div class="container">
-  <a class="navbar-brand" href="#">
-    <img src="{{ 'assets/images/logo.png'| theme }}" alt="" width="" height="80px">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-expand-lg navbar-light bg-white arrow-border" style="background: white; padding-left: 70px;">
+	<a class="navbar-brand" href="#">
+		<img src="{{ 'assets/images/logo.png'| theme }}" alt="" width="" height="80px">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-  <div class="collapse navbar-collapse" id="top-navigation">
-    <ul class="navbar-nav mr-auto ml-5">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"> <img src="{{ 'assets/images/home.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto"> HOME</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> <img src="{{ 'assets/images/info.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto"> ABOUT</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> <img src="{{ 'assets/images/recipe.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto"> RECIPES</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> <img src="{{ 'assets/images/play.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto"> VIDEOS</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> <img src="{{ 'assets/images/pencil.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto"> BLOG</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"> <img src="{{ 'assets/images/envolop.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto"> CONTACT</a>
-      </li>
-    </ul>
-  </div>
-</div>
+	<div class="collapse navbar-collapse" id="top-navigation">
+		<ul class="navbar-nav m-auto ml-5">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">
+					<img src="{{ 'assets/images/home.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto">
+					HOME</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img src="{{ 'assets/images/info.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto">
+					ABOUT</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img src="{{ 'assets/images/recipe.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto">
+					RECIPES</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img src="{{ 'assets/images/play.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto">
+					VIDEOS</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img src="{{ 'assets/images/pencil.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto">
+					BLOG</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">
+					<img src="{{ 'assets/images/envolop.png'| theme }}" alt="home" width="20" height="20" class="d-block m-auto">
+					CONTACT</a>
+			</li>
+		</ul>
+		<ul class="navbar-nav ml-auto social-icons-lists icons-background-rounded centre">
+			<li class="nav-item d-flex align-items-center mr-2 mt-1">
+				<i class="search icon red large link"></i>
+			</li>
+			<li class="nav-item social-icons-list-item">
+				<a href="https://www.facebook.com/cookwithsousou/" target="_blank" class="social-icon">
+					<span class="socicon socicon-facebook" style="padding: 10px; font-size: 16px; background-color: #3e5b98"></span>
+				</a>
+			</li>
+
+			<li class="nav-item social-icons-list-item">
+				<a href="https://www.instagram.com/cookwithsousou/" target="_blank" class="social-icon">
+					<span class="socicon socicon-instagram" style="padding: 10px; font-size: 16px; background-color: #9c7c6e"></span>
+				</a>
+			</li>
+			<li class="nav-item social-icons-list-item">
+				<a href="https://www.pinterest.com/cookwithsousou/" target="_blank" class="social-icon">
+					<span class="socicon socicon-pinterest" style="padding: 10px; font-size: 16px; background-color: #c92619"></span>
+				</a>
+			</li>
+			<li class="nav-item social-icons-list-item">
+				<a href="https://www.pinterest.com/cookwithsousou/" target="_blank" class="social-icon">
+					<span class="socicon socicon-pinterest" style="padding: 10px; font-size: 16px; background-color: #c92619"></span>
+				</a>
+			</li>
+
+			<li class="nav-item social-icons-list-item">
+				<a href="https://youtube.com/channel/UCdkXyJj8AD1tfbq4eTZw63Q/" target="_blank" class="social-icon">
+					<span class="socicon socicon-youtube" style="padding: 10px; font-size: 16px; background-color: #e02a20"></span>
+				</a>
+			</li>
+			<div class="nav-item d-flex align-items-center">
+				<div class="mr-3" style="height: 30px; border-left: 1px solid #c51d22;"></div>
+				<a href="#" class="nav-link">العربية</a>
+			</div>
+		</div>
+	</div>
 </nav>
+
+
+
+
+
+

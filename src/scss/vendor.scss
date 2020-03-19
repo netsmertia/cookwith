@@ -1,9 +1,4 @@
-$red: #c51d22;
-$primary: $red;
-
-$border-radius:  0px;
-
+@import 'variables';
 @import '~bootstrap/scss/bootstrap';
 
 @import 'icon.scss';
-

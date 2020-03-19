@@ -1,3 +1,7 @@
+
+@import 'socicons';
+@import 'variables';
+
 #top-navigation {
     .nav-item {
         margin-left: 16px;
@@ -31,5 +35,30 @@
             font-size: 35px;
             text-shadow: 0 2px 7px #0000009e;
         }
+    }
+}
+
+h3 {
+    letter-spacing: 1px;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.btn-primary-inverted {
+    background-color: $white;
+    color: map-get($theme-colors, "primary");
+}
+
+#main-search-form {
+    .form-control-lg {
+        height: 57px;
+    }
+    .btn {
+        letter-spacing: .8px;
+        font-size: 19.5px;
+        line-height: 19.5px;
+    }
+    .btn-primary-inverted {
+        border: 1px solid map-get($theme-colors , 'primary' );
     }
 }
