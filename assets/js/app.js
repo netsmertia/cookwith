@@ -112,6 +112,18 @@ $(document).ready(function () {
   new simpleParallax(image);
 });
 
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+    $('.navbar').addClass('shrink');
+  } else {
+    $('.navbar').removeClass('shrink');
+  }
+}
+
 /***/ }),
 
 /***/ "./src/scss/app.scss":
@@ -143,9 +155,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/nets/SSD/Development/Web/Oct/themes/cookwithsousou/src/js/app.js */"./src/js/app.js");
-__webpack_require__(/*! /Users/nets/SSD/Development/Web/Oct/themes/cookwithsousou/src/scss/app.scss */"./src/scss/app.scss");
-module.exports = __webpack_require__(/*! /Users/nets/SSD/Development/Web/Oct/themes/cookwithsousou/src/scss/vendor.scss */"./src/scss/vendor.scss");
+__webpack_require__(/*! D:\dev\web\oct\themes\cookwith\src\js\app.js */"./src/js/app.js");
+__webpack_require__(/*! D:\dev\web\oct\themes\cookwith\src\scss\app.scss */"./src/scss/app.scss");
+module.exports = __webpack_require__(/*! D:\dev\web\oct\themes\cookwith\src\scss\vendor.scss */"./src/scss/vendor.scss");
 
 
 /***/ })

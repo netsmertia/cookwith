@@ -9,13 +9,14 @@ hidden = "0"
 function onStart()
 {
     // getting all the recipes directly from database
-    $this['recipes'] = \Recipe\Recipe\Models\Recipe::with('img')->get();
+    // $this['recipes'] = \Recipe\Recipe\Models\Recipe::with('img')->get();
+    $this['recipes'] = [];
     debug($this['recipes']);
 }
 
 ==
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }}">
-	<section class="jumbotron main-search-box d-flex align-items-center" style="background:url({{ 'assets/images/home-background.jpeg'|theme }});background-position-y:34%;">
+	<section class="jumbotron main-search-box d-flex align-items-center" style="background:url({{ 'assets/images/home-background.jpeg'|theme }});background-position-y:34%;background-size:cover;">
 		<div class="container">
 			<div class="row justify-content-center text-center">
 				<div class="col-md-7">

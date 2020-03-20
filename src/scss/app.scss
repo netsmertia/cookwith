@@ -28,6 +28,20 @@
     }
 }
 
+.shrink {
+    .navbar-brand img {
+        height: 40px;
+    }
+
+    #page-link {
+        .nav-item .nav-link img {
+            display: inline !important;
+            margin-bottom: 5px !important;
+            margin-right: 5px !important;
+        }
+    }
+}
+
 .arrow-border:after {
     background-image: url(../../assets/images/border-icon.png);
     background-size: 50px 18px;
