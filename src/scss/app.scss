@@ -1,7 +1,22 @@
 
 @import 'socicons';
+@import 'share';
 @import 'variables';
-
+.owl-item {
+    .item  {
+        text-align: center;
+        cursor: pointer;
+        img {
+            width: 100%;
+            height: auto;
+            transition: all .3s;
+            padding: 10px;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}
 #top-navigation {
     .nav-item {
         margin-left: 16px;
@@ -28,12 +43,16 @@
 
 #page-home {
     .main-search-box {
-        min-height: 400px;
+        min-height: 470px;
+        font-family: $font-family-sans-serif-heading ;
         h1 {
             font-weight: 500;
             color: #fff;
             font-size: 35px;
             text-shadow: 0 2px 7px #0000009e;
+        }
+        input {
+            font-size: 20px;
         }
     }
 }
@@ -61,4 +80,37 @@ h3 {
     .btn-primary-inverted {
         border: 1px solid map-get($theme-colors , 'primary' );
     }
+}
+
+
+.youtube-player {
+    padding-top: 52%;
+    position: relative;
+    .youtube-player-iframe {
+        position: absolute;
+        height: 100%;
+        width: 100% !important;
+        top: 0;
+        left: 0;
+        background-color: #000;
+    }
+}
+
+.parallax-1 {
+    position: absolute;
+    top: 0;
+}
+
+.recipe-of-day {
+    overflow: hidden;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    .parallax-1 {
+
+    }
+    .container h3 {
+        z-index: 20;
+        position: relative;
+    }
+
 }

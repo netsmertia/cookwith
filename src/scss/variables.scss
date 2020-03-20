@@ -36,6 +36,22 @@ $theme-colors: (primary: $red, secondary: $gray-400);
 // $spacer: 1rem;
 // $spacers: (0: 0, 1: ($spacer * 0.25), 2: ($spacer * 0.5), 3: $spacer, 4: ($spacer * 1.5), 5: ($spacer * 3));
 // $sizes: (25: 25%, 50: 50%, 75: 75%, 100: 100%);
+$spacer: 1rem;
+$spacers: 
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    r8: ($spacer * .8),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 2.0),
+    6: ($spacer * 2.5),
+    7: ($spacer * 3.0),
+    8: ($spacer * 3.5),
+    9: ($spacer * 6.0),
+    10: ($spacer * 9.0)
+);
 
 
 // // Options
@@ -54,7 +70,7 @@ $body-color: $gray-900;
 
 
 // // Links
-$link-color: theme-color('primary');
+$link-color: map-get($theme-colors, 'primary');
 $link-decoration: none;
 $link-hover-color: #333333;
 $link-hover-decoration: underline;
@@ -83,10 +99,11 @@ $border-radius-sm: 0;
 
 
 // // Fonts
-$font-family-sans-serif: 'Roboto Slab', sans-serif;
+$font-family-sans-serif: 'IBM Plex Sans', sans-serif;
+$font-family-sans-serif-heading: 'Roboto Slab', sans-serif;
 $font-family-monospace: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 $font-family-base: $font-family-sans-serif;
-// $font-size-base: 1rem;
+$font-size-base: .82rem;
 // $font-size-lg: 1.25rem;
 // $font-size-sm: 0.875rem;
 // $font-weight-normal: normal;
@@ -100,7 +117,7 @@ $h3-font-size: 1.42rem;
 // $h5-font-size: 1.25rem;
 // $h6-font-size: 1rem;
 // $headings-margin-bottom: ($spacer / 2);
-$headings-font-family: inherit;
+$headings-font-family: $font-family-sans-serif-heading;
 // $headings-line-height: 1.1;
 $headings-color:         $red !default;
 // $display1-size: 6rem;

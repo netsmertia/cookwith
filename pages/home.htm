@@ -15,69 +15,128 @@ function onStart()
 
 ==
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }}">
-	<section class="jumbotron main-search-box d-flex align-items-center" style="background:url({{ 'assets/images/home-background.jpeg'|theme }})">
+	<section class="jumbotron main-search-box d-flex align-items-center" style="background:url({{ 'assets/images/home-background.jpeg'|theme }});background-position-y:34%;">
 		<div class="container">
-        <div class="row justify-content-center text-center">
-<div class="col-md-7">
-	<h1 class="title mb-5">Sousou’s Way of Sharing Delicious Recipes</h1>
-	<form action="" class="form" id="main-search-form">
-		<div class="input-group ">
-			<input type="text" class="form-control form-control-lg" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" placeholder="I am looking for..">
-			<div class="input-group-append">
-				<button class="btn btn-primary px-4 ">Search</button>
-			</div>
-			<div class="input-group-append">
-				<button class="btn btn-primary-inverted dropdown-toggle px-3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recipes</button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<a class="dropdown-item" href="#">Something else here</a>
-					<div role="separator" class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Separated link</a>
+			<div class="row justify-content-center text-center">
+				<div class="col-md-7">
+					<h1 class="title mb-5">Sousou’s Way of Sharing Delicious Recipes</h1>
+					<form action="" class="form" id="main-search-form">
+						<div class="input-group ">
+							<input type="text" class="form-control form-control-lg" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" placeholder="I am looking for..">
+							<div class="input-group-append">
+								<button class="btn btn-primary px-4 ">Search</button>
+							</div>
+							<div class="input-group-append">
+								<button class="btn btn-primary-inverted dropdown-toggle px-3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recipes</button>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="#">Action</a>
+									<a class="dropdown-item" href="#">Another action</a>
+									<a class="dropdown-item" href="#">Something else here</a>
+									<div role="separator" class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Separated link</a>
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-	</form>
-</div>
-
-        </div>
-		</div>
-		<img src="}}" alt="">
 	</section>
 	<div class="section">
-		<div class="container mt-5 pt-3">
+		<div class="container mt-5 pt-5 pb-8">
 			<div class="row justify-content-center">
-				<div class="col-md-11">
+				<div class="col-md-12">
 					<img class="img-fluid w-100" src="{{ 'assets/images/banner.png' | theme }}" alt="">
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container mb-10">
-		<h3>What are you in the mood for?</h3>
+	<div class="container my-5">
+		<h3 class="mb-2">What are you in the mood for?</h3>
 		{% partial 'slider.htm' %}
 	</div>
-	<div class="row">
-		{% for recipe in recipes %}
 
-			<div class="col-sm-6 col-md-4">
-				<div class="thumbnail text-center">
-					<br/>
-					<img src="{{ recipe.img.path }}" alt="{{ recipe.title }} "/>
-					<div class="caption">
-						<h3>{{ recipe.title }}</h3>
-						<p>Time:
-							{{ recipe.time}}</p>
-						<p>Serves:
-							{{ recipe.serve}}</p>
-						<br/>
-						<p>
-							<a href="{{ 'recipe'|page({id: recipe.id}) }}" class="btn btn-lg btn-warning" role="button">Read More</a>
-						</p>
+	<section class="position-relative recipe-of-day">
+		<div class=" parallax-1">
+			<img src="{{ 'assets/images/background.jpg'|theme}}" alt="" class="parallax">
+		</div>
+		<div class="container mt-3">
+			<h3 class="mb-3">Recipe of the Day</h3>
+			<div class="row no-gutters">
+				<div class="col-md-7">
+					<div class="youtube-player">
+						<iframe class="youtube-player-iframe" src="//www.youtube.com/embed/2XRprOlz27g?wmode=transparent&amp;feature=youtu.be&amp;rel=0&amp;channel=UCdkXyJj8AD1tfbq4eTZw63Q" data-player-type="youtube" allowfullscreen="" id="gdlr-video-256053"></iframe>
+					</div>
+				</div>
+				<div class="col-md-5 bg-white p-5">
+					<div class="row">
+						<div class="col-12">
+							<a href="#" class="h3">Scaloppini al Limone</a>
+							<p>
+								<small>Posted August 29, 2018</small>
+							</p>
+							<div class="row no-gutters pb-3 border-bottom border-primary">
+								<div class="col-6">
+									<a href="#" class="border border-primary px-4 py-1">Meat</a>
+								</div>
+								<div class="col-6 d-flex align-items-center justify-content-end">
+									<img class="mr-2" src="{{ 'assets/images/good-rate.png'| theme}}" alt="good-rating" width="25" height="25">
+									<small>Serves: 6</small>
+									<img class="ml-3 mr-2" src="{{ 'assets/images/clock.png'| theme}}" alt="good-rating" width="25" height="25">
+									<small class="mr-3">Time: 40</small>
+								</div>
+							</div>
+							<div class="pt-3 content">
+								<p>Let Sousou tell you how to prepare this dish. Check out how to guarantee tender meat that comes with a tang.</p>
+							</div>
+							<div class="rating-and-social row no-gutters mb-3">
+								<div class="col-5 text-primary" style="font-size: 1.5rem;letter-spacing: 2px;">
+									★★★☆☆
+								</div>
+								<div class="col-7 d-flex align-items-center">
+									<span class="text-primary mr-3" style="font-size: 22px">Share: </span>
+									<div class="heateor_sss_sharing_container heateor_sss_horizontal_sharing" ss-offset="0" heateor-sss-data-href="https://cookwithsousou.com/en/recipe/scaloppini-al-limone/">
+										<ul class="heateor_sss_sharing_ul">
+											<li class="heateorSssSharingRound">
+												<i  alt="Facebook" title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="heateorSssPopup(&quot;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcookwithsousou.com%2Fen%2Frecipe%2Fscaloppini-al-limone%2F&quot;)">
+													<ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss>
+												</i>
+											</li>
+											<li class="heateorSssSharingRound">
+												<i  alt="Pinterest" title="Pinterest" class="heateorSssSharing heateorSssPinterestBackground" onclick="javascript:void( (function() {var e=document.createElement('script' );e.setAttribute('type','text/javascript' );e.setAttribute('charset','UTF-8' );e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());">
+													<ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssPinterestSvg"></ss>
+												</i>
+											</li>
+											<li class="heateorSssSharingRound">
+												<i  alt="Twitter" title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="heateorSssPopup(&quot;http://twitter.com/intent/tweet?text=Scaloppini%20al%20Limone&amp;url=https%3A%2F%2Fcookwithsousou.com%2Fen%2Frecipe%2Fscaloppini-al-limone%2F&quot;)">
+													<ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss>
+												</i>
+											</li>
+											<li class="heateorSssSharingRound">
+												<i  alt="Whatsapp" title="Whatsapp" class="heateorSssSharing heateorSssWhatsappBackground">
+													<a href="https://api.whatsapp.com/send?text=Scaloppini%20al%20Limone https%3A%2F%2Fcookwithsousou.com%2Fen%2Frecipe%2Fscaloppini-al-limone%2F" rel="nofollow noopener" target="_blank">
+														<ss style="display:block" class="heateorSssSharingSvg heateorSssWhatsappSvg"></ss>
+													</a>
+												</i>
+											</li>
+											<li class="heateorSssSharingRound">
+												<i  title="More" alt="More" class="heateorSssSharing heateorSssMoreBackground" onclick="heateorSssMoreSharingPopup(this, 'https://cookwithsousou.com/en/recipe/scaloppini-al-limone/', 'Scaloppini%20al%20Limone', '' )">
+													<ss style="display:block" class="heateorSssSharingSvg heateorSssMoreSvg"></ss>
+												</i>
+											</li>
+										</ul>
+									</div>
+
+								</div>
+							</div>
+							<a href="#" class="btn btn-primary btn-lg">View Full Recipe</a>
+						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-		{% endfor %}
-	</div>
 </div>
+
+
