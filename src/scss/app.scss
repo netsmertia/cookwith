@@ -60,6 +60,7 @@
     }
 }
 
+<<<<<<< HEAD
 .full-screen-search {
     position: fixed;
     top:0;
@@ -111,6 +112,22 @@
 }
 
 
+=======
+.shrink {
+    .navbar-brand img {
+        height: 40px;
+    }
+
+    #page-link {
+        .nav-item .nav-link img {
+            display: inline !important;
+            margin-bottom: 5px !important;
+            margin-right: 5px !important;
+        }
+    }
+}
+
+>>>>>>> ffad7967c231dcfc43d96f624f4c22ea5ce7dbe3
 .arrow-border:after {
     background-image: url(../../assets/images/border-icon.png);
     background-size: 50px 18px;

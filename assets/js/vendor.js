@@ -104,7 +104,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/nets/SSD/Development/Web/Oct/themes/cookwithsousou/src/js/vendor.js */"./src/js/vendor.js");
+module.exports = __webpack_require__(/*! D:\dev\web\oct\themes\cookwith\src\js\vendor.js */"./src/js/vendor.js");
 
 
 /***/ })
