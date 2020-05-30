@@ -4,17 +4,22 @@ $(document).ready(function(){
     var image = document.getElementsByClassName('parallax');
     // new simpleParallax(image);
     $('#main-slider').slick({
-        dots: true,
+        dots: false,
         infinite: false,
         speed: 300,
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 6,
+        slidesToScroll: 6,
+        arrows: true,
+        prevArrow: '<i class="icon chevron left large cursor-pointer slider-prev">',
+        // prevArrow: '<div><i class="icon chevron left"></i><div>',
+        // prevArrow: '<button type="button" class="slick-prev"><i class="icon chevron left"></i></button>',
+        nextArrow: '<i class="icon chevron right large cursor-pointer slider-next"></i>',
         responsive: [
           {
             breakpoint: 1024,
             settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
+              slidesToShow: 4,
+              slidesToScroll: 4,
               infinite: true,
               dots: true
             }
@@ -22,15 +27,15 @@ $(document).ready(function(){
           {
             breakpoint: 600,
             settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2
+              slidesToShow: 3,
+              slidesToScroll: 3
             }
           },
           {
             breakpoint: 480,
             settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
+              slidesToShow: 2,
+              slidesToScroll: 2
             }
           }
           // You can unslick at a given breakpoint now by adding:
@@ -46,7 +51,6 @@ $(document).ready(function() {
         $('#main-top-nav').toggleClass('mini-nav', $(window).scrollTop() > 150);
     });
 
-<<<<<<< HEAD
     //open full screen search
     $('#open-full-screen-search').on("click", function(event) {
         event.preventDefault();
@@ -59,20 +63,10 @@ $(document).ready(function() {
     });
 
 
+
+    var rellax = new Rellax('.rellax');
+    $('.my-parallax-window').parallax({
+      speed: -.2,
+      sliderSelector: '>.my-parallax-slider',
+    })
 })
-=======
-    var image = document.getElementsByClassName('parallax');
-    new simpleParallax(image);
-  });
-
-
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-      $('.navbar').addClass('shrink')
-  } else {
-      $('.navbar').removeClass('shrink')
-  }
-}
->>>>>>> ffad7967c231dcfc43d96f624f4c22ea5ce7dbe3

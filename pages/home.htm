@@ -43,24 +43,16 @@ function onStart()
 			</div>
 		</div>
 	</section>
-	<div class="section">
-		<div class="container mt-5 pt-5 pb-8">
-			<div class="row justify-content-center">
-				<div class="col-md-12">
-					<img class="img-fluid w-100" src="{{ 'assets/images/banner.png' | theme }}" alt="">
-				</div>
-			</div>
-		</div>
-	</div>
+	{% partial 'horizontal-ads' %}
 	<div class="container my-5">
 		<h3 class="mb-2">What are you in the mood for?</h3>
 		{% partial 'slider.htm' %}
 	</div>
 
-	<section class="position-relative recipe-of-day">
-		<div class=" parallax-1">
+	<section class="position-relative recipe-of-day" data-parallax data-src="{{'assets/images/background.jpg'|theme}}" data-speed=".5">
+		{# <div class=" parallax-1" data-parallax data-src="{{'assets/images/background.jpg'|theme}}">
 			<img src="{{ 'assets/images/background.jpg'|theme}}" alt="" class="parallax">
-		</div>
+		</div> #}
 		<div class="container mt-3">
 			<h3 class="mb-3">Recipe of the Day</h3>
 			<div class="row no-gutters">
@@ -92,47 +84,180 @@ function onStart()
 							</div>
 							<div class="rating-and-social row no-gutters mb-3">
 								<div class="col-5 text-primary" style="font-size: 1.5rem;letter-spacing: 2px;">
-									★★★☆☆
+									{% partial 'rating' %}
 								</div>
 								<div class="col-7 d-flex align-items-center">
 									<span class="text-primary mr-3" style="font-size: 22px">Share: </span>
-									<div class="heateor_sss_sharing_container heateor_sss_horizontal_sharing" ss-offset="0" heateor-sss-data-href="https://cookwithsousou.com/en/recipe/scaloppini-al-limone/">
-										<ul class="heateor_sss_sharing_ul">
-											<li class="heateorSssSharingRound">
-												<i  alt="Facebook" title="Facebook" class="heateorSssSharing heateorSssFacebookBackground" onclick="heateorSssPopup(&quot;https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcookwithsousou.com%2Fen%2Frecipe%2Fscaloppini-al-limone%2F&quot;)">
-													<ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssFacebookSvg"></ss>
-												</i>
-											</li>
-											<li class="heateorSssSharingRound">
-												<i  alt="Pinterest" title="Pinterest" class="heateorSssSharing heateorSssPinterestBackground" onclick="javascript:void( (function() {var e=document.createElement('script' );e.setAttribute('type','text/javascript' );e.setAttribute('charset','UTF-8' );e.setAttribute('src','//assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)})());">
-													<ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssPinterestSvg"></ss>
-												</i>
-											</li>
-											<li class="heateorSssSharingRound">
-												<i  alt="Twitter" title="Twitter" class="heateorSssSharing heateorSssTwitterBackground" onclick="heateorSssPopup(&quot;http://twitter.com/intent/tweet?text=Scaloppini%20al%20Limone&amp;url=https%3A%2F%2Fcookwithsousou.com%2Fen%2Frecipe%2Fscaloppini-al-limone%2F&quot;)">
-													<ss style="display:block;border-radius:999px;" class="heateorSssSharingSvg heateorSssTwitterSvg"></ss>
-												</i>
-											</li>
-											<li class="heateorSssSharingRound">
-												<i  alt="Whatsapp" title="Whatsapp" class="heateorSssSharing heateorSssWhatsappBackground">
-													<a href="https://api.whatsapp.com/send?text=Scaloppini%20al%20Limone https%3A%2F%2Fcookwithsousou.com%2Fen%2Frecipe%2Fscaloppini-al-limone%2F" rel="nofollow noopener" target="_blank">
-														<ss style="display:block" class="heateorSssSharingSvg heateorSssWhatsappSvg"></ss>
-													</a>
-												</i>
-											</li>
-											<li class="heateorSssSharingRound">
-												<i  title="More" alt="More" class="heateorSssSharing heateorSssMoreBackground" onclick="heateorSssMoreSharingPopup(this, 'https://cookwithsousou.com/en/recipe/scaloppini-al-limone/', 'Scaloppini%20al%20Limone', '' )">
-													<ss style="display:block" class="heateorSssSharingSvg heateorSssMoreSvg"></ss>
-												</i>
-											</li>
-										</ul>
-									</div>
+									{% partial 'share' %}	
 
 								</div>
 							</div>
 							<a href="#" class="btn btn-primary btn-lg">View Full Recipe</a>
 						</div>
 					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="py-7">
+		<div class="container">
+			<div class="d-flex justify-content-between">
+				<h3 class="mb-3">Videos</h3>
+				<div>
+					<a href="#" class="btn btn-primary">View More</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					{% partial  'videocard' %}
+				</div>
+				<div class="col-md-6 d-flex flex-column justify-content-between">
+					{# repeating the card #}
+					{% for i in 0..2 %}
+							<div class="card">
+								<div class="row no-gutters">
+									<div class="col-md-5">
+										<a href="#" class="card-top">
+											<div style="background-image: url({{ 'assets/images/video_image.jpg'|theme}})" class="card-image h-100">
+												<i class="play circle outline icon "></i>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-7">
+										<div class="card-body">
+											<h4 class="card-title">
+												<a href="#">Maamoul Mad</a>
+											</h4>
+											<p class="card-subtitle py-1">Posted september</p>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="rating text-primary">
+													{% partial 'rating' %}
+												</div>
+												<div class="share d-flex align-items-center">
+													<span class="f18 text-primary">Share:</span>
+													{% partial 'share' %}
+												</div>
+											</div>
+										</div>	
+									</div>
+								</div>
+								{# <img src="{{'assets/images/video_image.jpg'|theme}}" alt="" class="card-image-top img-fluid player-icon"> #}
+							</div>
+
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="py-6 arrow-border-top arrow-border-bottom" data-parallax data-src="{{ 'assets/images/background.jpg'|theme}}" data-speed=".5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 d-flex justify-content-center">
+					<img src="{{'assets/images/social-img-left.png'|theme}}" alt="Social Image" class="img-fluid">
+				</div>
+				<div class="text-center py-4 py-lg-1 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+					<h2 class="h1">SOUSOU is Social!</h2>
+					<h3 >Follow us on:</h3>
+					<div class="mt-2" style="transform:scale(1.5);">
+						{% partial 'share' %}
+					</div>
+				</div>
+				<div class="col-lg-4 d-flex justify-content-center">
+					<img src="{{'assets/images/social-img-right.png'|theme}}" alt="Social Image" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="pt-6">
+		<div class="container">
+			<div class="row">
+					<div class="col-md-9 d-flex justify-content-between">
+						<h3 class="mb-3">Sousou’s Favourites</h3>
+						<div>
+							<a href="#" class="btn btn-primary">View More</a>
+						</div>
+					</div>
+			</div>
+			<div class="row">
+				<div class="col-md-9">
+					<div class="row">
+						{% for i in 1..6 %}
+						<div class="col-md-4 mb-4">
+							{% partial 'post-card' %}	
+						</div>
+						{% endfor %}
+
+					</div>	
+				</div>
+				<div class="col-md-3 d-flex justify-content-center">
+					<img src="{{'assets/images/vertical-banner.jpg'|theme}}" alt="vertical add" class="img-fluid align-self-start">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% partial 'horizontal-ads' %}
+
+	<section class="py-6">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-7">
+
+				<div class="d-flex justify-content-between">
+					<h3 class="mb-4">Blog</h3>
+					<div>
+						<a href="#" class="btn btn-primary">View More</a>
+					</div>
+				</div>
+					{% partial 'blog-post-card' %}	
+					{% partial 'blog-post-card' %}	
+				</div>
+				<div class="col-md-5 d-flex justify-content-center bg-primary">
+					<div class="author-note text-white pt-5 px-3">
+						<h2 class="text-white text-center mb-4">Meet Sousou!</h2>
+						<div class="row">
+							<div class="col-md-5 text-center mb-3"> 
+								<img src="{{'assets/images/author-img.jpg'|theme}}" alt="Sousou" class="img-fluid" >	
+								<div class="info text-center py-5">
+									<h3 class="author">Teta Sousou</h3> 
+									<div class="designation fs22">Culinary Artist</div>
+								</div>
+								<img src="{{'assets/images/logo-white.png'|theme}}" alt="logo" class="img-fluid" style="width:120px;">
+							</div>
+							<div class="col-md-7 text-justify text-bold f12 font-smooth">
+								<p> I hope the passion I have for making people happy, through my dishes, is something I can continue to share with all of you. Since I’ve been cooking, my recipes have travelled the world and my plastic containers have crossed continents, simply to put smiles on hundreds of hungry faces. </p>
+								<p>To some people, it was a priceless taste of a home they missed, to others, a surprising brand-new experience, but my vision for Cook with Sousou has always been just to share my love for cooking with as many people as I can</p>
+								<p>Although my culinary journey started in Lebanon, my recipes are also inspired by my time living and cooking in Cyprus. I regularly shared my love for cooking with my friends from all over the world in Armenia, Greece, Morocco, Cyprus, Syria, Iraq, France and India and in return they shared with me their favourite ingredients, hints and tips and different cooking methods which have been woven together to create a truly diverse collection of sensational recipes.</p>
+								<p>I hope that you enjoy browsing through and trying some of the recipes I’ve included here. I love learning and trying new recipes, so if there’s something you’d like me to try out send me a message here and I’ll give it a go.</p>
+
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-6 arrow-border-top arrow-border-bottom" data-parallax data-src="{{ 'assets/images/background.jpg'|theme}}" data-speed=".5">
+		<div class="container">
+			<h3 class="mb-5">Follow us on Instagram</h3>
+			<div class="row justify-content-center">
+				<div class="col-md-12 text-center">
+					<div class="spin">
+						<img src="{{'assets/images/instagram.png'|theme}}" alt="">
+					</div>
+					<h2 class="f30 mb-3">Never miss a Recipe!</h2>
+					<p class="f22 mb-3 text-primary" >Subscribe and get the latest recipes and news delivered to your inbox.</p>
+					<form action="">
+						<div class="input-group mx-auto" style="width: 500px">
+							<input type="text" class="form-control form-control-lg" placeholder="Your email address.." style="width:300px">
+							<div class="input-group-append">
+								<button class="btn btn-primary btn-lg px-3" type="button">Subscribe</button>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

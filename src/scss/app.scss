@@ -2,20 +2,47 @@
 @import 'socicons';
 @import 'share';
 @import 'variables';
+@import 'utility';
+.cursor-pointer {
+    cursor: pointer;
+}
+iframe {
+    border: none;
+}
 #main-slider {
     .item  {
         text-align: center;
         cursor: pointer;
+        width: 20%;
         img {
             width: 100%;
             height: auto;
             transition: all .3s;
             padding: 10px;
+            opacity: 1;
             &:hover {
                 transform: scale(1.1);
             }
         }
     }
+    &:not(.slick-initialized) {
+        img {
+            // opacity: 0;
+        }
+    }
+
+    .slider-prev, .slider-next {
+        position: absolute;
+        top: 42%;
+      }
+      
+      .slider-next {
+        right: -30px
+      }
+      
+      .slider-prev {
+        left: -30px;
+      }
 }
 #main-top-nav {
     .nav-item {
@@ -60,7 +87,6 @@
     }
 }
 
-<<<<<<< HEAD
 .full-screen-search {
     position: fixed;
     top:0;
@@ -112,22 +138,6 @@
 }
 
 
-=======
-.shrink {
-    .navbar-brand img {
-        height: 40px;
-    }
-
-    #page-link {
-        .nav-item .nav-link img {
-            display: inline !important;
-            margin-bottom: 5px !important;
-            margin-right: 5px !important;
-        }
-    }
-}
-
->>>>>>> ffad7967c231dcfc43d96f624f4c22ea5ce7dbe3
 .arrow-border:after {
     background-image: url(../../assets/images/border-icon.png);
     background-size: 50px 18px;
@@ -213,4 +223,146 @@ h3 {
         position: relative;
     }
 
+}
+
+
+//card share and rating
+
+.card {
+    .rating {
+        font-size: 1rem;
+    }
+
+    .share {
+        .title {
+            font-size: 1rem;
+        }
+    }
+}
+
+.player-icon::after {
+    content: "\F144";
+    font-family: "outline-icons";
+    font-size: 1em;
+    display: inline-block;
+    opacity: 1;
+    margin: 0em 0.25rem 0em 0em;
+    width: 1.18em;
+    height: 1em;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    text-align: center;
+    speak: none;
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card-top {
+    background-color: green;
+    height: 280px;
+    .card-image {
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        i.icon {
+            // font-size: 2.5rem;
+            color: rgba(255, 255, 255, .7);
+            line-height: 1;
+            vertical-align: middle;
+            font-size: 2.5em;
+        }
+    }
+    &:hover {
+        i.icon {
+            color: rgba(255, 255, 255, .9);
+        }
+    }
+}
+
+.arrow-border-top, .arrow-border-bottom {
+    position: relative;
+}
+.arrow-border-top::before, .arrow-border-bottom:after {
+    position: absolute;
+    content: '';
+    background-image: url(../../assets/images/border-icon.png);
+    background-size: 50px 18px;
+    display: inline-block;
+    width: 100%;
+    height: 18px;
+    z-index: 1;
+    left: 0;
+}
+.arrow-border-top::before {
+    top: -1px;
+}
+
+.arrow-border-bottom::after {
+    bottom: -2px;
+    transform: rotate(180deg);
+}
+
+.card-btn {
+    padding: 5px 12px;
+    font-size: .7rem;
+}
+
+
+.card-post {
+    &:hover {
+        // cursor: pointer;
+    }
+    &:hover .card-image-overlay {
+        transform: translateY(0%);
+    }
+    .card-image-top {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card-image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #c51d227a;
+        transform: translateY(100%);
+        transition: all .3s ease-out;
+    }
+
+    .card-image-overlay .card-title {
+        color: rgba(255, 255, 255, .9);
+        position: absolute;
+        top: 50%;
+        text-align: center;
+        width: 100%;
+        transform: translateY(-50%);
+    }
+}
+
+.info {
+    
+    .author {
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        margin: 0px;
+        font-weight: 500;
+        letter-spacing: 0;
+    }
+
+    .designation {
+        text-align: center;
+        font-size: 12px;
+        color: #fff;
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }

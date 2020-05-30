@@ -1,0 +1,48 @@
+.f12 {
+    font-size: (12/16) + rem;
+}
+.f22 {
+    font-size: 1.375rem;
+}
+
+.f18 {
+    font-size: (18/16) + rem;
+}
+
+.f20 {
+    font-size: 20/16rem;
+}
+.f30 {
+    font-size: (30/16)+rem;
+}
+
+.text-ellipsis{
+    display: inline-block;
+     overflow: hidden!important;
+     overflow-wrap: normal;
+     text-overflow: ellipsis;
+     white-space: nowrap !important;
+     width: 0;
+     min-width: 100%;
+}
+.text-bold {
+    font-weight: 600 !important;
+}
+.font-smooth, body {
+    -webkit-font-smoothing: antialiased;
+    // -moz-osx-font-smoothing: grayscale;
+}
+
+
+.spin {
+    animation: spin 3s infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,39 @@
+<div class="card card-post">
+    <a href="#" class="card-image-top">
+        <img src="{{'assets/images/card-thumb.jpg'|theme}}" alt="" class="img-fluid">
+        <div class="card-image-overlay">
+            <h4 class="card-title">Tuna with Taratou</h4>
+        </div>
+    </a>
+	<div class="card-body">
+		<h4 class="card-title">Tuna with Taratou</h4>
+		<p>
+			<small>Posted August 29, 2018</small>
+		</p>
+		<div
+			class="pb-3 d-flex justify-content-between border-bottom border-primary">
+			{# <a href="#" class="border border-primary px-4 py-1">Meat</a> #}
+			<a href="#" class="mr-2 btn btn-outline-primary card-btn">Meat</a>
+			<div class="d-flex align-items-center justify-content-end">
+				<img class="mr-2" src="{{ 'assets/images/good-rate.png'| theme}}" alt="good-rating" width="14" height="14">
+				<small class="fs12">Serves: 6</small>
+				<img class="ml-3 mr-2" src="{{ 'assets/images/clock.png'| theme}}" alt="good-rating" width="14" height="14">
+				<small class="">Time: 40</small>
+			</div>
+		</div>
+		<div class="pt-3 content">
+			<p class="text-ellipsis">Let Sousou tell you how to prepare this dish. Check out how to guarantee tender meat that comes with a tang.</p>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<a href="#" class="btn btn-primary px-3">Read More</a>
+			</div>
+			<div class="col-md-12 mt-3">
+				<div class="share d-flex align-items-center">
+					<span class="f18 text-primary">Share:</span>
+					{% partial 'share' %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
