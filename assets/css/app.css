@@ -280,6 +280,10 @@ a:hover {
   font-size: 1.875rem;
 }
 
+.mh-173 {
+  min-height: 165px;
+}
+
 .text-ellipsis {
   display: inline-block;
   overflow: hidden !important;
@@ -299,8 +303,8 @@ a:hover {
 }
 
 .spin {
-  -webkit-animation: spin 3s infinite;
-          animation: spin 3s infinite;
+  -webkit-animation: spin 3s linear infinite;
+          animation: spin 3s linear infinite;
 }
 
 @-webkit-keyframes spin {
@@ -454,17 +458,17 @@ iframe {
   z-index: 1;
 }
 
-#page-home .main-search-box {
+#page-home .main-search-box, .featured-box .main-search-box {
   min-height: 470px;
   font-family: "Roboto Slab", sans-serif;
 }
-#page-home .main-search-box h1 {
+#page-home .main-search-box h1, .featured-box .main-search-box h1 {
   font-weight: 500;
   color: #fff;
   font-size: 35px;
   text-shadow: 0 2px 7px #0000009e;
 }
-#page-home .main-search-box input {
+#page-home .main-search-box input, .featured-box .main-search-box input {
   font-size: 20px;
 }
 
@@ -596,6 +600,10 @@ h3 {
   font-size: 0.7rem;
 }
 
+.rec-col {
+  padding: 0 10px;
+}
+
 .card-post:hover .card-image-overlay {
   transform: translateY(0%);
 }
@@ -637,4 +645,18 @@ h3 {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+ul.list-menu {
+  padding-left: 0px;
+}
+
+.list-menu li {
+  list-style: none;
+  margin-bottom: 1.2rem;
+  font-size: 12px;
+}
+
+footer .social-icons-lists .socicon {
+  padding: 10px !important;
 }

@@ -6,6 +6,14 @@ mix.js('src/js/app.js', 'assets/js')
 
     .sass('src/scss/app.scss', 'assets/css')
     .sass('src/scss/vendor.scss', 'assets/css')
+    .browserSync({
+        proxy: 'http://oct.test',
+        server: false,
+        files: [
+            'assets/**/*',
+            '**/*.htm'
+        ]
+    })
     .options({
         processCssUrls: false,
     });

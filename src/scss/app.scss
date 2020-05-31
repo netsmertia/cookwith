@@ -151,7 +151,7 @@ iframe {
     z-index: 1;
 }
 
-#page-home {
+#page-home, .featured-box {
     .main-search-box {
         min-height: 470px;
         font-family: $font-family-sans-serif-heading ;
@@ -312,6 +312,9 @@ h3 {
     font-size: .7rem;
 }
 
+.rec-col {
+    padding: 0 10px ;
+}
 
 .card-post {
     &:hover {
@@ -365,4 +368,21 @@ h3 {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+}
+
+
+ul.list-menu {
+    padding-left: 0px;
+
+}
+
+.list-menu li {
+    list-style: none;
+    margin-bottom: 1.2rem;
+    font-size: 12px;
+}
+
+
+footer .social-icons-lists .socicon {
+    padding: 10px !important;
 }
