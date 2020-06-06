@@ -1,4 +1,4 @@
-<section class="py-6 arrow-border-top arrow-border-bottom" data-parallax data-src="{{ 'assets/images/background.jpg'|theme}}" data-speed=".5">
+<section class="py-6 arrow-border-top arrow-border-bottom" style="background:url({{'assets/images/background.jpg'|theme}});">
 	<div class="container">
 		<h3 class="mb-5">Follow us on Instagram</h3>
 		<div class="row justify-content-center">
@@ -8,15 +8,19 @@
 				</div>
 				<h2 class="f30 mb-3">Never miss a Recipe!</h2>
 				<p class="f22 mb-3 text-primary">Subscribe and get the latest recipes and news delivered to your inbox.</p>
-				<form action="">
-					<div class="input-group mx-auto" style="width: 500px">
-						<input type="text" class="form-control form-control-lg" placeholder="Your email address.." style="width:300px">
-						<div class="input-group-append">
-							<button class="btn btn-primary btn-lg px-3" type="button">Subscribe</button>
-						</div>
-					</div>
-				</form>
+				
 			</div>
+
+				<div class="col col-md-8 col-lg-6">
+					<form action="">
+						<div class="input-group mx-auto">
+							<input type="text" class="form-control form-control-lg" placeholder="Your email address..">
+							<div class="input-group-append">
+								<button class="btn btn-primary btn-lg px-3" type="button">Subscribe</button>
+							</div>
+						</div>
+					</form>	
+				</div>
 		</div>
 	</div>
 </section>

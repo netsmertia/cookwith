@@ -1,0 +1,33 @@
+
+<div class="card">
+	<div class="row no-gutters">
+		<div class="col-md-4 d-flex card-thumb-container">
+			<a href="#">
+                <div class="card-thumb red-hover">
+                    <img src="{{'assets/images/video_image.jpg'|theme}}" class="img-fluid thumb" alt="" style="">
+                    <div class="play-icon">
+                        <i class="play circle outline icon big text-white"></i>
+                    </div>
+                </div>
+			</a>
+		</div>
+		<div class="col-md-8 card-content-container">
+			<div class="card-body">
+				<h4 class="card-title">
+					<a href="#">Maamoul Mad</a>
+				</h4>
+				<p class="card-subtitle py-1">Posted september</p>
+				<div class="d-flex justify-content-between align-items-center">
+					<div class="rating text-primary">
+						{% partial 'rating' %}
+					</div>
+					<div class="share d-flex align-items-center">
+						<span class="f18 text-primary">Share:</span>
+						{% partial 'share' %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{# <img src="{{'assets/images/video_image.jpg'|theme}}" alt="" class="card-image-top img-fluid player-icon"> #}
+</div>

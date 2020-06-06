@@ -18,22 +18,23 @@ $(document).ready(function(){
             settings: {
               slidesToShow: 4,
               slidesToScroll: 1,
-              infinite: true,
-              dots: true
+              dots: false,
             }
           },
           {
             breakpoint: 600,
             settings: {
               slidesToShow: 3,
-              slidesToScroll: 1
+              slidesToScroll: 1,
+              dots: false,
             }
           },
           {
             breakpoint: 480,
             settings: {
               slidesToShow: 2,
-              slidesToScroll: 1
+              slidesToScroll: 1,
+              dots: false,
             }
           }
           // You can unslick at a given breakpoint now by adding:
@@ -67,4 +68,18 @@ $(document).ready(function() {
       speed: -.2,
       sliderSelector: '>.my-parallax-slider',
     })
+
+    $('#video-grid-button').click(function(event) {
+      event.preventDefault();
+      $('#video-card-grid').addClass('grid-format');
+      $(this).addClass('text-primary');
+      $('#video-list-button').removeClass('text-primary');
+    });
+
+    $('#video-list-button').click(function(event) {
+      event.preventDefault();
+      $('#video-card-grid').removeClass('grid-format');
+      $(this).addClass('text-primary');
+      $('#video-grid-button').removeClass('text-primary');
+    });
 })

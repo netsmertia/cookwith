@@ -8,19 +8,15 @@ hidden = "0"
 
 function onStart()
 {
-    // getting all the recipes directly from database
-    // $this['recipes'] = \Recipe\Recipe\Models\Recipe::with('img')->get();
-    $this['recipes'] = [];
-    debug($this['recipes']);
 }
 
 ==
-<div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }}">
+<div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
 	<section class="jumbotron main-search-box d-flex align-items-center" style="background:url({{ 'assets/images/home-background.jpeg'|theme }});background-position-y:34%;background-size:cover;">
 		<div class="container">
 			<div class="row justify-content-center text-center">
 				<div class="col-md-10 col-lg-7">
-					<h2 class="title mb-5">Sousou’s Way of Sharing Delicious Recipess</h2>
+					<h1 class="title mb-5">Sousou’s Way of Sharing Delicious Recipess</h1>
 					<form action="" class="form" id="main-search-form">
 						<div class="input-group ">
 							<input type="text" class="form-control form-control-lg" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" placeholder="I am looking for..">

@@ -1,3 +1,6 @@
+.f15 {
+    font-size: (15/16) + rem;
+}
 .f12 {
     font-size: (12/16) + rem;
 }
@@ -38,6 +41,22 @@
 }
 
 
+
+.image-background {
+    background-image: url(../images/background.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    height: 480px;
+}
+
+
+
+
+
 .spin {
     animation: spin 3s linear infinite;
 }
@@ -49,4 +68,23 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+.border-size-2 {
+    border-width: 2px !important;
+}
+.border-off-white {
+    border-color: #f7f4f4 !important;
+}
+
+
+.square-box::before {
+    content: '';
+    padding-top: 88%;
+    float: left;
+}
+
+.square-box {
+    display: flex;
+    margin-bottom: 20px;
 }
