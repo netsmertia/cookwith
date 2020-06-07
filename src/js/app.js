@@ -82,4 +82,13 @@ $(document).ready(function() {
       $(this).addClass('text-primary');
       $('#video-grid-button').removeClass('text-primary');
     });
+
+    $('.footer-nav .title').click(function(event) {
+      if ($(this).hasClass('open')) {
+        $(this).removeClass('open');
+      } else {
+        $('.footer-nav .title').removeClass('open');
+        $(this).addClass('open');
+      }
+    });
 })

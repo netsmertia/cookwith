@@ -1,0 +1,47 @@
+@import '~bootstrap/scss/mixins/_breakpoints.scss';
+@import 'variables';
+@import '~bootstrap/scss/_functions.scss';
+@import '~bootstrap/scss/_variables.scss';
+
+@include media-breakpoint-up(sm) { }
+@include media-breakpoint-up(md) { }
+@include media-breakpoint-up(lg) { }
+@include media-breakpoint-up(xl) { }
+
+
+@include media-breakpoint-down(xs) {}
+@include media-breakpoint-down(sm) {
+
+    .footer-nav {
+        padding-left: 2px;
+        padding-right: 2px;
+        .title {
+            cursor: pointer;
+        }
+        .title, .list-menu {
+            text-align: center !important;
+        }
+        .title::after {
+            content: "\f0da";
+            font-family: 'Icons';
+            padding: 0px 10px;
+            font-size: 22px;
+            vertical-align: -7%;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .list-menu {
+            display: none;
+        }
+        .title.open ~ .list-menu {
+            display: block;
+        }
+        .title.open::after {
+            transform: rotate(90deg);
+        }
+    }
+
+}
+@include media-breakpoint-down(md) {}
+@include media-breakpoint-down(lg) {}

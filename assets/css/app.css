@@ -358,6 +358,36 @@ a:hover {
   margin-bottom: 20px;
 }
 
+@media (max-width: 767.98px) {
+  .footer-nav {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  .footer-nav .title {
+    cursor: pointer;
+  }
+  .footer-nav .title, .footer-nav .list-menu {
+    text-align: center !important;
+  }
+  .footer-nav .title::after {
+    content: "\F0DA";
+    font-family: "Icons";
+    padding: 0px 10px;
+    font-size: 22px;
+    vertical-align: -7%;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .footer-nav .list-menu {
+    display: none;
+  }
+  .footer-nav .title.open ~ .list-menu {
+    display: block;
+  }
+  .footer-nav .title.open::after {
+    transform: rotate(90deg);
+  }
+}
 .cursor-pointer {
   cursor: pointer;
 }
