@@ -841,3 +841,7 @@ footer .social-icons-lists .socicon {
   line-height: 20px;
   text-align: justify;
 }
+
+#page-contact .arrow-border-bottom::after {
+  bottom: 0 !important;
+}

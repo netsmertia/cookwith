@@ -528,3 +528,8 @@ footer .social-icons-lists .socicon {
         text-align: justify;
     }
 }
+#page-contact {
+    .arrow-border-bottom::after {
+        bottom: 0 !important;
+    }
+}
