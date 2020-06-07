@@ -358,36 +358,6 @@ a:hover {
   margin-bottom: 20px;
 }
 
-@media (max-width: 767.98px) {
-  .footer-nav {
-    padding-left: 2px;
-    padding-right: 2px;
-  }
-  .footer-nav .title {
-    cursor: pointer;
-  }
-  .footer-nav .title, .footer-nav .list-menu {
-    text-align: center !important;
-  }
-  .footer-nav .title::after {
-    content: "\F0DA";
-    font-family: "Icons";
-    padding: 0px 10px;
-    font-size: 22px;
-    vertical-align: -7%;
-    cursor: pointer;
-    display: inline-block;
-  }
-  .footer-nav .list-menu {
-    display: none;
-  }
-  .footer-nav .title.open ~ .list-menu {
-    display: block;
-  }
-  .footer-nav .title.open::after {
-    transform: rotate(90deg);
-  }
-}
 .cursor-pointer {
   cursor: pointer;
 }
@@ -844,4 +814,79 @@ footer .social-icons-lists .socicon {
 
 #page-contact .arrow-border-bottom::after {
   bottom: 0 !important;
+}
+
+#page-recipe-post .featured-image {
+  display: flex;
+  position: relative;
+  max-height: 450px;
+  z-index: 10;
+  margin-top: 100px;
+  overflow: hidden;
+}
+#page-recipe-post .featured-image img {
+  align-self: flex-end;
+}
+#page-recipe-post .article-content p {
+  font-size: 0.9375rem;
+}
+#page-recipe-post .share-title {
+  font-size: 30px;
+}
+#page-recipe-post .heateor_sss_sharing_ul i {
+  width: 35px;
+  height: 35px;
+}
+
+@media (max-width: 991.98px) {
+  #page-recipe-post .featured-image {
+    max-height: 400px;
+    margin-top: 80px;
+  }
+}
+@media (max-width: 767.98px) {
+  .footer-nav {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+  .footer-nav .title {
+    cursor: pointer;
+  }
+  .footer-nav .title, .footer-nav .list-menu {
+    text-align: center !important;
+  }
+  .footer-nav .title::after {
+    content: "\F0DA";
+    font-family: "Icons";
+    padding: 0px 10px;
+    font-size: 22px;
+    vertical-align: -7%;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .footer-nav .list-menu {
+    display: none;
+  }
+  .footer-nav .title.open ~ .list-menu {
+    display: block;
+  }
+  .footer-nav .title.open::after {
+    transform: rotate(90deg);
+  }
+
+  #page-recipe-post .image-background {
+    display: none;
+  }
+  #page-recipe-post .featured-image {
+    max-height: 250px;
+    margin-top: 0px;
+    padding: 0px;
+  }
+  #page-recipe-post .share-title {
+    font-size: 26px !important;
+  }
+  #page-recipe-post .heateor_sss_sharing_ul i {
+    width: 25px;
+    height: 25px;
+  }
 }

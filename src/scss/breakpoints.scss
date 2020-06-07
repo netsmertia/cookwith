@@ -10,6 +10,16 @@
 
 
 @include media-breakpoint-down(xs) {}
+@include media-breakpoint-down(md) {
+
+    #page-recipe-post {
+        .featured-image {
+            max-height: 400px;
+            margin-top: 80px;
+        }
+    }
+}
+
 @include media-breakpoint-down(sm) {
 
     .footer-nav {
@@ -42,6 +52,27 @@
         }
     }
 
+
+    #page-recipe-post {
+        .image-background {
+            display: none;
+        }
+
+        .featured-image {
+            max-height: 250px;
+            margin-top: 0px;
+            padding: 0px;
+        }
+
+        .share-title {
+            font-size: 26px !important;;
+        }
+        .heateor_sss_sharing_ul i {
+            width: 25px;
+            height: 25px;
+        }
+    }
+
+
 }
-@include media-breakpoint-down(md) {}
 @include media-breakpoint-down(lg) {}

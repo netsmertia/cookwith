@@ -3,7 +3,6 @@
 @import 'share';
 @import 'variables';
 @import 'utility';
-@import 'breakpoints';
 .cursor-pointer {
     cursor: pointer;
 }
@@ -533,3 +532,33 @@ footer .social-icons-lists .socicon {
         bottom: 0 !important;
     }
 }
+
+#page-recipe-post {
+    .featured-image {
+        display: flex;
+        position: relative;
+        max-height: 450px;
+        z-index: 10;
+        margin-top: 100px;
+        overflow: hidden;
+        img {
+            align-self: flex-end;
+        }
+    }
+    .article-content {
+        p {
+            font-size: (15/16)+rem;
+        }
+    }
+    .share-title {
+        font-size: 30px;
+    }
+    .heateor_sss_sharing_ul i {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+
+
+@import 'breakpoints';
