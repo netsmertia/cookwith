@@ -1,0 +1,159 @@
+[viewBag]
+title = "Testpage"
+url = "/testpage"
+layout = "pages-default-layout"
+is_hidden = 0
+navigation_hidden = 0
+tagline = "LOve"
+banner = "/uploaded-files/cookwithsousou_logo.png"
+==
+{% put ordering %}
+<p>Ordering Here in hindi</p>
+
+{% endput %}
+
+{% put delivery %}
+Delivery Here
+{% endput %}
+==
+<div class="layout-{{ this.layout.id }} featured-box" id="page-{{ this.page.id}}">
+	<section class="py-7">
+		<br>
+	</section>{# Video Section #}
+	<section>
+		<div class="image-background">
+			<br>
+		</div>
+		<div class="container">
+			<div class="vidoe-container">
+				<div class="video-section">
+					<div class="row no-gutters">
+						<div class="col-md-7 col-lg-8 d-flex videopage-main-video">{# <img src="{{'assets/images/post-thumb-2.jpg'%7Ctheme}}" class="img-fluid fr-fic fr-dii" alt="">#} {% partial 'videopage-video' %}
+							<div class="bottom-overlay px-3">
+								<div class="row align-items-center justify-content-between">
+									<div class="col">
+
+										<h4 class="text-white mb-0 py-3">Vegetarian Spring...</h4>
+									</div>
+									<div class="col-auto">
+										<div class="rating text-white">
+											<br>
+										</div></div></div></div></div>
+						<div class="col-md-5 col-lg-4 bg-primary px-3 d-flex flex-column">
+
+							<h2 class="text-white mt-2">Sousou's Favourites</h2>
+							<div class="video-cards-container flex-fill d-flex justify-content-between flex-column">{% for i in 1..3 %}
+								<div class="card-video-section border-bottom border-white mb-3 mb-md-0 row no-gutters">
+									<div class="row no-gutters">
+										<div class="col-md-6">
+											<a href="#">
+												<div class="card-thumb red-hover"><img src="{{'assets/images/video_image.jpg'%7Ctheme}}" class="img-fluid thumb fr-fic fr-dii" alt="">
+													<div class="play-icon">
+														<br>
+													</div></div>
+											</a></div>
+										<div class="col-md-6 pl-0 pl-md-3 card-content my-3 my-md-0">
+
+											<h5 class="text-white mb-1">Maghli Lebnani</h5><small class="text-white">Posted September 9, 2018</small>
+											<div class="rating text-white">
+												<br>
+											</div></div></div></div>{% endfor %}</div></div></div></div></div></div>
+	</section>{# video search bar #}
+	<section class="container mt-7">
+		<div class="row border border-size-2 border-off-white  mx-0 py-3 py-md-2">
+			<div class="col-md-12 col-lg-6 mb-3 mb-lg-0 order-lg-2">
+				<div class="input-group">
+					<input type="text" class="form-control form-control-lg" value="">
+					<div class="input-group-append">
+						<button class="btn btn-primary btn-lg">Search</button>
+					</div></div></div>
+			<div class="col-md-3 d-none d-md-flex align-items-center order-lg-1">
+
+				<h2 class="d-inline mb-0 mr-2">View</h2>
+			</div>
+			<div class="col-md-9 col-lg-3 d-flex align-items-center justify-content-end order-lg-3">
+				<div class="mr-2">Page 1 of 9</div>
+
+				<ul class="pagination mb-0">
+					<li class="page-item disabled"><a aria-label="Previous" class="page-link" href="#">&nbsp;<span aria-hidden="true">«</span>&nbsp;</a></li>
+					<li class="page-item active"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a aria-label="Next" class="page-link" href="#">&nbsp;<span aria-hidden="true">»</span>&nbsp;</a></li>
+				</ul>
+			</div></div>
+	</section>
+	<section class="container mt-7">
+		<div class="row">
+			<div class="col-md-2 mb-3">
+				<div class="fiter-container border border-size-2 border-off-white p-3">
+					<div class="h2 border-bottom border-primary pb-2">Filter</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div>
+					<div class="form-group mb-0">
+						<input type="checkbox" name="" id="" class="input-control mr-1" value="on">
+						<label for="">Chicken</label>
+					</div></div></div>
+			<div class="col-md-7" id="video-card-grid">{% for i in 1..5 %}
+				<div class="mb-3 video-card-container">{% partial 'videocard-small' %}</div>{% endfor %}</div>
+			<div class="col-md-3 d-flex justify-content-center"><img src="{{'assets/images/vertical-banner.jpg'%7Ctheme}}" alt="vertical add" class="img-fluid align-self-start fr-fic fr-dii"></div></div>
+	</section>
+	<section class="container mt-7 mb-5">
+		<div class="row">{% for item in 0..10 %}
+			<div class="col-md-4 col-lg-3 col-6">
+				<a href="#">
+					<div class="square-box square-post-01" style="background:url({{'assets/images/post-thumb-3.jpg'|theme}});">
+						<div class="play-icon">
+							<br>
+						</div>
+						<div class="bottom-overlay">
+							<div class="row align-items-center justify-content-between">
+								<div class="col">
+
+									<p class="text-white mb-0">Vegetarian Spring...</p>
+								</div>
+								<div class="col-auto">
+									<div class="rating text-white">
+										<br>
+									</div></div></div></div></div>
+				</a></div>{% endfor %}</div>
+	</section>
+</div>
