@@ -1,13 +1,56 @@
 items:
     -
-        title: Testpage
-        nesting: '0'
-        type: static-page
-        code: ''
-        reference: testpage
-        replace: '0'
+        title: Home
+        type: url
+        url: /
+        code: home
         viewBag:
             isHidden: '0'
-            cssClass: ''
+            cssClass: home
+            isExternal: '0'
+    -
+        title: About
+        type: cms-page
+        code: about
+        reference: about
+        viewBag:
+            isHidden: '0'
+            cssClass: info
+            isExternal: '0'
+    -
+        title: Recipes
+        type: cms-page
+        code: recipes
+        reference: recipe
+        viewBag:
+            isHidden: '0'
+            cssClass: recipe
+            isExternal: '0'
+    -
+        title: Videos
+        type: cms-page
+        code: videos
+        reference: videos
+        viewBag:
+            isHidden: '0'
+            cssClass: play
+            isExternal: '0'
+    -
+        title: Blog
+        type: cms-page
+        code: blog
+        reference: blog
+        viewBag:
+            isHidden: '0'
+            cssClass: pencil
+            isExternal: '0'
+    -
+        title: Contact
+        type: cms-page
+        code: contact
+        reference: contact
+        viewBag:
+            isHidden: '0'
+            cssClass: envelope
             isExternal: '0'
 name: 'Main Menu'

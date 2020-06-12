@@ -1,0 +1,46 @@
+[staticMenu]
+code = "main-menu"
+
+[viewBag]
+==
+<nav  id="main-top-nav" class="navbar navbar-expand-lg fixed-top navbar-light bg-white arrow-border" style="background: white; padding-left: 70px;">
+	<a class="navbar-brand" href="#">
+		<img class="logo top" src="{{ 'assets/images/logo.png'| theme }}" alt="" width="" height="80px">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="top-navigation">
+		<ul class="navbar-nav m-auto ml-5" id="page-link">
+            {% if staticMenu.menuItems %}
+
+				{% for item in staticMenu.menuItems if not item.viewBag.isHidden %}
+					<li role="presentation" class="nav-item {{ item.isActive ? 'active' : '' }} {{ item.isChildActive ? 'child-active' : '' }} {{ item.viewBag.cssClass }}">
+						{% if item.url %}
+							<a class="nav-link" href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
+								<img src="{{ ('assets/images/' ~ item.viewBag.cssClass ~ '.png')| theme }}" alt="{{item.title}}" width="20" height="20" class="d-block m-auto">
+								<div class="text-uppercase">{{ item.title }}</div>
+							</a>
+						{% else %}
+							<span>{{ item.title }}</span>
+						{% endif %}
+					</li>
+
+				{% endfor %}
+            {% endif %}
+		</ul>
+		<ul class="navbar-nav ml-auto social-icons-lists icons-background-rounded centre">
+			<li class="nav-item d-flex align-items-center mr-2 mt-1">
+				<a href="#" id="open-full-screen-search">
+					<i class="search icon red large link"></i>
+				</a>
+			</li>
+			{% partial 'share-2' %}
+			<div class="nav-item d-flex align-items-center">
+				<div class="mr-3" style="height: 30px; border-left: 1px solid #c51d22;"></div>
+				<a href="#" class="nav-link">العربية</a>
+			</div>
+		</div>
+	</div>
+</nav>

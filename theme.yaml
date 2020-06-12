@@ -3,3 +3,35 @@ description: ''
 author: 'Natwar Singh'
 homepage: ''
 code: netsmertia
+
+form:
+  tabs:
+    fields:
+        site_name:
+            label: Site name
+            comment: The website name as it should appear on the front-end
+            default: My Amazing Site!
+        youtube:
+          label: Youtube Channel
+          type: text
+          span: auto
+          tab: Social Media
+          default: https://youtube.com/channel/UCdkXyJj8AD1tfbq4eTZw63Q/
+        instagram:
+          label: Instagram
+          type: text
+          span: auto
+          tab: Social Media
+          default: https://www.instagram.com/cookwithsousou/
+        pintrest:
+          label: Pintrest
+          type: text
+          span: auto
+          tab: Social Media
+          default: https://www.pinterest.com/cookwithsousou/
+        fb:
+          label: Facebook Page
+          type: text
+          span: auto
+          default: https://www.facebook.com/cookwithsousou/
+          tab: Social Media

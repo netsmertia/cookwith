@@ -1,4 +1,11 @@
-
+[viewBag]
+snippetCode = "recipe-3-col"
+snippetName = "Recipe Column in 3"
+snippetProperties[totalpost][title] = "Total Post"
+snippetProperties[totalpost][type] = "string"
+snippetProperties[totalpost][default] = 10
+snippetProperties[totalpost][options][] = ""
+==
 <section class="pt-6">
 	<div class="container">
 		<div class="row">
@@ -9,10 +16,11 @@
 				</div>
 			</div>
 		</div>
+		{{totalpost}}
 		<div class="row">
 			<div class="col-md-9">
 				<div class="row">
-					{% for i in 1..6 %}
+					{% for i in 1..10 %}
 						<div class="col-md-4 mb-4 rec-col">
 							{% partial 'post-card' %}
 						</div>
