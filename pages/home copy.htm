@@ -5,7 +5,6 @@ layout = "default"
 description = "CookWithSousou"
 hidden = "0"
 [recipes]
-[ads]
 ==
 
 function onStart()
@@ -28,9 +27,11 @@ function onStart()
 							<div class="input-group-append">
 								<button class="btn btn-primary-inverted dropdown-toggle px-3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recipes</button>
 								<div class="dropdown-menu">
-									{% for cat in recipes.getAllCategories() %}
-										<a class="dropdown-item" href="{{cat.category_slug}}">{{cat.category_title}}</a>
-									{% endfor %}
+									<a class="dropdown-item" href="#">Action</a>
+									<a class="dropdown-item" href="#">Another action</a>
+									<a class="dropdown-item" href="#">Something else here</a>
+									<div role="separator" class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Separated link</a>
 								</div>
 							</div>
 						</div>
@@ -39,7 +40,7 @@ function onStart()
 			</div>
 		</div>
 	</section>
-	{% component 'ads' ad_id="home_hoz_ad" %}
+	{% partial 'horizontal-ads' %}
 	<div class="container my-5">
 		<h3 class="mb-2">What are you in the mood for?</h3>
 		{% partial 'slider.htm' %}
@@ -170,9 +171,36 @@ function onStart()
 		</div>
 	</section>
 
-    {% component 'recipes' section_title="Sousou's Favourites" ad_id="main_vert_ad" %}
-	{% component 'ads' ad_id="home_hoz_ad" %}
-	{{debug(recipes.getAllCategories().toArray())}}
+    {% component 'recipes' section_title="Sousou's Favourites" %}
+	<section class="pt-6">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9 d-flex justify-content-between">
+					<h3 class="mb-3">Sousou’s Favourites</h3>
+					<div>
+						<a href="#" class="btn btn-primary">View More</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-9">
+					<div class="row">
+						{% for i in 1..6 %}
+							<div class="col-md-4 mb-4">
+								{% partial 'post-card' %}
+							</div>
+						{% endfor %}
+
+					</div>
+				</div>
+				<div class="col-md-3 d-flex justify-content-center">
+					<img src="{{'assets/images/vertical-banner.jpg'|theme}}" alt="vertical add" class="img-fluid align-self-start">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% partial 'horizontal-ads' %}
 
 	<section class="py-6">
 		<div class="container">

@@ -1,0 +1,27 @@
+title = "category page"
+url = "/:category"
+layout = "default"
+is_hidden = 0
+
+[ads]
+ad_id = "home_horz_ad"
+[recipes]
+category = {{:category}}
+==
+{{debug(this.param('category'))}}
+<div id="page-category-recipes" class="layout-{{ this.layout.id }} featured-box">
+    <section class="jumbotron d-flex align-items-center" style="background:url({{ 'assets/images/home-background.jpeg'|theme }});background-position-y:34%;background-size:cover;min-height: 350px;">
+		<div class="container">
+			<div class="row justify-content-center text-center">
+				<div class="col-md-10 col-lg-7">
+					<h1 class="title mb-5 mt-7">{{recipes.getCategory(this.param.category).category_title}}</h1>
+				</div>
+			</div>
+		</div>
+	</section>   
+
+    {% component 'ads' ad_id="home_hoz_ad" %}
+
+    {% component 'recipes' %} 
+
+</div>
