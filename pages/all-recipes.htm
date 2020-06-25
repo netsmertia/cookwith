@@ -4,41 +4,11 @@ layout = "default"
 description = "CookWithSousou"
 is_hidden = 0
 
-[recipes appetizers]
-section_title = "Appetizers"
-section_view_more_url = "/appetizers"
-limit = 6
-ads_id = null
 [recipes]
+[ads]
 ==
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
-	<section class="jumbotron main-search-box d-flex align-items-center" style="background:url({{ 'assets/images/home-background.jpeg'|theme }});background-position-y:34%;background-size:cover;">
-		<div class="container">
-			<div class="row justify-content-center text-center">
-				<div class="col-md-10 col-lg-7">
-					<h1 class="title mb-5">Sousou’s Way of Sharing Delicious Recipes</h1>
-					<form action="" class="form" id="main-search-form">
-						<div class="input-group ">
-							<input type="text" class="form-control form-control-lg" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" placeholder="I am looking for..">
-							<div class="input-group-append">
-								<button class="btn btn-primary px-4 ">Search</button>
-							</div>
-							<div class="input-group-append">
-								<button class="btn btn-primary-inverted dropdown-toggle px-3" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Recipes</button>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Action</a>
-									<a class="dropdown-item" href="#">Another action</a>
-									<a class="dropdown-item" href="#">Something else here</a>
-									<div role="separator" class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Separated link</a>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
+	{% partial 'main-featured-search' %}	
 	{# {% partial 'horizontal-ads' %} #}
 	<div class="container my-5">
 		<h3 class="mb-2">What are you in the mood for?</h3>
@@ -96,25 +66,18 @@ ads_id = null
 	</section>
 
 
-    {% component 'appetizers' %}
-    {% component 'recipes'  section_title = "Chicken" section_view_more_url = "/" limit="4" ads_id = "2" %}
-    {% component 'recipes'  section_title = "Meat" category = "Meat" section_view_more_url = "/" limit="4" ads_id = "2" %}
+    {% component 'recipes'  section_title = "Appetizers" section_view_more_url = "/appetizers" limit="4" %}
+    {% component 'recipes'  section_title = "Chicken" category = "chicken" section_view_more_url = "/chicken" limit="4" ads_id = "2" %}
+	{% component 'ads' ad_id="home_hoz_ad" %}
+    {% component 'recipes'  section_title = "Meat" category = "Meat" section_view_more_url = "/meat" limit="4" %}
+    {% component 'recipes'  section_title = "Fish and Seafood" category = "Fish and Seafood" section_view_more_url = "/fish" limit="4" %}
+    {% component 'recipes'  section_title = "Jams and Marmalade" category = "Jams and Marmalade" section_view_more_url = "/jams-and-marmalade" limit="4" %}
+    {% component 'recipes'  section_title = "Occidental Desserts" category = "Occidental Desserts" section_view_more_url = "/occidental-desserts" limit="4" %}
+    {% component 'recipes'  section_title = "Oriental Desserts" category = "Occidental Desserts" section_view_more_url = "/oriental-desserts" limit="4" %}
+    {% component 'recipes'  section_title = "Pastas" category = "Pastas" section_view_more_url = "/pasta" limit="4" %}
+    {% component 'recipes'  section_title = "Pizzas" category = "Pizzas" section_view_more_url = "/pizza" limit="4" %}
+    {% component 'recipes'  section_title = "Salads" category = "Salads" section_view_more_url = "/salad" limit="4" %}
+    {% component 'recipes'  section_title = "Vegetarian" category = "Vegetarian" section_view_more_url = "/vegetarian" limit="4" %}
 
-
-    {% partial 'recipe-cols' title="Appetizers" total=4 %}
-    {% partial 'recipe-cols' title="Chicken" total=4 %}
-	
-
-	{% partial 'horizontal-ads' %}
-
-    {% partial 'recipe-cols-ads' title="Meat" total=3 %}
-    {% partial 'recipe-cols' title="Fish and Seafood" total=4 %}
-    {% partial 'recipe-cols' title="Jams and Marmalade" total=4 %}
-    {% partial 'recipe-cols' title="Occidental Desserts" total=4 %}
-    {% partial 'recipe-cols' title="Oriental Desserts" total=4 %}
-    {% partial 'recipe-cols' title="Pastas" total=4 %}
-    {% partial 'recipe-cols' title="Pizzas" total=4 %}
-    {% partial 'recipe-cols' title="Salads" total=4 %}
-    {% partial 'recipe-cols' title="Vegetarian" total=4 %}
 	<div class="pb-4"></div>
 </div>
