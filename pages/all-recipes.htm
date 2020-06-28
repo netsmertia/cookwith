@@ -1,10 +1,12 @@
-title = "Sousou’s Way of Sharing Delicious Recipes"
+title = "Recipes"
 url = "/recipes"
 layout = "default"
 description = "CookWithSousou"
 is_hidden = 0
 
 [recipes]
+limit = 4
+
 [ads]
 ==
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
@@ -17,6 +19,7 @@ is_hidden = 0
 
 	
 
+    {% component 'recipes'  section_title = "New This Week"  section_view_more_url = "/recipes" limit="6" ad_id = "main_vert_ad" %}
     <section class="pt-6 mb-4">
 		<div class="container">
 			<div class="row">
@@ -67,17 +70,17 @@ is_hidden = 0
 
 
     {% component 'recipes'  section_title = "Appetizers" section_view_more_url = "/appetizers" limit="4" %}
-    {% component 'recipes'  section_title = "Chicken" category = "chicken" section_view_more_url = "/chicken" limit="4" ads_id = "2" %}
+    {% component 'recipes'  section_title = "Chicken" category = "chicken" section_view_more_url = "/chicken" limit="3" ad_id = "main_vert_ad" %}
 	{% component 'ads' ad_id="home_hoz_ad" %}
-    {% component 'recipes'  section_title = "Meat" category = "Meat" section_view_more_url = "/meat" limit="4" %}
-    {% component 'recipes'  section_title = "Fish and Seafood" category = "Fish and Seafood" section_view_more_url = "/fish" limit="4" %}
-    {% component 'recipes'  section_title = "Jams and Marmalade" category = "Jams and Marmalade" section_view_more_url = "/jams-and-marmalade" limit="4" %}
-    {% component 'recipes'  section_title = "Occidental Desserts" category = "Occidental Desserts" section_view_more_url = "/occidental-desserts" limit="4" %}
-    {% component 'recipes'  section_title = "Oriental Desserts" category = "Occidental Desserts" section_view_more_url = "/oriental-desserts" limit="4" %}
-    {% component 'recipes'  section_title = "Pastas" category = "Pastas" section_view_more_url = "/pasta" limit="4" %}
-    {% component 'recipes'  section_title = "Pizzas" category = "Pizzas" section_view_more_url = "/pizza" limit="4" %}
-    {% component 'recipes'  section_title = "Salads" category = "Salads" section_view_more_url = "/salad" limit="4" %}
-    {% component 'recipes'  section_title = "Vegetarian" category = "Vegetarian" section_view_more_url = "/vegetarian" limit="4" %}
+    {% component 'recipes'  section_title = "Meat" category = "Meat" section_view_more_url = "/meat" limit="4" ad_id=null %}
+    {% component 'recipes'  section_title = "Fish and Seafood" category = "Fish and Seafood" section_view_more_url = "/fish" ad_id = null limit="4" %}
+    {% component 'recipes'  section_title = "Jams and Marmalade" category = "Jams and Marmalade" section_view_more_url = "/jams-and-marmalade" ad_id = "main_vert_ad" limit="3" %}
+    {% component 'recipes'  section_title = "Occidental Desserts" category = "Occidental Desserts" section_view_more_url = "/occidental-desserts" limit="4" ad_id = null %}
+    {% component 'recipes'  section_title = "Oriental Desserts" category = "Occidental Desserts" section_view_more_url = "/oriental-desserts" limit="4" ad_id = null  %}
+    {% component 'recipes'  section_title = "Pastas" category = "Pastas" section_view_more_url = "/pasta" limit="4" ad_id = null %}
+    {% component 'recipes'  section_title = "Pizzas" category = "Pizzas" section_view_more_url = "/pizza" limit="4" ad_id = null  %}
+    {% component 'recipes'  section_title = "Salads" category = "Salads" section_view_more_url = "/salad" limit="4" ad_id = null %}
+    {% component 'recipes'  section_title = "Vegetarian" category = "Vegetarian" section_view_more_url = "/vegetarian" limit="4" ad_id = null %}
 
 	<div class="pb-4"></div>
 </div>

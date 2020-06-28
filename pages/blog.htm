@@ -1,22 +1,25 @@
-title = "Sousou’s Way of Sharing
-Delicious Recipes"
+title = "Blogs"
 url = "/blog"
 layout = "default"
 description = "CookWithSousou"
-hidden = "0"
-==
+is_hidden = 0
 
-function onStart()
-{
-}
-
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 3
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "about"
+postPage = "blog"
 ==
 <div id="page-blog" class="layout-{{ this.layout.id }} featured-box">
 	<section class="container mt-7">
 		<div class="row">
 			<div class="col-md-9">
-				{% partial 'blogpage-post-card' %}
-				{% partial 'blogpage-post-card' %}
+				{% set posts = blogPosts.posts %}
+				{% for post in posts %}
+					{% partial 'blogpage-post-card' post = post %}
+				{% endfor %}
 			</div>
 			<div class="col-md-3 d-flex justify-content-center">
 				<img src="{{'assets/images/vertical-banner.jpg'|theme}}" alt="vertical add" class="img-fluid align-self-start">
@@ -25,8 +28,3 @@ function onStart()
 	</section>
 
 </div>
-
-
-
-
-

@@ -1,0 +1,73 @@
+title = "Blog Post"
+url = "/blog/:slug"
+layout = "default"
+is_hidden = 0
+
+[ads]
+ad_id = "home_horz_ad"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+
+[nextAndPrev]
+category = "noFilter"
+postPage = "blog-single"
+==
+{% set post = blogPost.post %}
+<div id="page-blog-post" class="layout-{{ this.layout.id }} featured-box">
+    <section class="jumbotron d-flex align-items-center" style="background:url({{post.featured_images.first.path}});background-position-y:34%;background-size:cover;min-height: 250px;">
+		<div class="container">
+			<div class="row justify-content-center text-center">
+				<div class="col-md-10 col-lg-7">
+					<h1 class="title mb-5 mt-7">{{post.title}}</h1>
+				</div>
+			</div>
+		</div>
+	</section>   
+
+	{% component 'ads' ad_id="home_hoz_ad" %}
+
+	<section class="container pb-8	">
+		<h2>{{post.title}}</h2>
+		<small>
+			{% for category in post.categories %}
+				<a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+			{% endfor %}
+			<span class="text-primary mx-2 border-right border-primary"></span><span>
+				{{post.published_at.format('l j, Y')}}
+			</span>
+		</small>
+		<div class="row">
+			<div class="col-md-10 mt-3">
+				{% if post.featured_images.count > 0 %}
+					<img src="{{post.featured_images.first.path}}" alt="{{post.title}}" class="img-fluid">
+				{% endif %}
+				<div class="content">{{ post.content_html|raw }}</div>
+
+			<div id="next-prev" class="row mx-1 mt-5 py-3 border-bottom border-top border-gray">
+				{% set prev = nextAndPrev.prevPost %}
+				{% set next = nextAndPrev.nextPost %}
+				<div class="prev-post col-sm-6">
+				{% if prev %}
+						<span class="small-title"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous</span>
+						<h4><a href="{{prev.url}}" title="{{ prev.title }}">{{ prev.title }}</a></h4>
+				{% else %}
+				<div></div>
+				{% endif %}
+				</div>
+				{% if next %}
+					<div class="next-post col-sm-6 text-right">
+						<span class="small-title">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+						<h4><a href="{{next.url}}" title="{{ next.title }}">{{ next.title }}</a></h4>
+					</div>
+				{% endif %}
+			</div>
+
+			</div>
+			<div class="col-md-2 mt-3">
+				{% component 'ads' ad_id="main_vert_ad" %}
+			</div>
+		</div>
+	</section>
+</div>

@@ -11,6 +11,11 @@ form:
             label: Site name
             comment: The website name as it should appear on the front-end
             default: My Amazing Site!
+        placeholder_img:
+            label: Placeholder Image of recipe thumbnail
+            type: fileupload
+            mode: image
+            span: auto
         youtube:
           label: Youtube Channel
           type: text

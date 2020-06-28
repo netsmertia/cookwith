@@ -1,15 +1,28 @@
-title = "Sousou’s Way of Sharing Delicious Recipes"
+title = "Single Recipe"
 url = "/recipe/:slug"
 layout = "default"
 description = "CookWithSousou"
-hidden = "0"
+is_hidden = 0
+[recipes]
 ==
-
+function onEnd() {
+	$this['recipe'] = $r = $this['recipes']->getRecipe($this->param('slug'));
+	$this['ingredients'] = collect($r->ingredients)->sortBy('ingredient_order')->groupBy('ingredient_order');
+	debug($this['recipe']->toArray());
+}
+==
 <div id="page-recipe-post" class="layout-{{ this.layout.id }} featured-box">
 	<section>
 		<div class="image-background" style=""></div>
 		<div class="container-md featured-image">
-			<img src="{{'assets/images/recipe-single.jpg'|theme}}" class="img-fluid" alt="">
+				<img src="
+				{% if recipe.img.path %}
+					{{recipe.img.path}}
+				{% else %}
+					{{debug(this.theme.placeholder_img.path)}}
+					{{this.theme.placeholder_img.path}}
+				{% endif %}
+				" class="img-fluid" alt="">
 		</div>
 	</section>
 	<section class="container mt-7">
@@ -17,70 +30,65 @@ hidden = "0"
 			<div class="col-lg-6">
 				<div class="row">
 					<div class="col-md-8">
-						<h2>Stuffed Chicken with Grape Leaves</h2>	
+						<h2 class="text-capitalize">{{recipe.title|lower}}</h2>	
 					</div>
 					<div class="col-lg-4 text-primary" style="font-size: 1.5rem;letter-spacing: 2px;">
 						{% partial 'rating' %}
 					</div>
 				</div>
-				<small>Posted August 29, 2018</small>
+				<small>{{'Posted'|_}} {{recipe.created_at.format('j l, Y')}}</small>
 				<div class="row no-gutters mt-3 pb-5 border-bottom border-primary">
 					<div class="col-6">
-						<a href="#" class="border border-primary px-4 py-1 f15">Meat</a>
+						{% if recipe.categories.count() > 0 %}
+							<a href="#" class="border border-primary px-4 py-1 f15">{{recipe.categories.first.category_title}}</a>
+						{% else %}
+							<div></div>
+						{% endif %}
 					</div>
 					<div class="col-6 d-flex align-items-center justify-content-end">
 						<img class="mr-2" src="{{ 'assets/images/good-rate.png'| theme}}" alt="good-rating" width="25" height="25">
-						<div class="f15">Serves: 6</div>
+						<div class="f15">{{'Serves'|_}}: {{recipe.serve}}</div>
 						<img class="ml-3 mr-2" src="{{ 'assets/images/clock.png'| theme}}" alt="good-rating" width="25" height="25">
-						<div class="mr-3 f15">Time: 40</div>
+						<div class="mr-3 f15">{{'Time'|_}}: {{recipe.time}}</div>
 					</div>
 				</div>
 				<div class="article-content mt-3">
-					<p>Chicken with grape leaves is one of SouSou’s favourite family meals.</p>
+					<p>{{recipe.content}}</p>
 					<div class="ingredients">
-						<h2 class="mb-3">Ingredients</h2>
-						<p>1 whole chicken</p>
-						<p>200 grams minced meat</p>
-						<p>1 cup white rice</p>
-						<p>2 tablespoons vegetable oil</p>
-						<p>salt and pepper</p>
-						<p>GRAPE LEAVES AND ZUCCHINI</p>
-						<p>500 grams minced meat</p>
-						<p>2 cups white rice</p>
-						<p>10 zucchinis</p>
-						<p>300 grams grape leaves</p>
-						<p>2 tablespoons vegetable oil</p>
-						<p>2 tablespoons olive oil</p>
-						<p>salt and pepper</p>
+						<h2 class="mb-3">{{'Ingredients'|_}}</h2>
+						{% for ingredientGroup in ingredients %}
+							<h5 class="my-3" >{{ingredientGroup.first.ingredient_group}}</h5>
+							<div class="pl-2">
+								{% for ingredient in ingredientGroup %}
+									{% if ingredient.name != '' or ingredient.quantity != '' or ingredient.unit != '' %}
+									<p class="mb-1" >&mdash; 
+										{{ingredient.quantity}}
+										{{ingredient.unit}}
+										{{ingredient.name|lower}}
+									</p>
+									{% endif %}
+								{% endfor %}
+							</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
 			<div class="col-md-6 d-flex flex-column">
 				<div class="d-flex align-items-center order-1 order-md-1">
-					<span class="text-primary mr-3 share-title">Share:
+					<span class="text-primary mr-3 share-title">{{'Share'|_}}:
 					</span>
 					{% partial 'share' %}
 				</div>
 				<div class="mt-3 d-flex flex-column order-md-2">
-					<h2 class="mb-3">How to Cook:</h2>
+					<h2 class="mb-3">{{'How to Cook'|_}}:</h2>
 					<div class="instructions article-content">
-						<p>
-							<strong>CHICKEN</strong>
-						</p>
-						<p>Coat the chicken with salt and white pepper and olive oil. Keep aside</p>
-						<p>Fry the meat with vegetable oil until done. Then, add the rice with ½ cup of water and cook until the water is evaporated.</p>
-						<p>Stuff the chicken with the rice mixture, then knit it so rice doesn’t fall out.</p>
-						<p>Place the chicken in a tray and put in the oven just to change color. Cover the chicken with foil paper and set aside.</p>
-						<p>GRAPE LEAVES AND ZUCCHINI</p>
-						<p>Fry the minced meat with oil until it has color. Then, add the rice, salt and pepper and mix well.</p>
-						<p>Empty the inside of zucchinis and fill them with rice and meat. Set aside.</p>
-						<p>Boil some water in a saucepan, then soak the grape leaves for 5 to 6 minutes.</p>
-						<p>Open a leaf on the shining side and add one teaspoon of the rice mixture. Close both sides and roll it. Repeat the same procedure with the rest of the grape leaves.</p>
-						<p>
-							<strong>FINAL STAGE</strong>
-						</p>
-						<p>Place the grape leaves on the bottom of a large pot; then, add the chicken in the middle and place the rest of the zucchinis and grape leaves around it. Cover the top with grape leaves.</p>
-						<p>Cover with water and cook for 75 to 90 minutes.</p>
+				{% for direction in recipe.directions %}
+					{% if direction.direction ends with ':' %}
+						<p><strong>{{direction.direction}}</strong></p>
+					{% else %}
+						<p>{{direction.direction}}</p>
+					{% endif %}
+				{% endfor %}
 					</div>
 				</div>
 
@@ -89,22 +97,27 @@ hidden = "0"
 		</div>
 	</section>
 	
-
 	<section class="py-7 mt-7 arrow-border-top arrow-border-bottom" style="background:url({{'assets/images/background.jpg'|theme}});">
 		<div class="container">
-		<h3 class="mb-3">Sousou Recommends</h3>
+		<h3 class="mb-3">{{'Sousou Recommends'|_}}</h3>
 			<div class="row">
-				{% for item in 1..3 %}
+				{% for item in recipe.related %}
 					<div class="col-md-3 col-lg-3 col-6">
-						<a href="#">
-							<div class="square-box square-post-01" style="background:url({{'assets/images/post-thumb-3.jpg'|theme}});">
+						{% if item.recipe_type != 'VIDEO' %}
+							<a href="{{'recipe'|page({slug: item.slug})}}">
+						{% else %}
+							<a href="{{'videos'|page({slug: item.slug})}}">
+						{% endif %}
+							<div class="square-box square-post-01" style="background:url( {{item.img.path|default(this.theme.placeholder_img.thumb(300, 300))}});">
+								{% if item.recipe_type != 'TEXT' %}
 								<div class="play-icon">
 									<i class="play circle outline icon big text-white"></i>
 								</div>
+								{% endif %}
 								<div class="bottom-overlay">
 									<div class="row align-items-center justify-content-between">
 										<div class="col">
-											<p class="text-white mb-0">Vegetarian Spring...</p>
+											<p class="text-white mb-0 text-capitalize">{{item.title|lower|truncate(15)}}</p>
 										</div>
 										<div class="col-auto">
 											<div class="rating text-white">
@@ -131,12 +144,3 @@ hidden = "0"
 	</section>
 	{% partial 'horizontal-ads' %}
 </div>
-
-
-
-
-
-
-
-
-

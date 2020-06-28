@@ -1,131 +1,86 @@
-title = "Sousou’s Way of Sharing
-Delicious Recipes"
+title = "Home"
 url = "/"
 layout = "default"
 description = "CookWithSousou"
-hidden = "0"
-[recipes]
-[ads]
-==
+is_hidden = 0
 
-function onStart()
-{
-}
-
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 3
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "about"
+postPage = "blog"
 ==
+{{debug(recipes.getAllCategoriesForSlider().toArray())}}
+{% set rcd = recipes.getRecipeOfTheDay() %}
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
 	{% partial 'main-featured-search' %}
 	{% component 'ads' ad_id="home_hoz_ad" %}
 	<div class="container my-5">
-		<h3 class="mb-2">What are you in the mood for?</h3>
+		<h3 class="mb-2">{{'What are you in the mood for?'|_}}</h3>
 		{% partial 'slider.htm' %}
 	</div>
 
+	{% if rcd %}
 	<section
 		class="position-relative recipe-of-day" data-parallax data-src="{{'assets/images/background.jpg'|theme}}" data-speed=".5">
 		{# <div class=" parallax-1" data-parallax data-src="{{'assets/images/background.jpg'|theme}}">
 									<img src="{{ 'assets/images/background.jpg'|theme}}" alt="" class="parallax">
 								</div> #}
 		<div class="container mt-3">
-			<h3 class="mb-3">Recipe of the Day</h3>
+			<h3 class="mb-3">{{'Recipe of the Day'|_}}</h3>
 			<div class="row no-gutters">
-				<div class="col-md-7">
+				<div class="col-lg-7">
 					<div class="youtube-player">
-						<iframe class="youtube-player-iframe" src="//www.youtube.com/embed/2XRprOlz27g?wmode=transparent&amp;feature=youtu.be&amp;rel=0&amp;channel=UCdkXyJj8AD1tfbq4eTZw63Q" data-player-type="youtube" allowfullscreen="" id="gdlr-video-256053"></iframe>
+						<iframe class="youtube-player-iframe" src="{{rcd.video}}?wmode=transparent&amp;feature=youtu.be&amp;rel=0&amp;channel=UCdkXyJj8AD1tfbq4eTZw63Q" data-player-type="youtube" allowfullscreen="" id="youtube-home-page"></iframe>
 					</div>
 				</div>
-				<div class="col-md-5 bg-white p-5">
+				<div class="col-lg-5 bg-white p-5">
 					<div class="row">
 						<div class="col-12">
-							<a href="/recipe/single" class="h3">Scaloppini al Limone</a>
+							<a href="/recipe/single" class="h3">{{rcd.title}}</a>
 							<p>
-								<small>Posted August 29, 2018</small>
+								<small>{{'Posted'|_}} {{rcd.created_at.format('l j, Y')}}</small>
 							</p>
 							<div class="row no-gutters pb-3 border-bottom border-primary">
 								<div class="col-6">
-									<a href="#" class="border border-primary px-4 py-1">Meat</a>
+									<a href="/{{rcd.categories.first.category_slug}}" class="border border-primary px-4 py-1">{{rcd.categories.first.category_title}}</a>
 								</div>
 								<div class="col-6 d-flex align-items-center justify-content-end">
 									<img class="mr-2" src="{{ 'assets/images/good-rate.png'| theme}}" alt="good-rating" width="25" height="25">
-									<small>Serves: 6</small>
+									<small>{{'Serves'|_}}: {{rcd.serve}}</small>
 									<img class="ml-3 mr-2" src="{{ 'assets/images/clock.png'| theme}}" alt="good-rating" width="25" height="25">
-									<small class="mr-3">Time: 40</small>
+									<small class="mr-3">{{'Time'|_}}: {{rcd.time}}</small>
 								</div>
 							</div>
 							<div class="pt-3 content">
-								<p>Let Sousou tell you how to prepare this dish. Check out how to guarantee tender meat that comes with a tang.</p>
+								<p>
+									{{rcd.content}}
+								</p>
 							</div>
 							<div class="rating-and-social row no-gutters mb-3">
 								<div class="col-5 text-primary" style="font-size: 1.5rem;letter-spacing: 2px;">
 									{% partial 'rating' %}
 								</div>
 								<div class="col-7 d-flex align-items-center">
-									<span class="text-primary mr-3" style="font-size: 22px">share:
+									<span class="text-primary mr-3" style="font-size: 22px">{{'share'|_}}:
 									</span>
 									{% partial 'share-2' %}
 
 								</div>
 							</div>
-							<a href="/recipe/single" class="btn btn-primary btn-lg">View Full Recipe</a>
+							<a href="/recipe/{{rcd.slug}}" class="btn btn-primary btn-lg">{{'View Full Recipe'|_}}</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-
-	<section class="py-7">
-		<div class="container">
-			<div class="d-flex justify-content-between">
-				<h3 class="mb-3">Videos</h3>
-				<div>
-					<a href="#" class="btn btn-primary">View More</a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					{% partial  'videocard' %}
-				</div>
-				<div
-					class="col-md-6 d-flex flex-column justify-content-between">
-					{# repeating the card #}
-					{% for i in 0..2 %}
-						<div class="card">
-							<div class="row no-gutters">
-								<div class="col-md-5">
-									<a href="#" class="card-top">
-										<div style="background-image: url({{ 'assets/images/video_image.jpg'|theme}})" class="card-image h-100">
-											<i class="play circle outline icon "></i>
-										</div>
-									</a>
-								</div>
-								<div class="col-md-7">
-									<div class="card-body">
-										<h4 class="card-title">
-											<a href="#">Maamoul Mad</a>
-										</h4>
-										<p class="card-subtitle py-1">Posted september</p>
-										<div class="d-flex justify-content-between align-items-center">
-											<div class="rating text-primary">
-												{% partial 'rating' %}
-											</div>
-											<div class="share d-flex align-items-center">
-												<span class="f18 text-primary">Share:</span>
-												{% partial 'share' %}
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							{# <img src="{{'assets/images/video_image.jpg'|theme}}" alt="" class="card-image-top img-fluid player-icon"> #}
-						</div>
-
-					{% endfor %}
-				</div>
-			</div>
-		</div>
-	</section>
+	{% endif %}
+	
+	{% partial 'home-videos' %}
+	
 	<section class="py-6 arrow-border-top arrow-border-bottom" data-parallax data-src="{{ 'assets/images/background.jpg'|theme}}" data-speed=".5">
 		<div class="container">
 			<div class="row">
@@ -133,8 +88,8 @@ function onStart()
 					<img src="{{'assets/images/social-img-left.png'|theme}}" alt="Social Image" class="img-fluid">
 				</div>
 				<div class="text-center py-4 py-lg-1 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-					<h2 class="h1">SOUSOU is Social!</h2>
-					<h3>Follow us on:</h3>
+					<h2 class="h1">{{'SOUSOU is Social!'|_}}</h2>
+					<h3>{{'Follow us on:'|_}}</h3>
 					<div class="mt-2" style="transform:scale(1.5);">
 						{% partial 'share' %}
 					</div>
@@ -146,33 +101,35 @@ function onStart()
 		</div>
 	</section>
 
-    {% component 'recipes' section_title="Sousou's Favourites" ad_id="main_vert_ad" %}
+    {% component 'recipes' section_title="Sousou's Favourites" ad_id="main_vert_ad" limit=6 %}
 	{% component 'ads' ad_id="home_hoz_ad" %}
-	{{debug(recipes.getAllCategories().toArray())}}
 
 	<section class="py-6">
-		<div class="container">
+		<div class="container-fluid container-lg">
 			<div class="row">
 				<div class="col-md-7">
 
 					<div class="d-flex justify-content-between">
-						<h3 class="mb-4">Blog</h3>
+						<h3 class="mb-4">{{'Blog'|_}}</h3>
 						<div>
-							<a href="#" class="btn btn-primary">View More</a>
+							<a href="{{'blog'|page}}" class="btn btn-primary">{{'View More'|_}}</a>
 						</div>
 					</div>
-					{% partial 'blog-post-card' %}
-					{% partial 'blog-post-card' %}
+				{% set posts = blogPosts.posts %}
+				{% for post in posts %}
+					{% partial 'blog-post-card' post = post %}
+				{% endfor %}
+					
 				</div>
 				<div class="col-md-5 d-flex justify-content-center bg-primary">
 					<div class="author-note text-white pt-5 px-3">
-						<h2 class="text-white text-center mb-4">Meet Sousou!</h2>
+						<h2 class="text-white text-center mb-4">{{'Meet Sousou!'|_}}</h2>
 						<div class="row">
 							<div class="col-md-5 text-center mb-3">
 								<img src="{{'assets/images/author-img.jpg'|theme}}" alt="Sousou" class="img-fluid">
 								<div class="info text-center py-5">
-									<h3 class="author">Teta Sousou</h3>
-									<div class="designation fs22">Culinary Artist</div>
+									<h3 class="author">{{'Teta Sousou'|_}}</h3>
+									<div class="designation fs22">{{'Culinary Artist'|_}}</div>
 								</div>
 								<img src="{{'assets/images/logo-white.png'|theme}}" alt="logo" class="img-fluid" style="width:120px;">
 							</div>
@@ -183,7 +140,6 @@ function onStart()
 								<p>To some people, it was a priceless taste of a home they missed, to others, a surprising brand-new experience, but my vision for Cook with Sousou has always been just to share my love for cooking with as many people as I can</p>
 								<p>Although my culinary journey started in Lebanon, my recipes are also inspired by my time living and cooking in Cyprus. I regularly shared my love for cooking with my friends from all over the world in Armenia, Greece, Morocco, Cyprus, Syria, Iraq, France and India and in return they shared with me their favourite ingredients, hints and tips and different cooking methods which have been woven together to create a truly diverse collection of sensational recipes.</p>
 								<p>I hope that you enjoy browsing through and trying some of the recipes I’ve included here. I love learning and trying new recipes, so if there’s something you’d like me to try out send me a message here and I’ll give it a go.</p>
-
 							</div>
 						</div>
 					</div>
@@ -192,8 +148,3 @@ function onStart()
 		</div>
 	</section>
 </div>
-
-
-
-
-
