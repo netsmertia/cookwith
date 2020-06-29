@@ -22,7 +22,7 @@ postPage = "blog"
 				{% endfor %}
 			</div>
 			<div class="col-md-3 d-flex justify-content-center">
-				<img src="{{'assets/images/vertical-banner.jpg'|theme}}" alt="vertical add" class="img-fluid align-self-start">
+				{% component 'ads' space_code = "blog_list_vertical_sidebar" %}
 			</div>
 		</div>
 	</section>

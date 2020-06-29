@@ -12,11 +12,10 @@ sortOrder = "published_at desc"
 categoryPage = "about"
 postPage = "blog"
 ==
-{{debug(recipes.getAllCategoriesForSlider().toArray())}}
 {% set rcd = recipes.getRecipeOfTheDay() %}
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
 	{% partial 'main-featured-search' %}
-	{% component 'ads' ad_id="home_hoz_ad" %}
+	{% component 'ads' space_code="home_banner_top" %}
 	<div class="container my-5">
 		<h3 class="mb-2">{{'What are you in the mood for?'|_}}</h3>
 		{% partial 'slider.htm' %}
@@ -101,8 +100,8 @@ postPage = "blog"
 		</div>
 	</section>
 
-    {% component 'recipes' section_title="Sousou's Favourites" ad_id="main_vert_ad" limit=6 %}
-	{% component 'ads' ad_id="home_hoz_ad" %}
+    {% component 'recipes' section_title="Sousou's Favourites" space_code="home_vertical_sidebar" limit=6 %}
+	{% component 'ads' space_code="home_banner_footer" %}
 
 	<section class="py-6">
 		<div class="container-fluid container-lg">

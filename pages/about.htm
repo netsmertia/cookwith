@@ -4,12 +4,6 @@ layout = "default"
 description = "CookWithSousou"
 is_hidden = 0
 ==
-<?php
-function onStart()
-{
-}
-?>
-==
 <div id="page-about" class="layout-{{ this.layout.id }} featured-box">
     <section class="jumbotron d-flex align-items-center" style="background:url({{ 'assets/images/home-background.jpeg'|theme }});background-position-y:34%;background-size:cover;min-height: 350px;">
 		<div class="container">
@@ -21,7 +15,7 @@ function onStart()
 		</div>
 	</section>   
 
-	{% partial 'horizontal-ads' %}
+    {% component 'ads' space_code = 'about_banner_top'  %}
 
     <section class="pt-7">
 		<div class="container">
@@ -56,7 +50,8 @@ function onStart()
                     </div>
                 </div>
                 <div class="col-md-3 d-flex flex-column">
-                    <img class="img-fluid align-self-center" src="{{ 'assets/images/ad-small.png' | theme }}" alt="">
+
+                    {% component 'ads' space_code = 'about_box_sidebar'  %}
 
                     <div class="mt-5"> 
                         <a href="#">
@@ -116,5 +111,7 @@ function onStart()
             </div>
 		</div>
 	</section>
-	{% partial 'horizontal-ads' %}
+
+    {% component 'ads' space_code = 'about_banner_top'  %}
+
 </div>
