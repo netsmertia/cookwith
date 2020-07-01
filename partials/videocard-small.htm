@@ -1,17 +1,21 @@
 
 <div class="card">
 	<div class="row no-gutters">
-		<div class="col-md-4 d-flex card-thumb-container">
+		<div class="col-lg-5 d-flex card-thumb-container">
 			<a href="#">
                 <div class="card-thumb red-hover">
-                    <img src="{{'assets/images/video_image.jpg'|theme}}" class="img-fluid thumb" alt="" style="">
+					{% if item.img.path %}
+						<img src="{{item.img.thumb(500, 'auto')}}" class="img-fluid thumb" alt="" style="">
+					{% else %}
+						<img src="{{'assets/images/video_image.jpg'|theme}}" class="img-fluid thumb" alt="" style="">
+					{% endif %}
                     <div class="play-icon">
                         <i class="play circle outline icon big text-white"></i>
                     </div>
                 </div>
 			</a>
 		</div>
-		<div class="col-md-8 card-content-container">
+		<div class="col-lg-7 card-content-container">
 			<div class="card-body">
 				<h4 class="card-title">
 					<a href="#">Maamoul Mad</a>

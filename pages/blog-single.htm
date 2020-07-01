@@ -43,9 +43,9 @@ postPage = "blog-single"
 				{% if post.featured_images.count > 0 %}
 					<img src="{{post.featured_images.first.path}}" alt="{{post.title}}" class="img-fluid">
 				{% endif %}
-				<div class="content">{{ post.content_html|raw }}</div>
+				<div class="content mt-5">{{ post.content_html|raw }}</div>
 
-			<div id="next-prev" class="row mx-1 mt-5 py-3 border-bottom border-top border-gray">
+			<div id="next-prev" class="row  mt-5 py-3 border-bottom border-top border-gray">
 				{% set prev = nextAndPrev.prevPost %}
 				{% set next = nextAndPrev.nextPost %}
 				<div class="prev-post col-sm-6">

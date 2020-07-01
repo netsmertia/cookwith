@@ -8,7 +8,6 @@ public function onStart() {
 	$this['v'] = $this['recipes']->getVideo($this->param('slug'));
 	$allVideos = $this['recipes']->getAllVideos();
 	$this['allVideos'] = $allVideos;
-	debug($allVideos->toArray());
 }
 ==
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
@@ -43,6 +42,7 @@ public function onStart() {
 						<div class="col-md-5 col-lg-4 bg-primary px-3 d-flex flex-column">
 							<h2 class="text-white mt-2">{{'Sousou\'s Favourites'|_}}</h2>
 							<div class="video-cards-container flex-fill d-flex justify-content-between flex-column">
+								{{debug(v.related.toArray())}}
 								{% for item in v.related %}
 									<div class="card-video-section border-bottom border-white mb-3 mb-md-0 row no-gutters">
 										<div class="row no-gutters">
@@ -50,7 +50,7 @@ public function onStart() {
 												<a href="{{'videos'|page({slug: item.slug})}}">
 													<div class="card-thumb red-hover">
 														{% if v.img.path %}
-															<img src="{{item.img.thumb(300, 200)}}" class="img-fluid thumb" alt="" style="">
+															<img src="{{item.img.thumb(600, 'auto')}}" class="img-fluid thumb" alt="" style="">
 														{% else %}
 															<img src="{{'assets/images/video_image.jpg'|theme}}" class="img-fluid thumb" alt="" style="">
 														{% endif %}
@@ -143,9 +143,9 @@ public function onStart() {
 				</div>
 			</div>
 			<div class="col-md-7" id="video-card-grid">
-				{% for i in 1..5 %}
+				{% for item in allVideos %}
 					<div class="mb-3 video-card-container">
-						{% partial 'videocard-small' %}
+						{% partial 'videocard-small' item= item %}
 					</div>
 				{% endfor %}
 			</div>
