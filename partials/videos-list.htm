@@ -1,0 +1,9 @@
+{% if data.count() > 0 %}
+    {% for item in data %}
+        <div class="mb-3 video-card-container">
+            {% partial 'videocard-small' item= item %}
+        </div>
+    {% endfor %}
+{% else %}
+    <h2 class="text-muted">Not record found, Please try others</h2>
+{% endif %}

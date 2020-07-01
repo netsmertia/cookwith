@@ -1,0 +1,67 @@
+==
+public function onStart() {
+    $data = $this['data'];
+    $this->calculate();
+}
+public function calculate() {
+
+    $data = $this['data'];
+    $show = 3;
+    if ($data->currentpage() == 1) {
+        $start = 1;
+        $end = min($data->lastpage(), $show);
+    } else if ($data->lastpage() == $data->currentpage()) {
+        $start = max($data->lastPage() + 1 - $show, 1);
+        $end = $data->lastpage();
+    } else {
+        $start = max(1, $data->currentpage() - floor($show/2));
+        $end = min($data->lastpage(), $data->currentpage() + floor($show/2));
+    }
+    
+    $this['start'] = $start;
+    $this['end'] = $end;
+}
+==
+<div class="mr-2">Page {{data.currentPage() }} of {{data.lastPage()}}</div>
+<ul class="pagination mb-0" 
+    data-request-data="term:'{{term}}', cats: {{cats|json_encode()}}"
+>
+
+    
+    <li class="page-item">
+        {% if data.currentPage() > 1 %}
+        <button class="page-link"
+            data-request="onFilterVideos"
+            data-request-data="page:{{data.currentPage() - 1 }}"
+            data-request-update="'paginator':'#paginator', 'videos-list':'#video-card-grid'"
+             aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+        </button>
+        {% else %}
+        <a class="page-link " aria-label="Previous"> <span aria-hidden="true">&laquo;</span> </a>
+        {% endif %}
+    </li>
+    {% for i in range(start, end) %}
+        <li class="page-item {% if i == data.currentPage() %} active {% endif %}"
+        ><button 
+            data-request="onFilterVideos"
+            data-request-data="page:{{i}}, term: '{{term}}'"
+            data-request-update="'paginator':'#paginator', 'videos-list':'#video-card-grid'"
+            
+        class="page-link" >{{i}}</button></li>
+    {% endfor %}
+    <li class="page-item">
+        {% if data.currentPage() < data.lastPage() %}
+        <button class="page-link"
+            data-request="onFilterVideos"
+            data-request-data="page:{{data.currentPage() + 1 }}, term: '{{term}}'"
+            data-request-update="'paginator':'#paginator', 'videos-list':'#video-card-grid'"
+             aria-label="Previous">
+            <span aria-hidden="true">&raquo;</span>
+        </button>
+        {% else %}
+        <a class="page-link " aria-label="Previous"> 
+        <span aria-hidden="true">&raquo;</span> </a>
+        {% endif %}
+    </li>
+</ul>

@@ -6,8 +6,17 @@ is_hidden = 0
 ==
 public function onStart() {
 	$this['v'] = $this['recipes']->getVideo($this->param('slug'));
-	$allVideos = $this['recipes']->getAllVideos();
-	$this['allVideos'] = $allVideos;
+	$this['data'] =  $this['recipes']->getAllVideos();
+	$this['allVideos'] = $this['recipes']->getAllVideos($paginate = false);
+	$this['categories'] = $this['recipes']->getAllCategories();
+}
+
+public function onFilterVideos() {
+	$this['data'] = $this['recipes']->getAllVideos();
+	$this['categories'] = $this['recipes']->getAllCategories();
+	$this['term'] = input('term');
+	$this['cats'] = input('cats');
+	debug(input());
 }
 ==
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
@@ -86,11 +95,16 @@ public function onStart() {
 	<section class="container mt-7" id="app">
 		<div class="row border border-size-2 border-off-white  mx-0 py-3 py-md-2">
 			<div class="col-md-12 col-lg-6 mb-3 mb-lg-0 order-lg-2">
-				<form action="">
+				<form id = "video-category-search"
+					data-request="onFilterVideos" 
+					data-request-data="cats:{{cats| json_encode() }}"
+					data-request-update="videos-list: '#video-card-grid','paginator':'#paginator', 'videos-category-filter':'#videos-category-filter'">
+
 					<div class="input-group">
-						<input type="text" class="form-control form-control-lg">
+						<input type="text" name="term" class="form-control form-control-lg">
+						<input type="hidden" name="page" value="1">
 						<div class="input-group-append">
-							<button class="btn btn-primary btn-lg">Search</button>
+							<button type="submit" class="btn btn-primary btn-lg">Search</button>
 						</div>
 					</div>
 				</form>
@@ -101,55 +115,27 @@ public function onStart() {
 				<i class="icon th button big mr-2 cursor-pointer" id="video-grid-button"></i>
 				<i class="icon th list button big text-primary cursor-pointer" id="video-list-button"></i>
 			</div>
-			<div class="col-md-9 col-lg-3 d-flex align-items-center justify-content-end order-lg-3">
-				<div class="mr-2">Page 1 of 9</div>
-				<ul class="pagination mb-0">
-					<li class="page-item disabled">
-					<a class="page-link" href="#" aria-label="Previous">
-						<span aria-hidden="true">&laquo;</span>
-					</a>
-					</li>
-					<li class="page-item active"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-					<li class="page-item">
-					<a class="page-link" href="#" aria-label="Next">
-						<span aria-hidden="true">&raquo;</span>
-					</a>
-					</li>
-				</ul>
+
+			<div class="col-md-9 col-lg-3 d-flex align-items-center justify-content-end order-lg-3"
+				id="paginator"
+			>
+				{% partial 'paginator'  %}
 			</div>
 		</div>
 	</section>
 	<section class="container mt-7">
-		<div class="row">
+		<div class="row no-gutters">
 			<div class="col-md-2 mb-3">
 				<div class="fiter-container border border-size-2 border-off-white p-3">
 					<div class="h2 border-bottom border-primary pb-2">Filter</div>
-					<form action="" class="text-primary">
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-						<div class="form-group mb-0"> <input type="checkbox" name="" id="" class="input-control mr-1"> <label for="">Chicken</label> </div>
-					</form>
+					{% partial 'videos-category-filter' %}
 				</div>
 			</div>
-			<div class="col-md-7" id="video-card-grid">
-				{% for item in allVideos %}
-					<div class="mb-3 video-card-container">
-						{% partial 'videocard-small' item= item %}
-					</div>
-				{% endfor %}
+			<div class="col-md-7 px-4" id="video-card-grid">
+				{% partial 'videos-list' %}
 			</div>
 			<div class="col-md-3 d-flex justify-content-center">
-				<img src="{{'assets/images/vertical-banner.jpg'|theme}}" alt="vertical add" class="img-fluid align-self-start">
+				{% component 'ads' space_code = "videos_vertical_sidebar" %}
 			</div>
 		</div>
 	</section>

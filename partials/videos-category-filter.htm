@@ -1,0 +1,16 @@
+<div id = "videos-category-filter">
+    <form  class="text-primary"
+        data-request-data = "term:'{{term}}', page:'{{page}}'"
+    >
+        {% for category in categories %}
+        <div class="form-group mb-0"> 
+            <input 
+                {% if category.id in cats %} checked  {% endif %}
+                data-request-update = "videos-list: '#video-card-grid','paginator':'#paginator', 'videos-category-filter':'#videos-category-filter'"
+                data-request="onFilterVideos"
+                type="checkbox" name="cats[]" value="{{category.id}}" id="cat-{{category.id}}" class="input-control mr-1"> 
+            <label for="cat-{{category.id}}" class="cursor-pointer">{{category.category_title}}</label> 
+        </div>
+        {% endfor %}
+    </form>
+</div>
