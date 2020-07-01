@@ -5,9 +5,9 @@
 			<a href="#">
                 <div class="card-thumb red-hover">
 					{% if item.img.path %}
-						<img src="{{item.img.thumb(500, 'auto')}}" class="img-fluid thumb" alt="" style="">
+						<img src="{{item.img.thumb(500, 'auto')}}" class="img-fluid thumb" alt="{{item.title}}" style="">
 					{% else %}
-						<img src="{{'assets/images/video_image.jpg'|theme}}" class="img-fluid thumb" alt="" style="">
+						<img src="{{'assets/images/video_image.jpg'|theme}}" class="img-fluid thumb" alt="{{item.title}}" style="">
 					{% endif %}
                     <div class="play-icon">
                         <i class="play circle outline icon big text-white"></i>
@@ -18,9 +18,9 @@
 		<div class="col-lg-7 card-content-container">
 			<div class="card-body">
 				<h4 class="card-title">
-					<a href="#">Maamoul Mad</a>
+					<a href="{{'videos'|page({slug: item.slug})}}">{{item.title}}</a>
 				</h4>
-				<p class="card-subtitle py-1">Posted september</p>
+				<p class="card-subtitle py-1">{{'Posted'|_}} {{item.created_at.format('j l, Y')}}</p>
 				<div class="d-flex justify-content-between align-items-center">
 					<div class="rating text-primary">
 						{% partial 'rating' %}
