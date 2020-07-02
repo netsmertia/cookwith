@@ -1,7 +1,13 @@
 description = "Default layout"
 
 [recipes]
+
 [ads]
+
+[alternateHrefLangElements]
+
+[localePicker]
+forceUrl = 0
 ==
 <!DOCTYPE html>
 <html>
@@ -13,6 +19,7 @@ description = "Default layout"
         <meta name="author" content="October CMS">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
+        {% component 'alternateHrefLangElements' %}
         {% styles %}
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,600&display=swap" rel="stylesheet">
         <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
@@ -22,15 +29,16 @@ description = "Default layout"
     </head>
     <body>
 
-
         <!-- Header -->
         <header id="layout-header">
-            {% partial 'nav-menu-main' %}
+            {% partial 'nav2' %}
         </header>
 
         <div style="padding-top:100px">
             {% page %}
         </div>
+            {% component 'localePicker' %}
+        <h2>{{activeLocale}}</h2>
 
         <!-- Footer -->
         <footer id="layout-footer">

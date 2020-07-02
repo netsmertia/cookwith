@@ -56,7 +56,16 @@ public function onStart() {
 			</li>
 			<div class="nav-item d-flex align-items-center">
 				<div class="mr-3" style="height: 30px; border-left: 1px solid #c51d22;"></div>
-				<a href="#" class="nav-link">العربية</a>
+				<a 
+					data-request="onSwitchLocale"
+					data-request-data="locale: '{{activeLocale == 'en' ? 'ar' : 'en' }}'"
+					class="nav-link cursor-pointer">
+						{% if  activeLocale == 'en' %}
+							العربية
+						{% else %}
+							English
+						{% endif %}
+				</a>
 			</div>
 		</div>
 	</div>

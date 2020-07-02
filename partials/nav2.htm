@@ -7,7 +7,7 @@ code = "main-menu"
 	<a class="navbar-brand" href="#">
 		<img class="logo top" src="{{ 'assets/images/logo.png'| theme }}" alt="" width="" height="80px">
 	</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-navigation" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 
@@ -39,7 +39,16 @@ code = "main-menu"
 			{% partial 'share-2' %}
 			<div class="nav-item d-flex align-items-center">
 				<div class="mr-3" style="height: 30px; border-left: 1px solid #c51d22;"></div>
-				<a href="#" class="nav-link">العربية</a>
+				<a 
+					data-request="onSwitchLocale"
+					data-request-data="locale: '{{activeLocale == 'en' ? 'ar' : 'en' }}'"
+					class="nav-link cursor-pointer">
+						{% if  activeLocale == 'en' %}
+							العربية
+						{% else %}
+							English
+						{% endif %}
+				</a>
 			</div>
 		</div>
 	</div>

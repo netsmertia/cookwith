@@ -1,18 +1,22 @@
 items:
     -
         title: Home
-        type: url
-        url: /
+        type: cms-page
         code: home
+        reference: home
         viewBag:
             isHidden: '0'
             cssClass: home
             isExternal: '0'
     -
         title: About
+        nesting: ''
         type: cms-page
+        url: ''
         code: about
         reference: about
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: info
@@ -21,34 +25,46 @@ items:
         title: Recipes
         type: cms-page
         code: recipes
-        reference: recipe
+        reference: all-recipes
         viewBag:
             isHidden: '0'
             cssClass: recipe
             isExternal: '0'
     -
         title: Videos
+        nesting: ''
         type: cms-page
+        url: ''
         code: videos
         reference: videos
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: play
             isExternal: '0'
     -
         title: Blog
+        nesting: ''
         type: cms-page
+        url: ''
         code: blog
         reference: blog
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: pencil
             isExternal: '0'
     -
         title: Contact
+        nesting: ''
         type: cms-page
+        url: ''
         code: contact
         reference: contact
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: envelope
