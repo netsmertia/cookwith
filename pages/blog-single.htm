@@ -3,8 +3,6 @@ url = "/blog/:slug"
 layout = "default"
 is_hidden = 0
 
-[ads]
-ad_id = "home_horz_ad"
 
 [blogPost]
 slug = "{{ :slug }}"
@@ -50,7 +48,7 @@ postPage = "blog-single"
 				{% set next = nextAndPrev.nextPost %}
 				<div class="prev-post col-sm-6">
 				{% if prev %}
-						<span class="small-title"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous</span>
+						<span class="small-title"><i class="fa fa-arrow-left" aria-hidden="true"></i> {{'Previous'|_}}</span>
 						<h4><a href="{{prev.url}}" title="{{ prev.title }}">{{ prev.title }}</a></h4>
 				{% else %}
 				<div></div>
@@ -58,7 +56,7 @@ postPage = "blog-single"
 				</div>
 				{% if next %}
 					<div class="next-post col-sm-6 text-right">
-						<span class="small-title">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+						<span class="small-title">{{'Next'|_}} <i class="fa fa-arrow-right" aria-hidden="true"></i></span>
 						<h4><a href="{{next.url}}" title="{{ next.title }}">{{ next.title }}</a></h4>
 					</div>
 				{% endif %}

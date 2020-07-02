@@ -24,9 +24,6 @@ postPage = "blog"
 	{% if rcd %}
 	<section
 		class="position-relative recipe-of-day" data-parallax data-src="{{'assets/images/background.jpg'|theme}}" data-speed=".5">
-		{# <div class=" parallax-1" data-parallax data-src="{{'assets/images/background.jpg'|theme}}">
-									<img src="{{ 'assets/images/background.jpg'|theme}}" alt="" class="parallax">
-								</div> #}
 		<div class="container mt-3">
 			<h3 class="mb-3">{{'Recipe of the Day'|_}}</h3>
 			<div class="row no-gutters">
@@ -133,12 +130,7 @@ postPage = "blog"
 								<img src="{{'assets/images/logo-white.png'|theme}}" alt="logo" class="img-fluid" style="width:120px;">
 							</div>
 							<div class="col-md-7 text-justify text-bold f12 font-smooth">
-								<p>
-									I hope the passion I have for making people happy, through my dishes, is something I can continue to share with all of you. Since I’ve been cooking, my recipes have travelled the world and my plastic containers have crossed continents, simply to put smiles on hundreds of hungry faces.
-								</p>
-								<p>To some people, it was a priceless taste of a home they missed, to others, a surprising brand-new experience, but my vision for Cook with Sousou has always been just to share my love for cooking with as many people as I can</p>
-								<p>Although my culinary journey started in Lebanon, my recipes are also inspired by my time living and cooking in Cyprus. I regularly shared my love for cooking with my friends from all over the world in Armenia, Greece, Morocco, Cyprus, Syria, Iraq, France and India and in return they shared with me their favourite ingredients, hints and tips and different cooking methods which have been woven together to create a truly diverse collection of sensational recipes.</p>
-								<p>I hope that you enjoy browsing through and trying some of the recipes I’ve included here. I love learning and trying new recipes, so if there’s something you’d like me to try out send me a message here and I’ll give it a go.</p>
+								{% content 'home-page-bio' %}
 							</div>
 						</div>
 					</div>
@@ -147,3 +139,4 @@ postPage = "blog"
 		</div>
 	</section>
 </div>
+

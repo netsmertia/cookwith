@@ -104,14 +104,14 @@ public function onFilterVideos() {
 						<input type="text" name="term" class="form-control form-control-lg">
 						<input type="hidden" name="page" value="1">
 						<div class="input-group-append">
-							<button type="submit" class="btn btn-primary btn-lg">Search</button>
+							<button type="submit" class="btn btn-primary btn-lg">{{'Search'|_}}</button>
 						</div>
 					</div>
 				</form>
 			</div>
 
 			<div class="col-md-3 d-none d-md-flex align-items-center order-lg-1">
-				<h2 class="d-inline mb-0 mr-2">View</h2>
+				<h2 class="d-inline mb-0 mr-2">{{'View'|_}}</h2>
 				<i class="icon th button big mr-2 cursor-pointer" id="video-grid-button"></i>
 				<i class="icon th list button big text-primary cursor-pointer" id="video-list-button"></i>
 			</div>
@@ -127,7 +127,7 @@ public function onFilterVideos() {
 		<div class="row no-gutters">
 			<div class="col-md-2 mb-3">
 				<div class="fiter-container border border-size-2 border-off-white p-3">
-					<div class="h2 border-bottom border-primary pb-2">Filter</div>
+					<div class="h2 border-bottom border-primary pb-2">{{'Filter'|_}}</div>
 					{% partial 'videos-category-filter' %}
 				</div>
 			</div>

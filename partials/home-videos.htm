@@ -7,9 +7,9 @@ recipe_type = "VIDEO"
 <section class="py-7">
 		<div class="container">
 			<div class="d-flex justify-content-between">
-				<h3 class="mb-3">Videos</h3>
+				<h3 class="mb-3">{{'Videos'|_}}</h3>
 				<div>
-					<a href="/videos" class="btn btn-primary">View More</a>
+					<a href="/videos" class="btn btn-primary">{{'View More'|_}}</a>
 				</div>
 			</div>
 			<div class="row">
@@ -28,13 +28,13 @@ recipe_type = "VIDEO"
                             <h2 class="card-title">
                                 <a href="/{{firstVideo.slug}}">{{firstVideo.title}}</a>
                             </h2>
-                            <div class="card-subtitle">Posted {{firstVideo.created_at.format('l j, Y')}}</div>
+                            <div class="card-subtitle">{{'Posted'|_}} {{firstVideo.created_at.format('l j, Y')}}</div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="rating text-primary">
                                     {% partial 'rating' %}
                                 </div>
                                 <div class="share d-flex align-items-center">
-                                    <span class="f22 text-primary">Share:</span>
+                                    <span class="f22 text-primary">{{'Share'|_}}:</span>
                                     {% partial 'share' %}
                                 </div>
                             </div>
@@ -62,13 +62,13 @@ recipe_type = "VIDEO"
 										<h4 class="card-title">
 											<a href="{{'videos'| page({slug: firstVideo.slug})}}">{{video.title}}</a>
 										</h4>
-										<p class="card-subtitle py-1">Posted {{video.created_at.format('l j, Y')}}</p>
+										<p class="card-subtitle py-1">{{'Posted'|_}} {{video.created_at.format('l j, Y')}}</p>
 										<div class="d-flex justify-content-between align-items-center">
 											<div class="rating text-primary">
 												{% partial 'rating' %}
 											</div>
 											<div class="share d-flex align-items-center">
-												<span class="f18 text-primary">Share:</span>
+												<span class="f18 text-primary">{{'Share'|_}}:</span>
 												{% partial 'share' %}
 											</div>
 										</div>

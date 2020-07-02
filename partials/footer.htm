@@ -36,23 +36,23 @@ public function onStart() {
 ==
 <section class="py-6 arrow-border-top arrow-border-bottom" style="background:url({{'assets/images/background.jpg'|theme}});">
 	<div class="container">
-		<h3 class="mb-5">Follow us on Instagram</h3>
+		<h3 class="mb-5">{{'Follow us on Instagram'|_}}</h3>
 		<div class="row justify-content-center">
 			<div class="col-md-12 text-center">
 				<div class="spin mb-5">
 					<img src="{{'assets/images/instagram.png'|theme}}" alt="">
 				</div>
-				<h2 class="f30 mb-3">Never miss a Recipe!</h2>
-				<p class="f22 mb-3 text-primary">Subscribe and get the latest recipes and news delivered to your inbox.</p>
+				<h2 class="f30 mb-3">{{'Never miss a Recipe!'|_}}</h2>
+				<p class="f22 mb-3 text-primary">{{'Subscribe and get the latest recipes and news delivered to your inbox.'|_ }}</p>
 				
 			</div>
 
 				<div class="col col-md-8 col-lg-6">
 					<form action="">
 						<div class="input-group mx-auto">
-							<input type="text" class="form-control form-control-lg" placeholder="Your email address..">
+							<input type="text" class="form-control form-control-lg" placeholder="{{'Your email address'|_}}..">
 							<div class="input-group-append">
-								<button class="btn btn-primary btn-lg px-3" type="button">Subscribe</button>
+								<button class="btn btn-primary btn-lg px-3" type="button">{{'Subscribe'|_}}</button>
 							</div>
 						</div>
 					</form>	
@@ -72,7 +72,7 @@ public function onStart() {
 		<div class="row mt-5 justify-content-center">
 				{% for cat in menucats %}
 				<div class="col-sm footer-nav">
-					<h4 class="mb-4 title">{{ cat['title']}}</h4>
+					<h4 class="mb-4 title">{{ cat['title']|_}}</h4>
 					<ul class="list-menu">
 						{% for item in cat['recipes'] %}
 							<li>
@@ -80,7 +80,7 @@ public function onStart() {
 							</li>
 						{% endfor %}
 						<li>
-							<a href="{{'all-recipes'|page({slug:cat['slug']})}}">View More</a>
+							<a href="{{'all-recipes'|page({slug:cat['slug']})}}">{{'View More'|_}}</a>
 						</li>
 					</ul>
 				</div>
@@ -88,8 +88,7 @@ public function onStart() {
 		</div>
 		<div class="row mt-6 pt-3 mb-3 border-top border-primary text-center d-flex align-items-center">
 			<div class="col-sm mb-3 mb-sm-0">
-				<a href="#">
-					© 2020 Cook With Sousou. All rights reserved.</a>
+				<a href="#">© {{'2020 Cook With Sousou. All rights reserved.'|_}}</a>
 			</div>
 			<div class="col-sm">
 				<ul class="social-icons-lists icons-background-rounded centre">
@@ -118,10 +117,10 @@ public function onStart() {
 			<div class="col-sm justify-content-center d-flex">
 				<ul class="nav">
 					<div class="nav-item">
-						<a href="#" class="nav-link">Terms & Conditions</a>
+						<a href="#" class="nav-link">{{'Terms & Conditions'|_}}</a>
 					</div>
 					<div class="nav-item">
-						<a href="#" class="nav-link">Privacy Policy</a>
+						<a href="#" class="nav-link">{{'Privacy Policy'|_}}</a>
 					</div>
 				</ul>
 			</div>

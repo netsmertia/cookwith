@@ -6,18 +6,12 @@ is_hidden = 0
 
 [contactForm]
 ==
-<?php
-function onStart()
-{
-}
-?>
-==
 <div id="page-contact" class="layout-{{ this.layout.id }} featured-box">
     <section class="jumbotron d-flex align-items-center" style="background:url({{ 'assets/images/home-background.jpeg'|theme }});background-position-y:44%;background-size:cover;min-height: 250px;">
 		<div class="container">
 			<div class="row justify-content-center text-center">
 				<div class="col-md-10 col-lg-7">
-					<h1 class="title mb-5 mt-7">Contact Us</h1>
+					<h1 class="title mb-5 mt-7">{{'Contact Us'|_}}</h1>
 				</div>
 			</div>
 		</div>
@@ -29,11 +23,11 @@ function onStart()
 		<div class="container">
             <div class="row">
                 <div class="col-md-9 pr-md-7 pr-3 mb-3">
-                    <h2 class="mb-5">If you have a question, comment or would like to work together, please complete the form below.</h2> 
+                    <h2 class="mb-5">{{'If you have a question, comment or would like to work together, please complete the form below.'|_}}</h2> 
                     <div class="border border-primary">
                         <div class="pt-5 pb-7 bg-primary text-center d-flex justify-content-between align-items-center arrow-border-bottom">
                                 <div class="flex-grow-1 border-bottom border-white border-size-2 mr-3" style="height:0px;"></div>
-                                <p class="h2 text-white">We would love to hear from you!</p>
+                                <p class="h2 text-white">{{'We would love to hear from you!'|_}}</p>
                                 <div class="flex-grow-1 border-bottom border-white  border-size-2 ml-3" style="height:0px;"></div>
                         </div>
                         <div class="p-5">
@@ -84,8 +78,8 @@ function onStart()
                     </div>
 
                     
-                    <div class="d-flex justify-content-center mt-5" >
-                        <a href="#" class="btn btn-primary f15 text-center">View More</a>
+                    <div class="d-flex justify-content-center mt-5 mb-3" >
+                        <a href="{{'videos'|page}}" class="btn btn-primary f15 text-center">{{'View More'|_}}</a>
                     </div>
                 </div>
             </div>

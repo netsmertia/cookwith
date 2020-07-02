@@ -22,7 +22,7 @@ public function calculate() {
     $this['end'] = $end;
 }
 ==
-<div class="mr-2">Page {{data.currentPage() }} of {{data.lastPage()}}</div>
+<div class="mr-2">{{'Page'|_}} {{data.currentPage() }} {{'of'|_}} {{data.lastPage()}}</div>
 <ul class="pagination mb-0" 
     data-request-data="term:'{{term}}', cats: {{cats|json_encode()}}"
 >

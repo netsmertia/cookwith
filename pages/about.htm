@@ -9,7 +9,7 @@ is_hidden = 0
 		<div class="container">
 			<div class="row justify-content-center text-center">
 				<div class="col-md-10 col-lg-7">
-					<h1 class="title mb-5 mt-7">Sousou’s <br>Recipes made with passion</h1>
+					<h1 class="title mb-5 mt-7">{{'Sousou’s <br>Recipes made with passion'|_}}</h1>
 				</div>
 			</div>
 		</div>
@@ -22,22 +22,19 @@ is_hidden = 0
             <div class="row">
                 <div class="col-md-9 pr-md-7 pr-3 mb-3">
                     <div class="d-flex justify-content-between">
-                        <h3 class="mb-3">Meet Teta Sousou</h3>
+                        <h3 class="mb-3">{{'Meet Teta Sousou'|_}}</h3>
                     </div>
                     <div class="row mb-md-7 mb-0">
                         <div class="col-md-6 mb-3 mb-md-0">
                             <div class="family-image" style="background-image: url('https://cookwithsousou.com/wp-content/uploads/2018/09/family-edited.jpg');">&nbsp;</div>
                         </div>
                         <div class="col-md-6 description">
-                            <p>I love nothing more&nbsp;than sharing a meal with my family. I couldn’t help posting a&nbsp;snapshot of my adorable grandchildren who&nbsp;always&nbsp;enjoy&nbsp;my favourite recipes.</p>
-                            <p>I hope the passion I have for making people happy, through my dishes, is something I can continue to share with all of you.&nbsp;Since I’ve been cooking, my recipes have travelled the world and my plastic containers have crossed continents, simply to put smiles on hundreds of hungry faces.</p>
-                            <p>To some people, it was a priceless taste of a home they missed, to others, a surprising brand-new experience, but my&nbsp;vision for Cook with Sousou has always been just to share my love for cooking with as many people as I can.</p>
+                            {% content 'about-description1' %}
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 description">
-                            <p>Although my culinary journey started in Lebanon, my recipes are also inspired by my time living and cooking in Cyprus. I regularly shared my love for cooking with my friends from all over the world in Armenia, Greece, Morocco, Cyprus, Syria, Iraq, France and India and in return they shared with me their favourite ingredients, hints and tips and different cooking methods which have been woven together to create a truly diverse collection of sensational recipes.</p>
-                            <p>I hope that you enjoy browsing through and trying some of the recipes I’ve included here. I love learning and trying new recipes, so if there’s something you’d like me to try out send me a message here and I’ll give it a go.</p>
+                            {% content 'about-description2' %}
                         </div>
                         <div class="col-md-6">
                             <div class="sou-image" style="background-image: url('https://cookwithsousou.com/wp-content/uploads/2018/08/about-side-img.jpg');">&nbsp;</div>
@@ -88,7 +85,7 @@ is_hidden = 0
 
                     
                     <div class="d-flex justify-content-center mt-5" >
-                        <a href="#" class="btn btn-primary f15 text-center">View More</a>
+                        <a href="{{'recipes'|page}}" class="btn btn-primary f15 text-center">View More</a>
                     </div>
                 </div>
             </div>
