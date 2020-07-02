@@ -134,10 +134,15 @@ $(document).ready(function () {
   });
 });
 $(document).ready(function () {
-  $(window).on('scroll', function (e) {
-    $('#main-top-nav').toggleClass('mini-nav', $(window).scrollTop() > 150);
-  }); //open full screen search
+  // $(window).on('scroll', function (e) {
+  //   $('#main-top-nav').toggleClass('mini-nav', $(window).scrollTop() > 150);
+  // }); //open full screen search
 
+    $(window).on('scroll', function (e) {
+        if($(window).width() > 992) {
+          $('#main-top-nav').toggleClass('mini-nav', $(window).scrollTop() > 150);
+        }
+    });
   $('#open-full-screen-search').on("click", function (event) {
     event.preventDefault();
     $('.full-screen-search').addClass("open");
@@ -213,3 +218,5 @@ module.exports = __webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/the
 /***/ })
 
 /******/ });
+
+

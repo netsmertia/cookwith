@@ -19,7 +19,7 @@ code = "main-menu"
 					<li role="presentation" class="nav-item {{ item.isActive ? 'active' : '' }} {{ item.isChildActive ? 'child-active' : '' }} {{ item.viewBag.cssClass }}">
 						{% if item.url %}
 							<a class="nav-link" href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
-								<img src="{{ ('assets/images/' ~ item.viewBag.cssClass ~ '.png')| theme }}" alt="{{item.title}}" width="20" height="20" class="d-block m-auto">
+								<img src="{{ ('assets/images/' ~ item.viewBag.cssClass ~ '.png')| theme }}" alt="{{item.title}}" width="20" height="20" class="d-none d-lg-block m-auto">
 								<div class="text-uppercase">{{ item.title }}</div>
 							</a>
 						{% else %}
@@ -28,15 +28,28 @@ code = "main-menu"
 					</li>
 
 				{% endfor %}
-            {% endif %}
+			{% endif %}
+
+			<li class="nav-item d-block d-lg-none">
+				<a 
+					data-request="onSwitchLocale"
+					data-request-data="locale: '{{activeLocale == 'en' ? 'ar' : 'en' }}'"
+					class="nav-link cursor-pointer">
+						{% if  activeLocale == 'en' %}
+							العربية
+						{% else %}
+							English
+						{% endif %}
+				</a>
+			</li>
 		</ul>
-		<ul class="navbar-nav ml-auto social-icons-lists icons-background-rounded centre">
+		<ul class="navbar-nav ml-auto social-icons-lists icons-background-rounded centre d-none d-lg-flex">
 			<li class="nav-item d-flex align-items-center mr-2 mt-1">
 				<a href="#" id="open-full-screen-search">
 					<i class="search icon red large link"></i>
 				</a>
 			</li>
-			{% partial 'share-2' %}
+			{% partial 'main-nav-share' %}
 			<div class="nav-item d-flex align-items-center">
 				<div class="mr-3" style="height: 30px; border-left: 1px solid #c51d22;"></div>
 				<a 
