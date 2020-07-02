@@ -1,0 +1,46 @@
+title = "Search"
+url = "s/:term?/:page?"
+layout = "default"
+is_hidden = 0
+
+==
+public function onStart() {
+    $this['rcps'] = $this['recipes']->getAllRecipesWithPagination(input('term'));
+}
+==
+<div id="page-category-recipes" class="layout-{{ this.layout.id }} featured-box">
+    <section class="pt-6 container-fluid container-lg">
+        <div class="row">
+            {% for item in rcps %}
+                <div class="col-md-6 col-lg-3 mb-4 px-10px d-flex">
+                    <div class="card card-post">
+                        <a href="{{'recipe'|page({slug:item.slug})}}" class="card-image-top">
+                            {% if item.img.path %}
+                                <img src="{{item.img.thumb(500, 'auto')}}" alt="" class="img-fluid mh-173" >
+                            {% else %}
+                                <img src="{{'assets/images/post-thumb-2.jpg'|theme}}" alt="" class="img-fluid mh-173" >
+                            {% endif %}
+                            <div class="card-image-overlay">
+                                <h4 class="card-title">{{item.title}}</h4>
+                            </div>
+                        </a>
+                        <div class="card-body">
+                            <a href="{{'recipe'|page({slug:item.slug})}}">
+                                <h4 class="card-title text-capitalize">{{item.title|lower}}</h4>
+                            </a>
+                            <p>
+                                <small>{{'Posted'|_}} {{item.created_at.format('l j, Y')}}</small>
+                            </p>
+                            <div class="pt-3 content">
+                                <p class="text-ellipsis mb-0">{{item.content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="d-flex justify-content-end">
+            {{rcps.appends({'term': input('term')}).links("pagination::bootstrap-4")|raw}}
+        </div>
+    </section>
+</div>
