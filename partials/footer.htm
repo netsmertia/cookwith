@@ -1,3 +1,39 @@
+==
+public function onStart() {
+	$cats = [
+		[
+			'title' => 'Appetizers',
+			'slug' => 'appetizers',
+		],
+
+		[
+			'title' => 'Chicken',
+			'slug' => 'chicken',
+		],
+		[
+			'title' => 'Meat',
+			'slug' => 'meat',
+		],
+		[
+			'title' => 'Fish & Seafood',
+			'slug' => 'fish',
+		],
+		[
+			'title' => 'Desserts',
+			'slug' => 'oriental-desserts',
+		],
+	];
+	
+
+	for ($i = 0; $i < count($cats); $i++) {
+		$cats[$i]['recipes'] = $this['recipes']->getRecipesForMenu($cats[$i]['slug']);
+	}
+
+	
+	$this['menucats'] = $cats;
+	
+}
+==
 <section class="py-6 arrow-border-top arrow-border-bottom" style="background:url({{'assets/images/background.jpg'|theme}});">
 	<div class="container">
 		<h3 class="mb-5">Follow us on Instagram</h3>
@@ -34,155 +70,21 @@
 			</div>
 		</div>
 		<div class="row mt-5 justify-content-center">
-			<div class="col-sm footer-nav">
-				<h4 class="mb-4 title">Appetizers</h4>
-				<ul class="list-menu">
-					<li>
-						<a href="">Fish Kibbeh</a>
-					</li>
-					<li>
-						<a href="#">Brioche</a>
-					</li>
-					<li>
-						<a href="#">Kechek Manakish</a>
-					</li>
-					<li>
-						<a href="#">Atchara Filipina Pickles</a>
-					</li>
-					<li>
-						<a href="#">Flaounes</a>
-					</li>
-					<li>
-						<a href="#">Zucchini Fatayer</a>
-					</li>
-					<li>
-						<a href="#">Fatayer Feta Cheese</a>
-					</li>
-					<li>
-						<a href="#">View More</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="col-sm footer-nav">
-				<h4 class="mb-4 title">Chicken</h4>
-				<ul class="list-menu">
-					<li>
-						<a href="#">Moroccan Chicken</a>
-					</li>
-					<li>
-						<a href="#">Chicken Liver</a>
-					</li>
-					<li>
-						<a href="#">Indian Chicken</a>
-					</li>
-					<li>
-						<a href="#">Chicken Biryani</a>
-					</li>
-					<li>
-						<a href="#">Chinese Chicken</a>
-					</li>
-					<li>
-						<a href="#">Chicken Moussakhaneh</a>
-					</li>
-					<li>
-						<a href="#">Freekeh With Chicken</a>
-					</li>
-					<li>
-						<a href="#">View More</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-sm footer-nav">
-				<h4 class="mb-4 title">Meat</h4>
-				<ul class="list-menu">
-					<li>
-						<a href="#">Daoud Basha</a>
-					</li>
-					<li>
-						<a href="#">Beef Fajitas</a>
-					</li>
-					<li>
-						<a href="#">Potatoes With Meat</a>
-					</li>
-					<li>
-						<a href="#">Kafta With Potatoes</a>
-					</li>
-					<li>
-						<a href="#">Pepper Steak</a>
-					</li>
-					<li>
-						<a href="#">Mini Burgers</a>
-					</li>
-					<li>
-						<a href="#">Laban Emmo</a>
-					</li>
-					<li>
-						<a href="#">View More</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-sm footer-nav">
-				<h4 class="mb-4 title">Fish & Seafood</h4>
-				<ul class="list-menu">
-					<li>
-						<a href="#">Shrimps With Coconut And Rice</a>
-					</li>
-					<li>
-						<a href="#">Grilled Fish With Hot Sauce</a>
-					</li>
-					<li>
-						<a href="#">Salmon Sushi Cake</a>
-					</li>
-					<li>
-						<a href="#">Shrimps With Noodles</a>
-					</li>
-					<li>
-						<a href="#">Shrimps With Curry And Rice</a>
-					</li>
-					<li>
-						<a href="#">Paella, Tunisian Way</a>
-					</li>
-					<li>
-						<a href="#">Tuna With Taratour Sauce</a>
-					</li>
-					<li>
-						<a href="#">View More
-						</a>
-					</li>
-				</ul>
-			</div>
-			<div class="col-sm footer-nav">
-
-				<h4 class="mb-4 title">Desserts</h4>
-				<ul class="list-menu">
-					<li>
-						<a href="#">Tuna With Taratour Sauce</a>
-					</li>
-					<li>
-						<a href="#">Grilled Fish With Hot Sauce</a>
-					</li>
-					<li>
-						<a href="#">Salmon Sushi Cake</a>
-					</li>
-					<li>
-						<a href="#">Shrimps With Noodles</a>
-					</li>
-					<li>
-						<a href="#">Shrimps With Curry And Rice</a>
-					</li>
-					<li>
-						<a href="#">Paella, Tunisian Way</a>
-					</li>
-					<li>
-						<a href="#">Tuna With Taratour Sauce</a>
-					</li>
-					<li>
-						<a href="#">View More
-						</a>
-					</li>
-				</ul>
-			</div>
+				{% for cat in menucats %}
+				<div class="col-sm footer-nav">
+					<h4 class="mb-4 title">{{ cat['title']}}</h4>
+					<ul class="list-menu">
+						{% for item in cat['recipes'] %}
+							<li>
+								<a href="{{'recipe'|page({slug:item.slug})}}" class="text-capitalize">{{ item.title|lower }}</a>
+							</li>
+						{% endfor %}
+						<li>
+							<a href="{{'all-recipes'|page({slug:cat['slug']})}}">View More</a>
+						</li>
+					</ul>
+				</div>
+				{% endfor %}
 		</div>
 		<div class="row mt-6 pt-3 mb-3 border-top border-primary text-center d-flex align-items-center">
 			<div class="col-sm mb-3 mb-sm-0">
