@@ -437,11 +437,11 @@ iframe {
   margin-right: 0px;
 }
 #main-top-nav.mini-nav .nav-item img {
-  margin-right: 10px !important;
+  margin-right: 6px !important;
   display: inline-block !important;
   margin-bottom: 0px !important;
   margin-top: -4px !important;
-  margin-left: 10px !important;
+  margin-left: 6px !important;
 }
 #main-top-nav.mini-nav .nav-item .nav-link {
   flex-direction: row;
