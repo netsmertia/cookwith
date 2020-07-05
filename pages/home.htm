@@ -22,8 +22,7 @@ postPage = "blog"
 	</div>
 
 	{% if rcd %}
-	<section
-		class="position-relative recipe-of-day" data-parallax data-src="{{'assets/images/background.jpg'|theme}}" data-speed=".5">
+	<section  class="position-relative recipe-of-day" data-parallax data-src="{{'assets/images/background.jpg'|theme}}" data-speed=".5">
 		<div class="container mt-3">
 			<h3 class="mb-3">{{'Recipe of the Day'|_}}</h3>
 			<div class="row no-gutters">
@@ -35,19 +34,19 @@ postPage = "blog"
 				<div class="col-lg-5 bg-white p-5">
 					<div class="row">
 						<div class="col-12">
-							<a href="/recipe/single" class="h3">{{rcd.title}}</a>
+							<a href="{{'recipe'|page({slug:rcd.slug})}}" class="h3">{{rcd.title}}</a>
 							<p>
 								<small>{{'Posted'|_}} {{rcd.created_at.format('l j, Y')}}</small>
 							</p>
 							<div class="row no-gutters pb-3 border-bottom border-primary">
-								<div class="col-6">
+								<div class="col-6 d-flex">
 									<a href="/{{rcd.categories.first.category_slug}}" class="border border-primary px-4 py-1">{{rcd.categories.first.category_title}}</a>
 								</div>
 								<div class="col-6 d-flex align-items-center justify-content-end">
-									<img class="mr-2" src="{{ 'assets/images/good-rate.png'| theme}}" alt="good-rating" width="25" height="25">
+									<img class="mx-2" src="{{ 'assets/images/good-rate.png'| theme}}" alt="good-rating" width="25" height="25">
 									<small>{{'Serves'|_}}: {{rcd.serve}}</small>
-									<img class="ml-3 mr-2" src="{{ 'assets/images/clock.png'| theme}}" alt="good-rating" width="25" height="25">
-									<small class="mr-3">{{'Time'|_}}: {{rcd.time}}</small>
+									<img class="mx-2" src="{{ 'assets/images/clock.png'| theme}}" alt="good-rating" width="25" height="25">
+									<small class=>{{'Time'|_}}: {{rcd.time}}</small>
 								</div>
 							</div>
 							<div class="pt-3 content">
@@ -56,11 +55,11 @@ postPage = "blog"
 								</p>
 							</div>
 							<div class="rating-and-social row no-gutters mb-3">
-								<div class="col-5 text-primary" style="font-size: 1.5rem;letter-spacing: 2px;">
+								<div class="col-5 text-primary d-flex" style="font-size: 1.5rem;letter-spacing: 2px;">
 									{% partial 'rating' %}
 								</div>
 								<div class="col-7 d-flex align-items-center">
-									<span class="text-primary mr-3" style="font-size: 22px">{{'share'|_}}:
+									<span class="text-primary mr-3" style="font-size: 22px">{{'Share'|_}}:
 									</span>
 									{% partial 'share-2' %}
 
@@ -103,7 +102,7 @@ postPage = "blog"
 	<section class="py-6">
 		<div class="container-fluid container-lg">
 			<div class="row">
-				<div class="col-md-7">
+				<div class="col-md-7 px-4">
 
 					<div class="d-flex justify-content-between">
 						<h3 class="mb-4">{{'Blog'|_}}</h3>

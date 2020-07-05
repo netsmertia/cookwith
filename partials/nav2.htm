@@ -3,7 +3,7 @@ code = "main-menu"
 
 [viewBag]
 ==
-<nav  id="main-top-nav" class="navbar navbar-expand-lg fixed-top navbar-light bg-white arrow-border" style="background: white; padding-left: 70px;">
+<nav  id="main-top-nav" class="navbar navbar-expand-lg fixed-top navbar-light bg-white arrow-border px-4" style="background: white;">
 	<a class="navbar-brand" href="#">
 		<img class="logo top" src="{{ 'assets/images/logo.png'| theme }}" alt="" width="" height="80px">
 	</a>
@@ -20,7 +20,7 @@ code = "main-menu"
 						{% if item.url %}
 							<a class="nav-link" href="{{ item.url }}" {{ item.viewBag.isExternal ? 'target="_blank"' }}>
 								<img src="{{ ('assets/images/' ~ item.viewBag.cssClass ~ '.png')| theme }}" alt="{{item.title}}" width="20" height="20" class="d-none d-lg-block m-auto">
-								<div class="text-uppercase">{{ item.title }}</div>
+								<div class="text-uppercase text-nowrap">{{ item.title|_ }}</div>
 							</a>
 						{% else %}
 							<span>{{ item.title }}</span>
@@ -50,8 +50,8 @@ code = "main-menu"
 				</a>
 			</li>
 			{% partial 'main-nav-share' %}
-			<div class="nav-item d-flex align-items-center">
-				<div class="mr-3" style="height: 30px; border-left: 1px solid #c51d22;"></div>
+			<li class="nav-item d-flex align-items-center">
+				<div class="mx-2" style="height: 30px; border-left: 1px solid #c51d22;"></div>
 				<a 
 					data-request="onSwitchLocale"
 					data-request-data="locale: '{{activeLocale == 'en' ? 'ar' : 'en' }}'"
@@ -62,7 +62,7 @@ code = "main-menu"
 							English
 						{% endif %}
 				</a>
-			</div>
-		</div>
+			</li>
+		</ul>
 	</div>
 </nav>

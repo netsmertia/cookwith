@@ -1,5 +1,12 @@
 [recipes]
+limit = 4
+recipe_type = "TEXT"
+recipe_url = "recipe"
+
+
+[viewBag]
 ==
+<?php
 public function onStart() {
 	$cats = [
 		[
@@ -34,6 +41,7 @@ public function onStart() {
 	$this['menucats'] = $cats;
 	
 }
+?>
 ==
 <section class="py-6 arrow-border-top arrow-border-bottom" style="background:url({{'assets/images/background.jpg'|theme}});">
 	<div class="container">
@@ -49,14 +57,17 @@ public function onStart() {
 			</div>
 
 				<div class="col col-md-8 col-lg-6">
-					<form action="">
+					<form name="form-subscribe-andradedev" id="form-subscribe-andradedev" data-request="{{formSubscribe }}::onAddSubscriber" data-request-update="'subscribe-alert': '#result'">
 						<div class="input-group mx-auto">
-							<input type="text" class="form-control form-control-lg" placeholder="{{'Your email address'|_}}..">
+							<input type="email" name="email" class="form-control form-control-lg" placeholder="{{'Your email address'|_}}.." required>
+							<input type="hidden" name="latitude" id="latitude">
+							<input type="hidden" name="longitude" id="longitude">
 							<div class="input-group-append">
-								<button class="btn btn-primary btn-lg px-3" type="button">{{'Subscribe'|_}}</button>
+								<button class="btn btn-primary btn-lg px-3" type="submit">{{'Subscribe'|_}}</button>
 							</div>
 						</div>
 					</form>	
+					<div id="result" class="mt-3"></div>
 				</div>
 		</div>
 	</div>
@@ -127,5 +138,6 @@ public function onStart() {
 			</div>
 		</div>
 	</div>
+
 
 </footer>

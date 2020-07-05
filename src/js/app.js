@@ -65,11 +65,11 @@ $(document).ready(function() {
 
 
 
-    var rellax = new Rellax('.rellax');
-    $('.my-parallax-window').parallax({
-      speed: -.2,
-      sliderSelector: '>.my-parallax-slider',
-    })
+    // var rellax = new Rellax('.rellax');
+    // $('.my-parallax-window').parallax({
+    //   speed: -.2,
+    //   sliderSelector: '>.my-parallax-slider',
+    // })
 
     $('#video-grid-button').click(function(event) {
       event.preventDefault();

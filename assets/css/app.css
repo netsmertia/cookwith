@@ -410,7 +410,8 @@ iframe {
 }
 
 #main-top-nav .nav-item {
-  margin-right: 16px;
+  margin-left: 8px;
+  margin-right: 8px;
   color: #c0c0c0;
 }
 #main-top-nav .nav-link {
@@ -422,9 +423,6 @@ iframe {
 #main-top-nav .nav-link img {
   margin-top: 0px !important;
 }
-#main-top-nav:not(.mini-nav) .nav-item {
-  margin-left: 16px;
-}
 #main-top-nav:not(.mini-nav) .nav-item img {
   margin-bottom: 10px !important;
 }
@@ -434,11 +432,16 @@ iframe {
 #main-top-nav.mini-nav .top.logo {
   height: 45px;
 }
+#main-top-nav.mini-nav .nav-item {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 #main-top-nav.mini-nav .nav-item img {
   margin-right: 10px !important;
   display: inline-block !important;
   margin-bottom: 0px !important;
   margin-top: -4px !important;
+  margin-left: 10px !important;
 }
 #main-top-nav.mini-nav .nav-item .nav-link {
   flex-direction: row;
@@ -907,4 +910,19 @@ footer .social-icons-lists .socicon {
     width: 25px;
     height: 25px;
   }
+}
+@font-face {
+  font-family: "Droid Arabic Kufi";
+  font-style: normal;
+  font-weight: 400;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v2/DroidKufi-Regular.eot?#iefix) format("embedded-opentype"), url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v2/DroidKufi-Regular.woff) format("woff"), url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v2/DroidKufi-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Droid Arabic Kufi";
+  font-style: bold;
+  font-weight: 700;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v2/DroidKufi-Bold.eot?#iefix) format("embedded-opentype"), url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v2/DroidKufi-Bold.woff) format("woff"), url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v2/DroidKufi-Bold.ttf) format("truetype");
+}
+*[dir=rtl] h1, *[dir=rtl] h2, *[dir=rtl] h3, *[dir=rtl] h4, *[dir=rtl] h5, *[dir=rtl] h6, *[dir=rtl] p, *[dir=rtl] a {
+  font-family: "Droid Arabic Kufi" !important;
 }

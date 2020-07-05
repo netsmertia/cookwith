@@ -365,7 +365,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cookwithsousou/src/js/vendor.js */"./src/js/vendor.js");
+module.exports = __webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cws/src/js/vendor.js */"./src/js/vendor.js");
 
 
 /***/ })

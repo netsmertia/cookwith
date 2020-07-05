@@ -134,15 +134,12 @@ $(document).ready(function () {
   });
 });
 $(document).ready(function () {
-  // $(window).on('scroll', function (e) {
-  //   $('#main-top-nav').toggleClass('mini-nav', $(window).scrollTop() > 150);
-  // }); //open full screen search
+  $(window).on('scroll', function (e) {
+    if ($(window).width() > 992) {
+      $('#main-top-nav').toggleClass('mini-nav', $(window).scrollTop() > 150);
+    }
+  }); //open full screen search
 
-    $(window).on('scroll', function (e) {
-        if($(window).width() > 992) {
-          $('#main-top-nav').toggleClass('mini-nav', $(window).scrollTop() > 150);
-        }
-    });
   $('#open-full-screen-search').on("click", function (event) {
     event.preventDefault();
     $('.full-screen-search').addClass("open");
@@ -151,12 +148,12 @@ $(document).ready(function () {
   $('#close-full-screen-search').on("click", function (event) {
     event.preventDefault();
     $('.full-screen-search').removeClass("open");
-  });
-  var rellax = new Rellax('.rellax');
-  $('.my-parallax-window').parallax({
-    speed: -.2,
-    sliderSelector: '>.my-parallax-slider'
-  });
+  }); // var rellax = new Rellax('.rellax');
+  // $('.my-parallax-window').parallax({
+  //   speed: -.2,
+  //   sliderSelector: '>.my-parallax-slider',
+  // })
+
   $('#video-grid-button').click(function (event) {
     event.preventDefault();
     $('#video-card-grid').addClass('grid-format');
@@ -210,13 +207,11 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cookwithsousou/src/js/app.js */"./src/js/app.js");
-__webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cookwithsousou/src/scss/app.scss */"./src/scss/app.scss");
-module.exports = __webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cookwithsousou/src/scss/vendor.scss */"./src/scss/vendor.scss");
+__webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cws/src/js/app.js */"./src/js/app.js");
+__webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cws/src/scss/app.scss */"./src/scss/app.scss");
+module.exports = __webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cws/src/scss/vendor.scss */"./src/scss/vendor.scss");
 
 
 /***/ })
 
 /******/ });
-
-

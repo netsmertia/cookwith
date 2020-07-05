@@ -10,8 +10,7 @@ limit = 4
 [ads]
 ==
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
-	{% partial 'main-featured-search' %}	
-	{# {% partial 'horizontal-ads' %} #}
+	{% component 'ads' space_code="recipes_banner_top" %}
 	<div class="container my-5">
 		<h3 class="mb-2">{{'What are you in the mood for?'|_}}</h3>
 		{% partial 'slider.htm' %}
@@ -45,7 +44,7 @@ limit = 4
 
     {% component 'recipes'  section_title = "Appetizers" section_view_more_url = "appetizers" limit="4" space_code = null %}
     {% component 'recipes'  section_title = "Chicken" category = "chicken" section_view_more_url = "chicken" limit="4" space_code = null %}
-	{% component 'ads' space_code="recipes_banner_top" %}
+	{% component 'ads' space_code="recipes_banner_middle" %}
     {% component 'recipes'  section_title = "Meat" category = "Meat" section_view_more_url = "meat" limit="3" space_code = "recipes_box_sidebar" %}
     {% component 'recipes'  section_title = "Fish and Seafood" category = "Fish and Seafood" section_view_more_url = "fish" space_code = null limit="4" %}
     {% component 'recipes'  section_title = "Jams and Marmalade" category = "Jams and Marmalade" section_view_more_url = "jams-and-marmalade" space_code = "main_vert_ad" limit="3" %}
@@ -54,7 +53,7 @@ limit = 4
     {% component 'recipes'  section_title = "Pastas" category = "Pastas" section_view_more_url = "pasta" limit="4" space_code = null %}
     {% component 'recipes'  section_title = "Pizzas" category = "Pizzas" section_view_more_url = "pizza" limit="4" space_code = null  %}
     {% component 'recipes'  section_title = "Salads" category = "Salads" section_view_more_url = "salad" limit="4" space_code = null %}
-    {% component 'recipes'  section_title = "Vegetarian" category = "Vegetarian" section_view_more_url = "vegetarian" limit="4" space_code = null %}
+    {% component 'recipes'  section_title = "Vegetarian" category = "Vegetarian" section_view_more_url = "vegetarian" limit="4" space_code = null %} 
 
 	<div class="pb-4"></div>
 </div>
