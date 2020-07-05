@@ -460,8 +460,14 @@ iframe {
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
 }
+.full-screen-search #overlay-search-result {
+  display: none;
+}
 .full-screen-search.open {
   bottom: 0;
+}
+.full-screen-search.open #overlay-search-result {
+  display: block;
 }
 .full-screen-search .box i.icon.close {
   position: absolute;

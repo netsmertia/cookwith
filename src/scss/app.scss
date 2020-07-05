@@ -101,8 +101,14 @@ iframe {
     z-index: 1050;
     transition:  bottom .2s ease-in-out;
     backdrop-filter: blur(1px);
+    #overlay-search-result {
+        display: none;
+    }
     &.open {
         bottom: 0;
+        #overlay-search-result {
+            display: block;
+        }
     }
     .box {
         i.icon.close {
