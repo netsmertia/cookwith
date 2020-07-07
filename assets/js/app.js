@@ -174,6 +174,42 @@ $(document).ready(function () {
       $(this).addClass('open');
     }
   });
+  $('.rateit').bind('rated', function (e) {
+    var ri = $(this); //if the use pressed reset, it will get value: 0 (to be compatible with the HTML range control), we could check if e.type == 'reset', and then set the value to  null .
+
+    var value = ri.rateit('value');
+    var postid = ri.data('postid'); // if the product id was in some hidden field: ri.closest('li').find('input[name="productid"]').val()
+    //maybe we want to disable voting?
+
+    ri.rateit('readonly', true);
+    $.oc.stripeLoadIndicator.show();
+    $.request('onVote', {
+      data: {
+        value: value,
+        postid: postid
+      },
+      complete: function complete() {
+        $.oc.stripeLoadIndicator.hide();
+        window.localStorage.setItem('cws_recipe_voted_' + postid.toString(), true);
+      }
+    }); // $.ajax({
+    //     url: 'rateit.aspx', //your server side script
+    //     data: { id: productID, value: value }, //our data
+    //     type: 'POST',
+    //     success: function (data) {
+    //         $('#response').append('<li>' + data + '</li>');
+    //     },
+    //     error: function (jxhr, msg, err) {
+    //         $('#response').append('<li style="color:red">' + msg + '</li>');
+    //     }
+    // });
+  });
+  var postId = $('.rateit').data('postid');
+  var voted = localStorage.getItem('cws_voted_' + postId);
+
+  if (localStorage.getItem('cws_recipe_voted_' + postId)) {
+    $('.rateit').rateit('readonly', true);
+  }
 });
 
 /***/ }),

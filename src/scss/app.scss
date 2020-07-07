@@ -597,3 +597,28 @@ footer .social-icons-lists .socicon {
         font-family: "Droid Arabic Kufi" !important;
     }
 }
+
+
+.small {
+    .rateit .rateit-range {
+        background-image: url(star-small.png);
+    }
+    .rateit .rateit-hover {
+        background: url(star-small.png) left -29px;
+        color: rgb(239, 197, 41);
+    }
+
+    .rateit .rateit-hover-rtl {
+        background-position: right -29px;
+    }
+
+    .rateit .rateit-selected {
+        background: url(star-small.png) left -42px;
+        color: rgb(191, 66, 66);
+    }
+
+    .rateit .rateit-selected-rtl {
+        background-position: right -42px;
+    }
+
+}

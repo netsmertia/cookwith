@@ -14,13 +14,17 @@ postPage = "blog"
 ==
 {% set rcd = recipes.getRecipeOfTheDay() %}
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
+
 	{% partial 'main-featured-search' %}
+	<div class="container my-7 bg-aqua">
+		Lorem ipsum dolor sit amet consectetur, adipisicing elit. In esse ipsam repellendus, doloribus adipisci, quis nisi eos tempore porro laborum corrupti error nobis amet eum iusto magnam optio labore animi!
+		<div class="rateit" data-rateit-icon></div>
+	</div>
 	{% component 'ads' space_code="home_banner_top" %}
 	<div class="container my-5">
 		<h3 class="mb-2">{{'What are you in the mood for?'|_}}</h3>
 		{% partial 'slider.htm' %}
 	</div>
-
 	{% if rcd %}
 	<section  class="position-relative recipe-of-day" data-parallax data-src="{{'assets/images/background.jpg'|theme}}" data-speed=".5">
 		<div class="container mt-3">

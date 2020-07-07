@@ -932,3 +932,21 @@ footer .social-icons-lists .socicon {
 *[dir=rtl] h1, *[dir=rtl] h2, *[dir=rtl] h3, *[dir=rtl] h4, *[dir=rtl] h5, *[dir=rtl] h6, *[dir=rtl] p, *[dir=rtl] a {
   font-family: "Droid Arabic Kufi" !important;
 }
+
+.small .rateit .rateit-range {
+  background-image: url(star-small.png);
+}
+.small .rateit .rateit-hover {
+  background: url(star-small.png) left -29px;
+  color: #efc529;
+}
+.small .rateit .rateit-hover-rtl {
+  background-position: right -29px;
+}
+.small .rateit .rateit-selected {
+  background: url(star-small.png) left -42px;
+  color: #bf4242;
+}
+.small .rateit .rateit-selected-rtl {
+  background-position: right -42px;
+}
