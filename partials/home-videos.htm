@@ -28,14 +28,14 @@ recipe_type = "VIDEO"
                             <h2 class="card-title">
                                 <a href="/{{firstVideo.slug}}">{{firstVideo.title}}</a>
                             </h2>
-                            <div class="card-subtitle">{{'Posted'|_}} {{firstVideo.created_at.format('l j, Y')}}</div>
+                            <div class="card-subtitle">{{'Posted'|_}} {{firstVideo.created_at.format('F j, Y')}}</div>
                             <div class="d-flex justify-content-between align-items-center">
-                                <div class="rating text-primary">
-                                    {% partial 'rating' %}
+                                <div class="rating text-primary small">
+                                    {% partial 'rating-cards' rating=firstVideo.rating postid=firstVideo.id %}
                                 </div>
                                 <div class="share d-flex align-items-center">
-                                    <span class="f22 text-primary">{{'Share'|_}}:</span>
-                                    {% partial 'share' %}
+                                    <span class="f22 text-primary">{{'Share'|_}}: </span>
+                                    {% partial 'share-cards' %}
                                 </div>
                             </div>
                         </div>
@@ -62,14 +62,14 @@ recipe_type = "VIDEO"
 										<h4 class="card-title">
 											<a href="{{'videos'| page({slug: firstVideo.slug})}}">{{video.title}}</a>
 										</h4>
-										<p class="card-subtitle py-1">{{'Posted'|_}} {{video.created_at.format('l j, Y')}}</p>
+										<p class="card-subtitle py-1">{{'Posted'|_}} {{video.created_at.format('F j, Y')}}</p>
 										<div class="d-flex justify-content-between align-items-center">
-											<div class="rating text-primary">
-												{% partial 'rating' %}
+											<div class="rating text-primary small">
+												{% partial 'rating-cards' rating=video.rating postid=video.id %}
 											</div>
 											<div class="share d-flex align-items-center">
 												<span class="f18 text-primary">{{'Share'|_}}:</span>
-												{% partial 'share' %}
+												{% partial 'share-cards' %}
 											</div>
 										</div>
 									</div>

@@ -20,7 +20,7 @@
 				<h4 class="card-title">
 					<a href="{{'videos'|page({slug: item.slug})}}">{{item.title}}</a>
 				</h4>
-				<p class="card-subtitle py-1">{{'Posted'|_}} {{item.created_at.format('j l, Y')}}</p>
+				<p class="card-subtitle py-1">{{'Posted'|_}} {{item.created_at.format('F l, Y')}}</p>
 				<div class="d-flex justify-content-between align-items-center">
 					<div class="rating text-primary">
 						{% partial 'rating' %}

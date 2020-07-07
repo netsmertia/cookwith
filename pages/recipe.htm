@@ -36,7 +36,7 @@ function onEnd() {
 						{% partial 'rating' rating=recipe.rating id=recipe.id %}
 					</div>
 				</div>
-				<small>{{'Posted'|_}} {{recipe.created_at.format('j l, Y')}}</small>
+				<small>{{'Posted'|_}} {{recipe.created_at.format('F l, Y')}}</small>
 				<div class="row no-gutters mt-3 pb-5 border-bottom border-primary">
 					<div class="col-6">
 						{% if recipe.categories.count() > 0 %}
