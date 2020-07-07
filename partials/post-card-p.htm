@@ -1,0 +1,54 @@
+<div class="card card-post">
+    <a href="{{__SELF__.property('recipe_url')|page({slug:item.slug})}}" class="card-image-top">
+		{% if item.img.path %}
+			<img src="{{item.img.thumb(500, 'auto')}}" alt="" class="img-fluid mh-173" >
+		{% else %}
+			<img src="{{'assets/images/post-thumb-2.jpg'|theme}}" alt="" class="img-fluid mh-173" >
+		{% endif %}
+        <div class="card-image-overlay">
+            <h4 class="card-title">{{item.title}}</h4>
+        </div>
+    </a>
+	<div class="card-body">
+		<a href="{{__SELF__.property('recipe_url')|page({slug:item.slug})}}">
+			<h4 class="card-title text-capitalize text-ellipsis">{{item.title|lower}}</h4>
+		</a>
+		<p>
+			<small>{{'Posted'|_}} {{item.created_at.format('F j, Y')}}</small>
+		</p>
+		<div
+			class="pb-3 text-nowrap d-flex justify-content-between border-bottom border-primary">
+			{# <a href="#" class="border border-primary px-4 py-1">Meat</a> #}
+			{% if item.categories.count() > 0 %}
+				<a href="{{'category-page'|page({category: item.categories.first.category_slug})}}" class="mr-2 px-1 btn btn-outline-primary card-btn">{{item.categories.first.category_title}}</a>
+			{% else %}
+				<div></div>
+			{% endif %}
+			<div class="d-flex align-items-center justify-content-end">
+				<img class="mx-1" src="{{ 'assets/images/good-rate.png'| theme}}" alt="good-rating" width="14" height="14">
+				<span class="f9 mr-1">{{'Serves'|_}}: {{item.serve}}</span>
+				<img class="mx-1" src="{{ 'assets/images/clock.png'| theme}}" alt="good-rating" width="14" height="14">
+				<span class="f9">{{'Time'|_}}: {{item.time|replace({'Minutes': '', 'minutes': '', 'Minute':'','minute': '','Hours': '', 'Min': '',})}}</span>
+			</div>
+		</div>
+		<div class="pt-3 content">
+			<p class="text-ellipsis">{{item.content}}</p>
+		</div>
+		<div class="">
+			<a href="{{__SELF__.property('recipe_url')|page({slug:item.slug})}}" class="btn btn-primary px-3">{{"Read More"|_}}</a>
+		</div>
+		<div class="row no-gutters justify-content-between">
+			<div class="col-auto mt-3">
+				<div class="small">
+					{% partial 'rating-cards' rating=item.rating postid = item.id %}
+				</div>
+			</div>
+			<div class="col-auto mt-3">
+				<div class="share d-flex align-items-center">
+					<span class="f14 text-primary">{{'Share'|_}}: </span>
+					{% partial 'share-cards' %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

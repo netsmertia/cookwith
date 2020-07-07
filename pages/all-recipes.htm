@@ -10,7 +10,11 @@ limit = 4
 [ads]
 ==
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
+
+	{% partial 'main-featured-search' %}
+
 	{% component 'ads' space_code="recipes_banner_top" %}
+
 	<div class="container my-5">
 		<h3 class="mb-2">{{'What are you in the mood for?'|_}}</h3>
 		{% partial 'slider.htm' %}
@@ -21,25 +25,7 @@ limit = 4
     {% component 'recipes'  section_title = "New This Week"  section_view_more_url = "recipes" limit="6" space_code = "recipes_vertical_sidebar" %}
     
 	
-	<section class="py-6 arrow-border-top arrow-border-bottom" data-parallax data-src="{{ 'assets/images/background.jpg'|theme}}" data-speed=".5">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 d-flex justify-content-center">
-					<img src="{{'assets/images/social-img-left.png'|theme}}" alt="Social Image" class="img-fluid">
-				</div>
-				<div class="text-center py-4 py-lg-1 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-					<h2 class="h1 mb-5 mt-4">{{'SOUSOU is Social!'|_}}</h2>
-					<h3>{{'Follow us on:'|_}}</h3>
-					<div class="mt-2" style="transform:scale(1.5);">
-						{% partial 'share-2' %}
-					</div>
-				</div>
-				<div class="col-lg-4 d-flex justify-content-center">
-					<img src="{{'assets/images/social-img-right.png'|theme}}" alt="Social Image" class="img-fluid">
-				</div>
-			</div>
-		</div>
-	</section>
+	{% partial 'sousou-is-social' %}	
 
 
     {% component 'recipes'  section_title = "Appetizers" section_view_more_url = "appetizers" limit="4" space_code = null %}
@@ -47,7 +33,7 @@ limit = 4
 	{% component 'ads' space_code="recipes_banner_middle" %}
     {% component 'recipes'  section_title = "Meat" category = "Meat" section_view_more_url = "meat" limit="3" space_code = "recipes_box_sidebar" %}
     {% component 'recipes'  section_title = "Fish and Seafood" category = "Fish and Seafood" section_view_more_url = "fish" space_code = null limit="4" %}
-    {% component 'recipes'  section_title = "Jams and Marmalade" category = "Jams and Marmalade" section_view_more_url = "jams-and-marmalade" space_code = "main_vert_ad" limit="3" %}
+    {% component 'recipes'  section_title = "Jams and Marmalade" category = "Jams and Marmalade" section_view_more_url = "jams-and-marmalade" limit="4" space_code = null %}
     {% component 'recipes'  section_title = "Occidental Desserts" category = "Occidental Desserts" section_view_more_url = "occidental-desserts" limit="4" space_code = null %}
     {% component 'recipes'  section_title = "Oriental Desserts" category = "Occidental Desserts" section_view_more_url = "oriental-desserts" limit="4" space_code = null  %}
     {% component 'recipes'  section_title = "Pastas" category = "Pastas" section_view_more_url = "pasta" limit="4" space_code = null %}

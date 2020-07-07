@@ -1,0 +1,15 @@
+<div class="ad-vertical">
+    {% if ad.count() > 0 %}
+        {% if ad.is_image %}
+        <a href="{{ad.url}}">
+            <img class="img-fluid w-100" src="{{ad.image.path}}" alt="">
+        </a>
+        {% else %}
+            {{content|raw}}
+        {% endif %}
+    {% else %}
+        <a href="{{'contact'|page}}">
+            <img src="{{('assets/images/ad-vertical-' ~ activeLocale ~ '.jpg')|theme}}" alt="Cookwith SouSou Ad" class="img-fluid align-self-start">
+        </a>
+    {% endif %}
+</div>

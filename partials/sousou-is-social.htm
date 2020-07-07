@@ -1,0 +1,19 @@
+<section class="py-6 arrow-border-top arrow-border-bottom" data-parallax data-src="{{ 'assets/images/background.jpg'|theme}}" data-speed=".5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 d-flex justify-content-center">
+                <img src="{{('assets/images/social-img-left-' ~ activeLocale ~ '.png')|theme}}" alt="Social Image" class="img-fluid">
+            </div>
+            <div class="text-center py-4 py-lg-1 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+                <h2 class="h1">{{'SOUSOU is Social!'|_}}</h2>
+                <h3>{{'Follow us on:'|_}}</h3>
+                <div class="mt-2" style="transform:scale(1.5);">
+                    {% partial 'share' %}
+                </div>
+            </div>
+            <div class="col-lg-4 d-flex justify-content-center">
+                <img src="{{('assets/images/social-img-right-' ~ activeLocale ~ '.png')|theme}}" alt="Social Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
