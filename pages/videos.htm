@@ -16,7 +16,6 @@ public function onFilterVideos() {
 	$this['categories'] = $this['recipes']->getAllCategories();
 	$this['term'] = input('term');
 	$this['cats'] = input('cats');
-	debug(input());
 }
 ==
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">

@@ -8,7 +8,6 @@ is_hidden = 0
 function onEnd() {
 	$this['recipe'] = $r = $this['recipes']->getRecipe($this->param('slug'));
 	$this['ingredients'] = collect($r->ingredients)->sortBy('ingredient_order')->groupBy('ingredient_order');
-	debug($this['recipe']->toArray());
 }
 ==
 <div id="page-recipe-post" class="layout-{{ this.layout.id }} featured-box">
@@ -19,7 +18,6 @@ function onEnd() {
 				{% if recipe.img.path %}
 					{{recipe.img.path}}
 				{% else %}
-					{{debug(this.theme.placeholder_img.path)}}
 					{{this.theme.placeholder_img.path}}
 				{% endif %}
 				" class="img-fluid" alt="">
@@ -33,7 +31,7 @@ function onEnd() {
 						<h2 class="text-capitalize">{{recipe.title|lower}}</h2>	
 					</div>
 					<div class="col-lg-4 text-primary" style="font-size: 1.5rem;letter-spacing: 2px;">
-						{% partial 'rating' rating=recipe.rating id=recipe.id %}
+						{% partial 'rating' rating= (recipe.total_rating / recipe.total_votes) postid = recipe.id %}
 					</div>
 				</div>
 				<small>{{'Posted'|_}} {{recipe.created_at.format('F l, Y')}}</small>
@@ -140,10 +138,10 @@ function onEnd() {
 				{% endfor %}
 
 				<div class="col-md-3 col-6 d-flex justify-content-center">
-					<img src="{{'assets/images/ad-small.png'|theme}}" alt="vertical add" class="img-fluid align-self-start">
+					{% component 'ads' space_code = 'recipe_box_sidebar' %}
 				</div>
 			</div>
 		</div>
 	</section>
-	{% partial 'horizontal-ads' %}
+	{% component 'ads' space_code = 'recipe_banner_footer' %}
 </div>
