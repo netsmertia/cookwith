@@ -57,7 +57,7 @@ postPage = "blog"
 							</div>
 							<div class="rating-and-social row no-gutters mb-3">
 								<div class="col-5 text-primary d-flex" style="font-size: 1.5rem;letter-spacing: 2px;">
-									{% partial 'rating' rating = rcd.rating postid = rcd.id %}
+									{% partial 'rating' rating= rcd.total_rating == 0 ? 0 : (rcd.total_rating / rcd.total_votes) postid = rcd.id %}
 								</div>
 								<div class="col-7 d-flex align-items-center">
 									<span class="text-primary mr-3" style="font-size: 22px">{{'Share'|_}}:
