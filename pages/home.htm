@@ -2,6 +2,8 @@ title = "Home"
 url = "/"
 layout = "default"
 description = "CookWithSousou"
+meta_title = "Homepage - Cook With Sousou"
+meta_description = "Sousou’s Way of Sharing Delicious Recipes"
 is_hidden = 0
 
 [blogPosts]
@@ -11,6 +13,9 @@ noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "about"
 postPage = "blog"
+
+[viewBag]
+localeMeta_title[ar] = "Homepage - Cook With Sousou in AR"
 ==
 {% set rcd = recipes.getRecipeOfTheDay() %}
 <div id="page-{{ this.page.id}}" class="layout-{{ this.layout.id }} featured-box">
@@ -121,4 +126,3 @@ postPage = "blog"
 		</div>
 	</section>
 </div>
-

@@ -13,19 +13,44 @@ forceUrl = 0
 urlToUnsubscribe = "unsubscribe"
 urlToProfile = "subscriber-profile"
 geo = "enabled"
-thanksMessage = "Thanks for subscribe!"
-errorMessage = "Email already exists!"
+thanksMessage = "Thanks for subscribing!"
+errorMessage = "Something went wrong, Use unsubscribed/correct email!"
+[yandexShare yandexShare]
+
+==
+public function onStart() {
+    $yandexShare = $this['yandexShare'];
+    $yandexShare->setProperty('whatsapp', $this->theme->whatsapp_share);
+    $yandexShare->setProperty('facebook', $this->theme->facebook_share);
+    $yandexShare->setProperty('twitter', $this->theme->twitter_share);
+    $yandexShare->setProperty('pinterest', $this->theme->pinterest_share);
+}
 ==
 <!DOCTYPE html>
 <html lang="{{activeLocale}}" {{activeLocale == 'en' ?: 'dir="prtl"'}}>
     <head>
         <meta charset="utf-8">
-        <title>{{ this.page.title }}</title>
-        <meta name="description" content="{{ this.page.meta_description }}">
-        <meta name="title" content="{{ this.page.meta_title }}">
+        <title>{{ this.page.title }} - {{this.theme.site_name}}</title>
+        <meta name="title" content="{{this.page.meta_title}}">
+        <meta name="description" content="{{this.page.meta_description}}">
         <meta name="author" content="October CMS">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
+        <link rel="canonical" href="{{''|page}}" />
+        <meta property="og:locale" content="{{activeLocale == 'en' ? 'en_US' : 'ar_AR'}}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="{{this.page.meta_title}}" />
+        <meta property="og:description" content="{{this.page.meta_description}}" />
+        <meta property="og:url" content="{{''|page}}" />
+        <meta property="og:site_name" content="{{this.theme.site_name}}" />
+        <meta property="article:publisher" content="https://www.facebook.com/cookwithsousou/" />
+        <meta property="og:image" content="{{this.page.image|default('assets/images/home-background.jpeg'|theme)}}" />
+        <meta property="og:image:secure_url" content="{{this.page.image|default('assets/images/home-background.jpeg'|theme)}}" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:description" content="{{this.page.meta_description}}" />
+        <meta name="twitter:title" content="{{this.page.meta_title}}" />
+        <meta name="twitter:image" content="{{this.page.image|default('assets/images/home-background.jpeg'|theme)}}" />
+
         {% component 'alternateHrefLangElements' %}
         {% styles %}
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,600&display=swap" rel="stylesheet">
@@ -80,7 +105,6 @@ errorMessage = "Email already exists!"
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha256-NXRS8qVcmZ3dOv3LziwznUHPegFhPZ1F/4inU7uC8h0=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js" integrity="sha512-n9OoMZw+LpkURqH5ODKhxjs08ZI97Pi4pIxEnqz2mHhzZmjW7UeOm/0+lvSjQ6lepdpGkPA7L8chC0UtUbXxZg==" crossorigin="anonymous"></script>
         {# <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js" integrity="sha256-+xf9aJnHocnmrigq2hIDJGBSAnJdF5NH+Ooe5J2PHiI=" crossorigin="anonymous"></script> #}
         <script src="{{ 'assets/js/app.js' |theme }}"></script>
         {% framework extras %}

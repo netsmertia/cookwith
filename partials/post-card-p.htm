@@ -1,7 +1,10 @@
+{% set pageUrl = __SELF__.property('recipe_url')|page({slug: item.slug}) %}
+
+{{debug(pageUrl)}}
 <div class="card card-post">
-    <a href="{{__SELF__.property('recipe_url')|page({slug:item.slug})}}" class="card-image-top">
+    <a href="{{pageUrl}}" class="card-image-top">
 		{% if item.img.path %}
-			<img src="{{item.img.thumb(500, 'auto')}}" alt="" class="img-fluid mh-173" >
+			<img src="{{item.img.thumb(800, 485, {mode: 'crop'})}}" alt="" class="img-fluid mh-173" >
 		{% else %}
 			<img src="{{'assets/images/post-thumb-2.jpg'|theme}}" alt="" class="img-fluid mh-173" >
 		{% endif %}
@@ -10,7 +13,7 @@
         </div>
     </a>
 	<div class="card-body">
-		<a href="{{__SELF__.property('recipe_url')|page({slug:item.slug})}}">
+		<a href="{{pageUrl}}">
 			<h4 class="card-title text-capitalize text-ellipsis">{{item.title|lower}}</h4>
 		</a>
 		<p>
@@ -44,9 +47,16 @@
 				</div>
 			</div>
 			<div class="col-auto mt-3">
-				<div class="share d-flex align-items-center">
-					<span class="f14 text-primary">{{'Share'|_}}: </span>
-					{% partial 'share-cards' %}
+				<div class="share d-flex align-items-center social-share-rounded">
+					<span class="f14 text-primary">{{'Share'|_}}: &nbsp; </span>
+					<span class="share-on-card">
+					{% component 'yandexShare' 
+							url = pageUrl
+							title = item.title
+							image = item.img.getPath()
+							size = 's'
+						%}
+					</span>
 				</div>
 			</div>
 		</div>

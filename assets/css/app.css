@@ -375,6 +375,17 @@ a:hover {
   margin-bottom: 20px;
 }
 
+.ya-share2__badge {
+  padding: 2px;
+}
+
+.social-share-large .ya-share2__badge {
+  padding: 7px;
+}
+.social-share-rounded .ya-share2__badge {
+  border-radius: 100px;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }

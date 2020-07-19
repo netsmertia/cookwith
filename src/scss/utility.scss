@@ -101,3 +101,19 @@
     display: flex;
     margin-bottom: 20px;
 }
+
+.ya-share2__badge {
+    padding: 2px;
+}
+.social-share {
+    &-large {
+        .ya-share2__badge {
+            padding: 7px;
+        }
+    }
+    &-rounded {
+        .ya-share2__badge {
+            border-radius: 100px;
+        }
+    }
+}

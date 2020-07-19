@@ -40,3 +40,27 @@ form:
           span: auto
           default: https://www.facebook.com/cookwithsousou/
           tab: Social Media
+        whatsapp_share:
+          label: Whatsapp Share Button
+          type: checkbox
+          span: auto
+          default: true
+          tab: Social Media
+        facebook_share:
+          label: Facebook Share Button
+          type: checkbox
+          span: auto
+          default: true
+          tab: Social Media
+        twitter_share:
+          label: Twitter Share Button
+          type: checkbox
+          span: auto
+          default: true
+          tab: Social Media
+        pinterest_share:
+          label: Pinterest Share Button
+          type: checkbox
+          span: auto
+          default: true
+          tab: Social Media

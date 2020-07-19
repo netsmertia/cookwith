@@ -258,9 +258,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cws/src/js/app.js */"./src/js/app.js");
-__webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cws/src/scss/app.scss */"./src/scss/app.scss");
-module.exports = __webpack_require__(/*! /Users/nets/SSD/Development/Web/cws/themes/cws/src/scss/vendor.scss */"./src/scss/vendor.scss");
+__webpack_require__(/*! /Users/nets/SSD/Development/Web/Octobercms/cws/themes/cws/src/js/app.js */"./src/js/app.js");
+__webpack_require__(/*! /Users/nets/SSD/Development/Web/Octobercms/cws/themes/cws/src/scss/app.scss */"./src/scss/app.scss");
+module.exports = __webpack_require__(/*! /Users/nets/SSD/Development/Web/Octobercms/cws/themes/cws/src/scss/vendor.scss */"./src/scss/vendor.scss");
 
 
 /***/ })
