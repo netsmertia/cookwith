@@ -92,7 +92,7 @@ public function onStart() {
                 <div class="col-10  col-md-8 col-lg-5 box">
                     <form action=" " class="form position-relative">
                         <div class="form-group mb-0">
-                            <input name="overlay_search_term" type="text" class="form-control" placeholder="Search here" data-request="recipes::onOverlaySearch" data-track-input="600" data-request-update="'overlay-search-result':'#overlay-search-result'">
+                            <input name="overlay_search_term" type="text" class="form-control" placeholder="{{'Search here'|_}}" data-request="recipes::onOverlaySearch" data-track-input="600" data-request-update="'overlay-search-result':'#overlay-search-result'">
                             <i class="icon search text-white big"></i>
                         </div>
                         <div class="list-group" style="position:absolute; max-height: 250px; overflow:auto;" id="overlay-search-result">
