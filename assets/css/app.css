@@ -375,6 +375,14 @@ a:hover {
   margin-bottom: 20px;
 }
 
+*[dir=rtl] .ya-share2__container_size_s .ya-share2__item:last-child {
+  margin-right: 3px;
+}
+
+.ya-share2 a, *[dir=rtl] .ya-share2 a {
+  font-family: monospace !important;
+}
+
 .ya-share2__badge {
   padding: 2px;
 }
@@ -940,7 +948,7 @@ footer .social-icons-lists .socicon {
   font-weight: 700;
   src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v2/DroidKufi-Bold.eot?#iefix) format("embedded-opentype"), url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v2/DroidKufi-Bold.woff) format("woff"), url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v2/DroidKufi-Bold.ttf) format("truetype");
 }
-*[dir=rtl] h1, *[dir=rtl] h2, *[dir=rtl] h3, *[dir=rtl] h4, *[dir=rtl] h5, *[dir=rtl] h6, *[dir=rtl] p, *[dir=rtl] a {
+*[dir=rtl] h1, *[dir=rtl] h2, *[dir=rtl] h3, *[dir=rtl] h4, *[dir=rtl] h5, *[dir=rtl] h6, *[dir=rtl] p, *[dir=rtl] a, *[dir=rtl] .f-arabic {
   font-family: "Droid Arabic Kufi" !important;
 }
 

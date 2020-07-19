@@ -1,6 +1,9 @@
 description = "Default layout"
 
 [recipes]
+limit = 4
+recipe_type = "TEXT"
+recipe_url = "recipe"
 
 [ads]
 
@@ -15,9 +18,13 @@ urlToProfile = "subscriber-profile"
 geo = "enabled"
 thanksMessage = "Thanks for subscribing!"
 errorMessage = "Something went wrong, Use unsubscribed/correct email!"
-[yandexShare yandexShare]
 
+[yandexShare]
+
+
+[googleTracker]
 ==
+<?php
 public function onStart() {
     $yandexShare = $this['yandexShare'];
     $yandexShare->setProperty('whatsapp', $this->theme->whatsapp_share);
@@ -25,6 +32,7 @@ public function onStart() {
     $yandexShare->setProperty('twitter', $this->theme->twitter_share);
     $yandexShare->setProperty('pinterest', $this->theme->pinterest_share);
 }
+?>
 ==
 <!DOCTYPE html>
 <html lang="{{activeLocale}}" {{activeLocale == 'en' ?: 'dir="prtl"'}}>
@@ -58,6 +66,9 @@ public function onStart() {
         <link href="{{ [ 'assets/css/app.css' ]|theme }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha256-UK1EiopXIL+KVhfbFa8xrmAWPeBjMVdvYMYkTAEv/HI=" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha256-4hqlsNP9KM6+2eA8VUT0kk4RsMRTeS7QGHIM+MZ5sLY=" crossorigin="anonymous" />
+        
+        
+        {% component 'googleTracker' %}
     </head>
     <body>
 

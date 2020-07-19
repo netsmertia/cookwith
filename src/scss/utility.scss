@@ -102,6 +102,15 @@
     margin-bottom: 20px;
 }
 
+*[dir=rtl] {
+    .ya-share2__container_size_s .ya-share2__item:last-child {
+        margin-right: 3px;
+    }
+}
+
+.ya-share2 a, *[dir=rtl] .ya-share2 a {
+    font-family: monospace !important;
+}
 .ya-share2__badge {
     padding: 2px;
 }

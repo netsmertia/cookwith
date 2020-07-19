@@ -1,6 +1,4 @@
 {% set pageUrl = __SELF__.property('recipe_url')|page({slug: item.slug}) %}
-
-{{debug(pageUrl)}}
 <div class="card card-post">
     <a href="{{pageUrl}}" class="card-image-top">
 		{% if item.img.path %}
