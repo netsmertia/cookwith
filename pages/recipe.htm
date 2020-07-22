@@ -34,7 +34,7 @@ function onEnd() {
 			<div class="col-lg-6">
 				<div class="row">
 					<div class="col-md-8">
-						<h2 class="text-capitalize">{{recipe.title|lower}}</h2>	
+						<h2 class="text-capitalize recipe-title">{{recipe.title|lower}}</h2>	
 					</div>
 					<div class="col-lg-4 text-primary" style="font-size: 1.5rem;letter-spacing: 2px;">
 						{% partial 'rating' rating= recipe.total_rating == 0 ? 0 : (recipe.total_rating / recipe.total_votes) postid = recipe.id %}
@@ -61,25 +61,36 @@ function onEnd() {
 					<div class="ingredients">
 						<h2 class="mb-3">{{'Ingredients'|_}}</h2>
 						{% if ingredients.count() > 0 %}
+						<div class="ingredients-list">
 						{% for ingredientGroup in ingredients %}
 							<h5 class="my-3" >{{ingredientGroup.first.ingredient_group}}</h5>
-							<div class="pl-2">
-								{% for ingredient in ingredientGroup %}
-									{% if ingredient.name != '' or ingredient.quantity != '' or ingredient.unit != '' %}
-									<p class="mb-1" >&mdash; 
-										{{ingredient.quantity}}
-										{{ingredient.unit}}
-										{{ingredient.name|lower}}
-									</p>
-									{% endif %}
-								{% endfor %}
-							</div>
+							{% for ingredient in ingredientGroup %}
+								{% if ingredient.name != '' or ingredient.quantity != '' or ingredient.unit != '' %}
+								<p class="pl-2 mb-1" >&mdash; {{ingredient.quantity}} {{ingredient.unit}} {{ingredient.name|lower}}</p>
+								{% endif %}
+							{% endfor %}
 						{% endfor %}
+						</div>
 						{% else %}
-							<div class="ingradients_legacy">
+							<div class="ingredients-list ingradients_legacy">
 								{{recipe.ingredients_legacy|raw }}
 							</div>
 						{% endif %}
+						<button class="btn btn-outline-secondary px-2" id="whatsapp-list">
+							{# <img class="mx-1" src="{{'assets/images/ic-whatsapp.png'|theme}}" width="16" height="16" alt=""> #}
+							<i class="icon whatsapp"></i>
+							Whatsapp List
+						</button>
+						<button class="btn btn-outline-secondary px-2" id="mail-list">
+							{# <img class="mx-1" src="{{'assets/images/ic-whatsapp.png'|theme}}" width="16" height="16" alt=""> #}
+							<i class="icon mail"></i>
+							Email List
+						</button>
+						<button class="btn btn-outline-secondary px-2" id="print-list">
+							{# <img class="mx-1" src="{{'assets/images/ic-whatsapp.png'|theme}}" width="16" height="16" alt=""> #}
+							<i class="icon print"></i>
+							Print List
+						</button>
 					</div>
 				</div>
 			</div>
@@ -168,3 +179,73 @@ function onEnd() {
 	</section>
 	{% component 'ads' space_code = 'recipe_banner_footer' %}
 </div>
+
+{% put scripts %}
+<script>
+	$(document).ready(function() {
+		$('#whatsapp-list').on('click', function() {
+			var list = prepareIngredientsList();
+			window.open('https://api.whatsapp.com/send?text=' + list , '_blank');
+		});
+		$('#print-list').on('click', function() {
+			printThis(".ingredients-list");
+		});
+		$('#mail-list').on('click', function() {
+			var subject = $('.recipe-title').text();
+			var list = prepareIngredientsList();
+			window.open('mailto:?body=' + list + '&subject=' + subject + '_blank');
+		});
+
+
+		function prepareIngredientsList() {
+			var list = $('.ingredients-list');
+			list = list.text().trim().replace('  ', ' ').replace('  ', ' ');
+			list = list.replace('\n\n', '\n').replace('\n\n','\n');
+			console.log(list);
+			return list;
+		}
+
+		function printThis(selector) {
+            var data =  $(selector).html();
+            var head = "<html><head>"+ $("head").html() + "</head>" ;
+            var allcontent = head + "<body  onload='window.print()' >";
+			allcontent += $('.recipe-title').html();
+			allcontent += "<div>"+data+"</div>" + "</body></html>";
+            var newWin=window.open('','Print-Window');
+            newWin.document.open();
+            newWin.document.write(allcontent);
+            newWin.document.close();
+        }
+
+	});
+</script>
+{% endput %}
+
+Chicken:
+ 
+ 	5 Chicken legs, cut into 10 pieces
+ 	3 Chicken breasts, cut into 12 pieces
+ 	3 Medium onions, diced
+ 	6 Carrots, cut into circles
+ 	1 Can of diced tomatoes
+ 	1 Maggi cube
+ 	2 Apples
+ 	3½ Cups Water
+ 	4 Tablespoons Curry
+ 	4 Tablespoons Coconut Powder
+ 	4 Tablespoons Corn Oil
+ 	Salt and pepper
+
+ 
+
+Rice:
+ 
+ 
+
+ 	2 Cups Uncle Bens rice
+ 	2 Cups Water
+ 	2 Tablespoons Corn Oil
+ 	2 Garlic cloves, smashed
+ 	1 Teaspoon Cardamom powder
+ 	½ Cup Dried raisin
+ 	5 Dried apricots, chopped
