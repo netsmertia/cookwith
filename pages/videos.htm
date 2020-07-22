@@ -8,12 +8,12 @@ public function onStart() {
 	$this['v'] = $this['recipes']->getVideo($this->param('slug'));
 	$this['data'] =  $this['recipes']->getAllVideos();
 	$this['allVideos'] = $this['recipes']->getAllVideos($paginate = false, $limit = 12);
-	$this['categories'] = $this['recipes']->getAllCategories();
+	$this['categories'] = $this['recipes']->getAllCategoriesWithVideo();
 }
 
 public function onFilterVideos() {
 	$this['data'] = $this['recipes']->getAllVideos();
-	$this['categories'] = $this['recipes']->getAllCategories();
+	$this['categories'] = $this['recipes']->getAllCategoriesWithVideo();
 	$this['term'] = input('term');
 	$this['cats'] = input('cats');
 }
@@ -36,12 +36,14 @@ public function onFilterVideos() {
 										<h4 class="text-white mb-0 py-3">{{ v.title }}</h4>
 									</div>
 									<div class="col-auto">
-										<div class="rating text-white">
-											<i class="icon star large mr-0"></i>
-											<i class="icon star large mr-0"></i>
-											<i class="icon star large mr-0"></i>
-											<i class="icon star large outline mr-0"></i>
-											<i class="icon star large outline mr-0"></i>
+										<div class="rateit rateit-bg" 
+											id="rateit_{{v.id}}" data-postid="{{v.id}}" 
+											data-rateit-starwidth="24" 
+											data-rateit-starheight="24" 
+											data-rateit-value="{{v.total_rating == 0 ? 0 : (v.total_rating / v.total_votes)}}" 
+											data-rateit-step="1" 
+											data-rateit-resetable="false" 
+											data-rateit-readonly="false">
 										</div>
 									</div>
 								</div>
@@ -72,12 +74,16 @@ public function onFilterVideos() {
 													<h5 class="text-white mb-1">{{item.title}}</h5>
 												</a>
 												<small class="text-white">{{'Posted'|_}} {{item.created_at.format('F j, Y')}}</small>
-												<div class="rating text-white">
-													<i class="icon star mr-0"></i>
-													<i class="icon star mr-0"></i>
-													<i class="icon star mr-0"></i>
-													<i class="icon star outline mr-0"></i>
-													<i class="icon star outline mr-0"></i>
+												<div class="col-auto">
+													<div class="whitestar rateit rateit-bg" 
+														id="rateit_{{v.id}}" data-postid="{{v.id}}" 
+														data-rateit-starwidth="24" 
+														data-rateit-starheight="24" 
+														data-rateit-value="{{item.total_rating == 0 ? 0 : (item.total_rating / item.total_votes)}}" 
+														data-rateit-step="1" 
+														data-rateit-resetable="false" 
+														data-rateit-readonly="false">
+													</div>
 												</div>
 											</div>
 										</div>

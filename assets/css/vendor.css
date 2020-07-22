@@ -17988,7 +17988,7 @@ i.icon.youtube.square {
 
 .rateit .rateit-hover {
   background: url(star.gif) left -29px;
-  color: rgb(239, 197, 41);
+  color: #efc529;
 }
 
 .rateit .rateit-hover-rtl {
@@ -17997,7 +17997,7 @@ i.icon.youtube.square {
 
 .rateit .rateit-selected {
   background: url(star.gif) left -58px;
-  color: rgb(191, 66, 66);
+  color: #bf4242;
 }
 
 .rateit .rateit-selected-rtl {
@@ -18006,7 +18006,7 @@ i.icon.youtube.square {
 
 .rateit .rateit-preset {
   background: url(star.gif) left -48px;
-  color: rgb(239, 107, 34);
+  color: #ef6b22;
 }
 
 .rateit .rateit-preset-rtl {
@@ -18082,4 +18082,24 @@ i.icon.youtube.square {
   background: radial-gradient(ellipse at center, #e6574b 55%, #f6836b 77%, #f9d3cc 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   background-position: 0 0;
+}
+
+.videopage-main-video .rateit-range {
+  background: url(../images/whtt-star.png) left 0px;
+}
+.videopage-main-video .rateit-selected {
+  background: url(../images/whtt-star.png) left -58px;
+}
+.videopage-main-video .rateit-hover {
+  background: url(../images/whtt-star.png) left -29px;
+}
+
+.whitestar .rateit-range {
+  background: url(../images/star-small-white.png) left 0px;
+}
+.whitestar .rateit-selected {
+  background: url(../images/star-small-white.png) left -42px;
+}
+.whitestar .rateit-hover {
+  background: url(../images/star-small-white.png) left -21px;
 }
