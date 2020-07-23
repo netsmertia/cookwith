@@ -29,7 +29,7 @@ public function onFilterVideos() {
 					<div class="row no-gutters">
 						<div class="col-md-7 col-lg-8 d-flex videopage-main-video">
 							{# <img src="{{'assets/images/post-thumb-2.jpg'|theme}}" class="img-fluid" alt=""> #}
-								<iframe class="youtube-player-iframe w-100" src="http://www.youtube.com/embed/{{ v.video }}?wmode=transparent&amp;feature=youtu.be&amp;rel=0&amp;channel=UCdkXyJj8AD1tfbq4eTZw63Q" data-player-type="youtube" allowfullscreen="" id="youtube-video-01" style="height:425px;"></iframe>
+								<iframe class="youtube-player-iframe w-100" src="http://www.youtube.com/embed/{{ v.video | youtubeId }}?wmode=transparent&amp;feature=youtu.be&amp;rel=0&amp;channel=UCdkXyJj8AD1tfbq4eTZw63Q" data-player-type="youtube" allowfullscreen="" id="youtube-video-01" style="height:425px;"></iframe>
 							<div class="bottom-overlay px-3">
 								<div class="row align-items-center justify-content-between">
 									<div class="col">
@@ -94,6 +94,14 @@ public function onFilterVideos() {
 					</div>
 				</div>
 			</div>
+			{% if v.recipe_type == 'BOTH' %}
+			<a class="btn btn-outline-primary mt-3 text-capitalize"
+				href="{{'recipe'|page({slug: v.slug})}}"
+			>
+				<i class="icon book"></i>
+				{{'Ready This Recipe'|_}}
+			</a>
+			{% endif %}
 		</div>
 	</section>
 	{# video search bar #}
