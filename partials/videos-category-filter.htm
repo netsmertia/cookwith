@@ -3,10 +3,11 @@
         data-request-data = "term:'{{term}}', page:'{{page}}'"
     >
         {% for category in categories %}
-        <div class="form-group mb-0"> 
+        <div class="form-group"> 
             <input 
                 {% if category.id in cats %} checked  {% endif %}
                 data-request-update = "videos-list: '#video-card-grid','paginator':'#paginator', 'videos-category-filter':'#videos-category-filter'"
+                data-request-success="$('.rateit').rateit();$('.ya-share2').each(function(i,v){Ya.share2(v);})"
                 data-request="onFilterVideos"
                 type="checkbox" name="cats[]" value="{{category.id}}" id="cat-{{category.id}}" class="input-control mr-1"> 
             <label for="cat-{{category.id}}" class="cursor-pointer">{{category.category_title}}</label> 

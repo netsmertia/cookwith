@@ -1,10 +1,23 @@
-
-{% for item in overlaySearchResult %}
-<a href="{{'recipe'|page({slug: item.slug})}}" class="list-group-item list-group-item-action">
-    <div class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1">{{item.title}}</h5>
-    {# <small>{{item.created_at.diffForHumans()}}</small> #}
+<div style="position:absolute;">
+    <div style="max-height: 250px; overflow:auto;">
+        {% for item in overlaySearchResult %}
+        <a href="{{'recipe'|page({slug: item.slug})}}" class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-auto">
+                    <img src="{{item.img.getThumb(75, 75, {mode: 'crop'})}}" alt="">
+                </div>
+                <div class="col px-2">
+                        <h5 class="mb-1">{{item.title}}</h5>
+                        <p class="mb-1 text-muted">{{item.content}}</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
     </div>
-    <p class="mb-1">{{item.content}}</p>
-</a>
-{% endfor %}
+    {{debug(overlaySearchResult.nextPageUrl())}}
+    {% if overlaySearchResult.nextPageUrl() != null %}
+        <div class="search-view-more">
+            <a href="{{'search'|page}}?term={{input('overlay_search_term')}}">View More</a>
+        </div>
+    {% endif %}
+</div>

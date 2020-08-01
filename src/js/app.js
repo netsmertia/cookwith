@@ -53,7 +53,7 @@ $(document).ready(function() {
     });
 
     //open full screen search
-    $('#open-full-screen-search').on("click", function(event) {
+    $('.open-full-screen-search').on("click", function(event) {
         event.preventDefault();
         $('.full-screen-search').addClass("open");
     });
@@ -132,5 +132,11 @@ $(document).ready(function() {
   if (localStorage.getItem('cws_recipe_voted_' + postId)) {
     $('.rateit').rateit('readonly', true);
   }
+
 })
+
+
+function initCard() {
+  alert('hi');
+}
 

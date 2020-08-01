@@ -18010,7 +18010,7 @@ i.icon.youtube.square {
 }
 
 .rateit .rateit-preset-rtl {
-  background: url(star.gif) left -48px;
+  background: url(star.gif) right -48px;
 }
 
 .rateit button.rateit-reset {
@@ -18084,22 +18084,37 @@ i.icon.youtube.square {
   background-position: 0 0;
 }
 
-.videopage-main-video .rateit-range {
-  background: url(../images/whtt-star.png) left 0px;
+.videopage-main-video .rateit-range, .rateit-white .rateit-range {
+  background-image: url(../images/whtt-star.png);
 }
-.videopage-main-video .rateit-selected {
-  background: url(../images/whtt-star.png) left -58px;
+.videopage-main-video .rateit-selected, .rateit-white .rateit-selected {
+  background-image: url(../images/whtt-star.png);
 }
-.videopage-main-video .rateit-hover {
-  background: url(../images/whtt-star.png) left -29px;
+.videopage-main-video .rateit-hover, .rateit-white .rateit-hover {
+  background-image: url(../images/whtt-star.png);
 }
 
-.whitestar .rateit-range {
-  background: url(../images/star-small-white.png) left 0px;
+.rateit-white-small .rateit-range, .whitestar .rateit-range {
+  background-image: url(../images/star-small-white.png);
+  background-position: left 0px;
 }
-.whitestar .rateit-selected {
-  background: url(../images/star-small-white.png) left -42px;
+.rateit-white-small .rateit-selected, .whitestar .rateit-selected {
+  background-image: url(../images/star-small-white.png);
+  background-position: left -41px;
 }
-.whitestar .rateit-hover {
-  background: url(../images/star-small-white.png) left -21px;
+.rateit-white-small .rateit-hover, .whitestar .rateit-hover {
+  background-image: url(../images/star-small-white.png);
+  background-position: left -21px;
+}
+.rateit-white-small .rateit-range-rtl, .whitestar .rateit-range-rtl {
+  background-image: url(../images/star-small-white.png);
+  background-position: right 0px;
+}
+.rateit-white-small .rateit-selected-rtl, .whitestar .rateit-selected-rtl {
+  background-image: url(../images/star-small-white.png);
+  background-position: right -41px;
+}
+.rateit-white-small .rateit-hover-rtl, .whitestar .rateit-hover-rtl {
+  background-image: url(../images/star-small-white.png);
+  background-position: right -21px;
 }

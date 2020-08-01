@@ -106,6 +106,9 @@
     .ya-share2__container_size_s .ya-share2__item:last-child {
         margin-right: 3px;
     }
+    .ya-share2__item:last-child {
+        margin-right: 4px !important;
+    }
 }
 
 .ya-share2 a, *[dir=rtl] .ya-share2 a {

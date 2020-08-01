@@ -9,14 +9,14 @@ public function onStart() {
 }
 ==
 <div id="page-category-recipes" class="layout-{{ this.layout.id }} featured-box">
-    <section class="pt-6 container-fluid container-lg">
+    <section class="pt-6 container">
         <div class="row">
             {% for item in rcps %}
                 <div class="col-md-6 col-lg-3 mb-4 px-10px d-flex">
                     <div class="card card-post">
                         <a href="{{'recipe'|page({slug:item.slug})}}" class="card-image-top">
                             {% if item.img.path %}
-                                <img src="{{item.img.thumb(500, 'auto')}}" alt="" class="img-fluid mh-173" >
+                                <img src="{{item.img.thumb(500, 300, {mode: 'crop'})}}" alt="" class="img-fluid mh-173" >
                             {% else %}
                                 <img src="{{'assets/images/post-thumb-2.jpg'|theme}}" alt="" class="img-fluid mh-173" >
                             {% endif %}

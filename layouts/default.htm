@@ -73,21 +73,33 @@ public function onStart() {
     <body>
 
         <!-- Header -->
-        <header id="layout-header" {{activeLocale == 'en' ?: 'dir="rtl"'}}>
+        <header id="layout-header" {{activeLocale == 'en' ?: 'dir="rtl"'}}
+            class= "{{activeLocale == 'en' ? '' : 'text-right'}}"
+        >
             {% partial 'nav2' %}
         </header>
 
-        <div style="padding-top:100px" {{activeLocale == 'en' ?: 'dir="rtl"'}}>
+        <div style="padding-top:100px " {{activeLocale == 'en' ?: 'dir="rtl"'}} 
+            class= "{{activeLocale == 'en' ? '' : 'text-right'}}"
+            > 
             {% page %}
         </div>
 
         <!-- Footer -->
-        <footer id="layout-footer" {{activeLocale == 'en' ?: 'dir="rtl"'}}>
+        <footer id="layout-footer"
+            {{activeLocale == 'en' ?: 'dir="rtl"'}}
+            class= "{{activeLocale == 'en' ? '' : 'text-right'}}"
+        >
             {% partial "footer" %}
         </footer>
 
-        <div class="full-screen-search d-flex justify-content-center align-items-center">
+        <div class="full-screen-search d-flex justify-content-center align-items-center {{activeLocale == 'en' ? '' : 'text-right'}}"
+            {{activeLocale == 'en' ?: 'dir="rtl"'}}
+        >
             <div class="red-background"></div>
+            <a href="#" id="close-full-screen-search">
+                <i class="icon close text-white big"></i>
+            </a>
             <div class="row w-100 justify-content-center">
                 <div class="col-10  col-md-8 col-lg-5 box">
                     <form action=" " class="form position-relative">
@@ -95,14 +107,9 @@ public function onStart() {
                             <input name="overlay_search_term" type="text" class="form-control" placeholder="{{'Search here'|_}}" data-request="recipes::onOverlaySearch" data-track-input="600" data-request-update="'overlay-search-result':'#overlay-search-result'">
                             <i class="icon search text-white big"></i>
                         </div>
-                        <div class="list-group" style="position:absolute; max-height: 250px; overflow:auto;" id="overlay-search-result">
-                        
-                        
+                        <div class="list-group w-100" style="" id="overlay-search-result">
                         </div>
                     </form>
-                    <a href="#" id="close-full-screen-search">
-                        <i class="icon close text-white big"></i>
-                    </a>
                 </div>
             </div>
         </div>

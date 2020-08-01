@@ -29,12 +29,13 @@ localeMeta_title[ar] = "Homepage - Cook With Sousou in AR"
 	</div>
 	{% if rcd %}
 	<section  class="position-relative recipe-of-day" data-parallax data-src="{{'assets/images/background.jpg'|theme}}" data-speed=".5">
-		<div class="container mt-3">
+		<div class="container mt-7">
 			<h3 class="mb-3">{{'Recipe of the Day'|_}}</h3>
 			<div class="row no-gutters">
 				<div class="col-lg-7">
 					<div class="youtube-player">
-						<iframe class="youtube-player-iframe" src="{{rcd.video}}?wmode=transparent&amp;feature=youtu.be&amp;rel=0&amp;channel=UCdkXyJj8AD1tfbq4eTZw63Q" data-player-type="youtube" allowfullscreen="" id="youtube-home-page"></iframe>
+						{# <iframe class="youtube-player-iframe" src="{{rcd.video}}?wmode=transparent&amp;feature=youtu.be&amp;rel=0&amp;channel=UCdkXyJj8AD1tfbq4eTZw63Q" data-player-type="youtube" allowfullscreen="" id="youtube-home-page"></iframe> #}
+						<iframe class="youtube-player-iframe w-100" src="http://www.youtube.com/embed/{{ rcd.video | youtubeId }}?wmode=transparent&amp;feature=youtu.be&amp;rel=0&amp;channel=UCdkXyJj8AD1tfbq4eTZw63Q" data-player-type="youtube" allowfullscreen="" id="youtube-home-page"></iframe>
 					</div>
 				</div>
 				<div class="col-lg-5 bg-white p-5">
@@ -67,8 +68,14 @@ localeMeta_title[ar] = "Homepage - Cook With Sousou in AR"
 								<div class="col-7 d-flex align-items-center">
 									<span class="text-primary mr-3" style="font-size: 22px">{{'Share'|_}}:
 									</span>
-									{% partial 'share' %}
-
+									<span class="social-share-rounded">
+										{% component 'yandexShare' 
+												url = 'recipe'|page({slug:rcd.slug})
+												title = rcd.title
+												image = rcd.img.getPath()
+												size = 's'
+										%}
+									</span>
 								</div>
 							</div>
 							<a href="/recipe/{{rcd.slug}}" class="btn btn-primary btn-lg">{{'View Full Recipe'|_}}</a>

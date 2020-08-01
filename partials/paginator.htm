@@ -34,6 +34,7 @@ public function calculate() {
             data-request="onFilterVideos"
             data-request-data="page:{{data.currentPage() - 1 }}"
             data-request-update="'paginator':'#paginator', 'videos-list':'#video-card-grid'"
+            data-request-complete="$('.rateit').rateit();$('.ya-share2').each(function(i,v){Ya.share2(v);})"
              aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
         </button>
@@ -46,6 +47,7 @@ public function calculate() {
         ><button 
             data-request="onFilterVideos"
             data-request-data="page:{{i}}, term: '{{term}}'"
+            data-request-complete="$('.rateit').rateit();$('.ya-share2').each(function(i,v){Ya.share2(v);})"
             data-request-update="'paginator':'#paginator', 'videos-list':'#video-card-grid'"
             
         class="page-link" >{{i}}</button></li>
@@ -55,6 +57,7 @@ public function calculate() {
         <button class="page-link"
             data-request="onFilterVideos"
             data-request-data="page:{{data.currentPage() + 1 }}, term: '{{term}}'"
+            data-request-complete="$('.rateit').rateit();$('.ya-share2').each(function(i,v){Ya.share2(v);})"
             data-request-update="'paginator':'#paginator', 'videos-list':'#video-card-grid'"
              aria-label="Previous">
             <span aria-hidden="true">&raquo;</span>

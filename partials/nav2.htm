@@ -7,9 +7,12 @@ code = "main-menu"
 	<a class="navbar-brand" href="#">
 		<img class="logo top" src="{{ 'assets/images/logo.png'| theme }}" alt="" width="" height="80px">
 	</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-navigation" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
+	<div class="d-flex flex-row justify-content-center align-items-center">
+		<i class="search icon red large link mx-4 d-lg-none d-block open-full-screen-search"></i>
+		<button class="navbar-toggler border" type="button" data-toggle="collapse" data-target="#top-navigation" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</div>
 
 	<div class="collapse navbar-collapse" id="top-navigation">
 		<ul class="navbar-nav m-auto pr-3" id="page-link">
@@ -45,7 +48,7 @@ code = "main-menu"
 		</ul>
 		<ul class="navbar-nav ml-auto social-icons-lists icons-background-rounded centre d-none d-lg-flex">
 			<li class="nav-item d-flex align-items-center mr-2 mt-1">
-				<a href="#" id="open-full-screen-search">
+				<a href="#" class="open-full-screen-search">
 					<i class="search icon red large link"></i>
 				</a>
 			</li>

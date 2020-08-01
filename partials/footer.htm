@@ -84,8 +84,8 @@ public function onStart() {
 		<div class="row mt-5 justify-content-center">
 				{% for cat in menucats %}
 				<div class="col-sm footer-nav">
-					<h4 class="mb-4 title">{{ cat['title']|_}}</h4>
-					<ul class="list-menu">
+					<h4 class="mb-4 title text-nowrap">{{ cat['title']|_}}</h4>
+					<ul class="list-menu px-0">
 						{% for item in cat['recipes'] %}
 							<li>
 								<a href="{{'recipe'|page({slug:item.slug})}}" class="text-capitalize">{{ item.title|lower }}</a>

@@ -13,6 +13,7 @@ public function onStart() {
 
 public function onFilterVideos() {
 	$this['data'] = $this['recipes']->getAllVideos();
+	debug($this['data']->toArray());
 	$this['categories'] = $this['recipes']->getAllCategoriesWithVideo();
 	$this['term'] = input('term');
 	$this['cats'] = input('cats');
@@ -52,14 +53,14 @@ public function onFilterVideos() {
 						<div class="col-md-5 col-lg-4 bg-primary px-3 d-flex flex-column">
 							<h2 class="text-white mt-2">{{'Sousou\'s Favourites'|_}}</h2>
 							<div class="video-cards-container flex-fill d-flex justify-content-between flex-column">
-								{% for item in v.related %}
+								{% for item in v.related.slice(0,3) %}
 									<div class="card-video-section border-bottom border-white mb-3 mb-md-0 row no-gutters">
-										<div class="row no-gutters">
+										<div class="row">
 											<div class="col-md-6">
 												<a href="{{'videos'|page({slug: item.slug})}}">
 													<div class="card-thumb red-hover">
-														{% if v.img.path %}
-															<img src="{{item.img.thumb(600, 'auto')}}" class="img-fluid thumb" alt="" style="">
+														{% if item.img.path %}
+															<img src="{{item.img.thumb(600, 350, {mode: 'crop'})}}" class="img-fluid thumb" alt="" style="">
 														{% else %}
 															<img src="{{'assets/images/video_image.jpg'|theme}}" class="img-fluid thumb" alt="" style="">
 														{% endif %}
@@ -69,20 +70,20 @@ public function onFilterVideos() {
 													</div>
 												</a>
 											</div>
-											<div class="col-md-6 pl-0 pl-md-3 card-content my-3 my-md-0">
+											<div class="col-md-6 pl-0 pl-md-3 card-content my-3 my-md-0 px-1">
 												<a href="{{'videos'|page({slug: item.slug})}}">
 													<h5 class="text-white mb-1">{{item.title}}</h5>
 												</a>
 												<small class="text-white">{{'Posted'|_}} {{item.created_at.format('F j, Y')}}</small>
-												<div class="col-auto">
-													<div class="whitestar rateit rateit-bg" 
-														id="rateit_{{v.id}}" data-postid="{{v.id}}" 
-														data-rateit-starwidth="24" 
-														data-rateit-starheight="24" 
+												<div class="mt-2">
+													<div class="rateit rateit-bg rateit-white-small" 
+														id="rateit_{{item.id}}" data-postid="{{item.id}}" 
+														data-rateit-starwidth="16" 
+														data-rateit-starheight="16" 
 														data-rateit-value="{{item.total_rating == 0 ? 0 : (item.total_rating / item.total_votes)}}" 
 														data-rateit-step="1" 
 														data-rateit-resetable="false" 
-														data-rateit-readonly="false">
+														data-rateit-readonly="true">
 													</div>
 												</div>
 											</div>
@@ -106,12 +107,14 @@ public function onFilterVideos() {
 	</section>
 	{# video search bar #}
 	<section class="container mt-7" id="app">
-		<div class="row border border-size-2 border-off-white  mx-0 py-3 py-md-2">
-			<div class="col-md-12 col-lg-6 mb-3 mb-lg-0 order-lg-2">
+		<div class="row border border-size-2 border-off-white  mx-0 py-3 py-md-2 justify-content-between">
+			<div class="col-md-12 col-lg mb-3 mb-lg-0 order-lg-2">
 				<form id = "video-category-search"
 					data-request="onFilterVideos" 
 					data-request-data="cats:{{cats| json_encode() }}"
-					data-request-update="videos-list: '#video-card-grid','paginator':'#paginator', 'videos-category-filter':'#videos-category-filter'">
+					data-request-update="videos-list: '#video-card-grid','paginator':'#paginator', 'videos-category-filter':'#videos-category-filter'"
+					data-request-success="$('.rateit').rateit();$('.ya-share2').each(function(i,v){Ya.share2(v);})"
+					>
 
 					<div class="input-group">
 						<input type="text" name="term" class="form-control form-control-lg">
@@ -123,13 +126,13 @@ public function onFilterVideos() {
 				</form>
 			</div>
 
-			<div class="col-md-3 d-none d-md-flex align-items-center order-lg-1">
+			<div class="col-md-2 d-none d-md-flex align-items-center order-lg-1">
 				<h2 class="d-inline mb-0 mr-2">{{'View'|_}}</h2>
 				<i class="icon th button big mr-2 cursor-pointer" id="video-grid-button"></i>
 				<i class="icon th list button big text-primary cursor-pointer" id="video-list-button"></i>
 			</div>
 
-			<div class="col-md-9 col-lg-3 d-flex align-items-center justify-content-end order-lg-3"
+			<div class="col-md-9 col-lg-auto d-flex align-items-center justify-content-end order-lg-3"
 				id="paginator"
 			>
 				{% partial 'paginator'  %}
@@ -169,15 +172,17 @@ public function onFilterVideos() {
 						<div class="bottom-overlay">
 							<div class="row align-items-center justify-content-between">
 								<div class="col">
-									<p class="text-white mb-0">{{video.title}}</p>
+									<p class="text-white mb-0 text-capitalize">{{video.title|lower|truncate(18)}}</p>
 								</div>
 								<div class="col-auto">
-									<div class="rating text-white">
-										<i class="icon star mr-0"></i>
-										<i class="icon star mr-0"></i>
-										<i class="icon star mr-0"></i>
-										<i class="icon star outline mr-0"></i>
-										<i class="icon star outline mr-0"></i>
+									<div class="rateit rateit-bg rateit-white-small" 
+										id="rateit_{{video.id}}" data-postid="{{video.id}}" 
+										data-rateit-starwidth="16" 
+										data-rateit-starheight="16" 
+										data-rateit-value="{{video.total_rating == 0 ? 0 : (video.total_rating / video.total_votes)}}" 
+										data-rateit-step="1" 
+										data-rateit-resetable="false" 
+										data-rateit-readonly="true">
 									</div>
 								</div>
 							</div>

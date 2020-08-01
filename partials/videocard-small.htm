@@ -1,4 +1,17 @@
 
+
+==
+<?php
+public function onStart() {
+    $yandexShare = $this['yandexShare'];
+    $yandexShare->setProperty('whatsapp', $this->theme->whatsapp_share);
+    $yandexShare->setProperty('facebook', $this->theme->facebook_share);
+    $yandexShare->setProperty('twitter', $this->theme->twitter_share);
+    $yandexShare->setProperty('pinterest', $this->theme->pinterest_share);
+}
+?>
+==
+
 <div class="card">
 	<div class="row no-gutters">
 		<div class="col-lg-5 d-flex card-thumb-container">
