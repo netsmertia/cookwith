@@ -15,7 +15,7 @@ public function onStart() {
 <div class="card">
 	<div class="row no-gutters">
 		<div class="col-lg-5 d-flex card-thumb-container">
-			<a href="#">
+			<a href="{{'videos'|page({slug: item.slug})}}">
                 <div class="card-thumb red-hover">
 					{% if item.img.path %}
 						<img src="{{item.img.thumb(500, 300, {mode: 'crop'})}}" class="img-fluid thumb" alt="{{item.title}}" style="">
