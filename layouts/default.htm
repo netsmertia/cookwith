@@ -79,9 +79,10 @@ public function onStart() {
             {% partial 'nav2' %}
         </header>
 
-        <div style="padding-top:100px " {{activeLocale == 'en' ?: 'dir="rtl"'}} 
+        <div style="padding-top:100px" 
+            {{activeLocale == 'en' ?: 'dir="rtl"'}} 
             class= "{{activeLocale == 'en' ? '' : 'text-right'}}"
-            > 
+        > 
             {% page %}
         </div>
 
@@ -93,7 +94,8 @@ public function onStart() {
             {% partial "footer" %}
         </footer>
 
-        <div class="full-screen-search d-flex justify-content-center align-items-center {{activeLocale == 'en' ? '' : 'text-right'}}"
+        <div class="full-screen-search d-flex justify-content-center align-items-center 
+            {{activeLocale == 'en' ? '' : 'text-right'}}"
             {{activeLocale == 'en' ?: 'dir="rtl"'}}
         >
             <div class="red-background"></div>

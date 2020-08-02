@@ -1,7 +1,7 @@
 [recipes categories]
 ==
 {% set cats = categories.getAllCategoriesForSlider() %}
-<div class="slider d-flex mx-5" id="main-slider">
+<div class="slider d-flex mx-5" id="main-slider" dir="ltr">
 	{% for cat in cats %}
 	<div class="item">
 		<a href="{{'category-page'|page({category: cat.category_slug})}}">
