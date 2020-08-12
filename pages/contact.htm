@@ -47,33 +47,8 @@ is_hidden = 0
                     <div class="mt-5"> 
                         {% set videos = recipes.getAllVideos(null, 2) %}
                         {% for video in videos %}
-                            <a href="{{'videos'|page({slug: video.slug })}}">
-                                {% if video.img.path %}
-                                    <div class="square-box square-post-01" style="background:url({{video.img.thumb(500, 'auto')}});">
-                                {% else %}
-                                    <div class="square-box square-post-01" style="background:url({{'assets/images/post-thumb-3.jpg'|theme}});">
-                                {% endif %}
-                                    <div class="play-icon">
-                                        <i class="play circle outline icon big text-white"></i>
-                                    </div>
-                                    <div class="bottom-overlay">
-                                        <div class="row align-items-center justify-content-between">
-                                            <div class="col">
-                                                <p class="text-white mb-0">{{ video.title }}</p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="rating text-white">
-                                                    <i class="icon star mr-0"></i>
-                                                    <i class="icon star mr-0"></i>
-                                                    <i class="icon star mr-0"></i>
-                                                    <i class="icon star outline mr-0"></i>
-                                                    <i class="icon star outline mr-0"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>{% endfor %}
+                            {% partial 'video-card-square'  video = video %}
+                        {% endfor %}
                         
                     </div>
 

@@ -20,7 +20,40 @@ thanksMessage = "Thanks for subscribing!"
 errorMessage = "Something went wrong, Use unsubscribed/correct email!"
 
 [yandexShare]
-
+bare = 0
+counter = 0
+copy = "last"
+direction = "horizontal"
+popup_direction = "bottom"
+popup_position = "inner"
+lang = "en"
+size = "m"
+collections = 0
+vkontakte = 0
+facebook = 1
+odnoklassniki = 0
+moimir = 0
+gplus = 1
+pinterest = 0
+twitter = 1
+blogger = 0
+delicious = 0
+digg = 0
+reddit = 0
+evernote = 0
+linkedin = 0
+lj = 0
+pocket = 0
+qzone = 0
+renren = 0
+sinaWeibo = 0
+surfingbird = 0
+tencentWeibo = 0
+tumblr = 0
+viber = 0
+whatsapp = 0
+skype = 0
+telegram = 0
 
 [googleTracker]
 ==
@@ -69,6 +102,7 @@ public function onStart() {
         
         
         {% component 'googleTracker' %}
+        
     </head>
     <body>
 
@@ -112,6 +146,19 @@ public function onStart() {
                         <div class="list-group w-100" style="" id="overlay-search-result">
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="gdpr">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col mx-3">
+                        {% content 'cookie-notification' %}
+                    </div>
+                    <div class="col-auto pt-3">
+                        <a href="#" class="btn btn-blue mx-2" id="gdpr-accept">{{'Accept'|_}}</a>
+                        <a href="{{'privacy-policy'|page}}" class="btn btn-blue">{{'Privacy Policy'|_}}</a>
+                    </div>
                 </div>
             </div>
         </div>

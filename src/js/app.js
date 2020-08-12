@@ -135,8 +135,20 @@ $(document).ready(function() {
 
 })
 
+$(document).ready(function() {
+  $('#gdpr-accept').on('click', function(e) {
+    e.preventDefault();
+    $('.gdpr').hide();
+    localStorage.setItem('gdpr-accepted', true);
+  });
 
-function initCard() {
-  alert('hi');
+});
+
+gdprStatus = localStorage.getItem('gdpr-accepted');
+
+console.log(gdprStatus);
+if (!gdprStatus) {
+  console.log(localStorage.getItem('gdpr-accepted'));
+  $('.gdpr').show();
 }
 

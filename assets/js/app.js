@@ -212,9 +212,19 @@ $(document).ready(function () {
     $('.rateit').rateit('readonly', true);
   }
 });
+$(document).ready(function () {
+  $('#gdpr-accept').on('click', function (e) {
+    e.preventDefault();
+    $('.gdpr').hide();
+    localStorage.setItem('gdpr-accepted', true);
+  });
+});
+gdprStatus = localStorage.getItem('gdpr-accepted');
+console.log(gdprStatus);
 
-function initCard() {
-  alert('hi');
+if (!gdprStatus) {
+  console.log(localStorage.getItem('gdpr-accepted'));
+  $('.gdpr').show();
 }
 
 /***/ }),

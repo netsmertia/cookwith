@@ -1,0 +1,24 @@
+<div>
+    <a href="{{ 'videos'|page({slug: video.slug}) }}">
+        <div class="square-box square-post-01" style="
+                                            {% if video.img.path %}
+                                                background:url({{ video.img.thumb(300, 300) }})
+                                            {% else %}
+                                                background:url({{ 'assets/images/post-thumb-3.jpg'|theme }})
+                                            {% endif %}">
+            <div class="play-icon">
+                <i class="play circle outline icon big text-white"></i>
+            </div>
+            <div class="bottom-overlay">
+                <div class="row align-items-center justify-content-between no-gutters">
+                    <div class="col">
+                        <p class="text-white mb-0 text-capitalize">{{ video.title|lower|truncate(18) }}</p>
+                    </div>
+                    <div class="col-auto">
+                        <div class="rateit rateit-bg rateit-white-small" data-postid="{{ video.id }}" data-rateit-value="{{ video.total_rating == 0 ? 0 : (video.total_rating / video.total_votes) }}"></div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </a>
+</div>
