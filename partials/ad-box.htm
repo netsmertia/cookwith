@@ -1,9 +1,7 @@
 <div class="ad-box">
     {% if ad.count() > 0 %}
         {% if ad.is_image %}
-        <a href="{{ad.url}}">
             <img class="img-fluid w-100" src="{{ad.image.path}}" alt="">
-        </a>
         {% else %}
             {{content|raw}}
         {% endif %}

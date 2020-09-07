@@ -134,6 +134,7 @@ $(document).ready(function () {
   });
 });
 $(document).ready(function () {
+  saveAdViews();
   $(window).on('scroll', function (e) {
     if ($(window).width() > 992) {
       $('#main-top-nav').toggleClass('mini-nav', $(window).scrollTop() > 150);
@@ -225,6 +226,27 @@ console.log(gdprStatus);
 if (!gdprStatus) {
   console.log(localStorage.getItem('gdpr-accepted'));
   $('.gdpr').show();
+}
+
+function saveAdViews() {
+  var ads = $('.ads');
+  console.log(ads);
+  var entries = [];
+  ads.each(function (i, item) {
+    var adId = $(item).attr('data-ads-id');
+    var spaceId = $(item).attr('data-space-id');
+    entries.push({
+      'ad_id': adId,
+      'space_id': spaceId,
+      'action': 'view'
+    });
+  });
+  console.log(entries);
+  $.request('onSaveAdsStats', {
+    data: {
+      data: entries
+    }
+  });
 }
 
 /***/ }),

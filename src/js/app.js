@@ -46,6 +46,7 @@ $(document).ready(function(){
 
 
 $(document).ready(function() {
+    saveAdViews();
     $(window).on('scroll', function (e) {
         if($(window).width() > 992) {
           $('#main-top-nav').toggleClass('mini-nav', $(window).scrollTop() > 150);
@@ -152,3 +153,25 @@ if (!gdprStatus) {
   $('.gdpr').show();
 }
 
+
+
+function saveAdViews() {
+  var ads = $('.ads');
+  console.log(ads);
+  let entries = [];
+  ads.each(function(i, item) {
+    let adId = $(item).attr('data-ads-id');
+    let spaceId = $(item).attr('data-space-id');
+    entries.push({
+      'ad_id' : adId,
+      'space_id' : spaceId,
+      'action' : 'view',
+    });
+  });
+  console.log(entries);
+  $.request('onSaveAdsStats', {
+    data: {
+      data: entries
+    }
+  })
+}

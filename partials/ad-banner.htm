@@ -4,10 +4,8 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
             {% if ad.count() > 0 %}
-                    {% if ad.is_image %}
-                    <a href="{{ad.url}}">
-                        <img class="img-fluid w-100" src="{{ad.image.path}}" alt="">
-                    </a>
+                {% if ad.is_image %}
+                    <img class="img-fluid w-100" src="{{ad.image.path}}" alt="">
                 {% else %}
                     {{content|raw}}
                 {% endif %}
