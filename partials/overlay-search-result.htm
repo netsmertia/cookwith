@@ -14,7 +14,6 @@
         </a>
         {% endfor %}
     </div>
-    {{debug(overlaySearchResult.nextPageUrl())}}
     {% if overlaySearchResult.nextPageUrl() != null %}
         <div class="search-view-more">
             <a href="{{'search'|page}}?term={{input('overlay_search_term')}}">View More</a>

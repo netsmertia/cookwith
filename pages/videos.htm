@@ -13,7 +13,6 @@ public function onStart() {
 
 public function onFilterVideos() {
 	$this['data'] = $this['recipes']->getAllVideos();
-	debug($this['data']->toArray());
 	$this['categories'] = $this['recipes']->getAllCategoriesWithVideo();
 	$this['term'] = input('term');
 	$this['cats'] = input('cats');
