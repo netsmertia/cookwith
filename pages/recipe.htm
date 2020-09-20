@@ -7,7 +7,6 @@ is_hidden = 0
 ==
 function onEnd() {
 	$this['recipe'] = $r = $this['recipes']->getRecipe($this->param('slug'));
-	debug($r->toArray());
 	$this['ingredients'] = collect($r->ingredients)->sortBy('ingredient_order')->groupBy('ingredient_order');
 	$this['directions'] = collect($r->directions);
 	$this->page->title = $r->title;
